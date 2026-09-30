@@ -1,0 +1,53 @@
+{
+  "id": "whatsapp",
+  "name": "WhatsApp Web",
+  "category": "social",
+  "match": [
+    "*://web.whatsapp.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "wa-meta-ai-button",
+      "kind": "hide",
+      "selectors": [
+        "button[aria-label=\"Meta AI\"]",
+        "span:has(> button[aria-label=\"Meta AI\"])"
+      ],
+      "textAnchors": [
+        "Meta AI",
+        "Ask Meta AI"
+      ],
+      "anchorTarget": "control",
+      "description": "Meta AI circle button in the left rail, and the Ask Meta AI button on the empty-state panel",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "wa-meta-ai-chat-entry",
+      "kind": "hide",
+      "selectors": [],
+      "textAnchors": [
+        "Meta AI"
+      ],
+      "anchorTarget": "control",
+      "description": "Meta AI chat row and search suggestions. No list coverage",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "low",
+        "source": [
+          "researcher memory of site DOM, not confirmed in any list on 2026-09-20"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "requiresLogin": true,
+    "entries": []
+  }
+}

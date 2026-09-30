@@ -1,0 +1,26 @@
+name: ci
+on:
+  push: { branches: [main] }
+  pull_request:
+permissions: { contents: read }
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm check:copy
+      - run: pnpm rules:build
+      - run: pnpm dns:build
+      - run: pnpm policies:build
+      - run: pnpm test
+      - run: pnpm --filter @aioff/extension build:all
+      - run: pnpm --filter @aioff/site build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: extension-builds
+          path: apps/extension/.output/*-mv3
+          retention-days: 14

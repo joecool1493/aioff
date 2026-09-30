@@ -1,0 +1,35 @@
+{
+  "id": "msn",
+  "name": "MSN",
+  "category": "microsoft",
+  "match": [
+    "*://www.msn.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "msn-copilot",
+      "kind": "hide",
+      "selectors": [
+        "fluent-button#codex-bing-button",
+        "codex-bing-chat[instance-id=\"CodexBingChat\"]"
+      ],
+      "description": "MSN: Copilot button in the search bar and Copilot chat component. MSN AI article summaries have no list coverage",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://www.msn.com/"
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "threads",
+  "name": "Threads",
+  "category": "social",
+  "match": [
+    "*://www.threads.com/*",
+    "*://www.threads.net/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "threads-meta-ai",
+      "kind": "hide",
+      "selectors": [
+        "a[href^=\"https://www.meta.ai/\"]"
+      ],
+      "textAnchors": [
+        "Meta AI",
+        "Ask Meta AI"
+      ],
+      "description": "Meta AI links. Unverified",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "low",
+        "source": [
+          "researcher memory of site DOM, not confirmed in any list on 2026-09-20"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "requiresLogin": true,
+    "entries": []
+  }
+}

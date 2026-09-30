@@ -1,0 +1,7 @@
+name = "aioff-sync"
+main = "src/index.ts"
+compatibility_date = "2026-09-01"
+# Blobs live in R2 (free tier: 10 GB, 1M writes a month). No KV, no database, no accounts.
+[[r2_buckets]]
+binding = "BLOBS"
+bucket_name = "aioff-sync"

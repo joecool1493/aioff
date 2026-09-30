@@ -1,0 +1,17 @@
+html, body { margin: 0; background: var(--aioff-bg); color: var(--aioff-ink); font: 14px/1.5 var(--aioff-font); }
+.app { max-width: 880px; margin: 0 auto; padding: 24px 20px 60px; }
+.app h1 { font-size: 18px; letter-spacing: .05em; margin: 0; }
+.app h2 { font-size: 15px; margin: 26px 0 8px; }
+.top { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; margin: 16px 0 8px; }
+.card { background: var(--aioff-surface); border: 1px solid var(--aioff-line); border-radius: 12px; padding: 12px 16px; margin-bottom: 10px; }
+.row { display: flex; gap: 12px; align-items: flex-start; justify-content: space-between; }
+.row p { margin: 2px 0 0; color: var(--aioff-ink-soft); font-size: 13px; }
+.tag { font-size: 11px; border: 1px solid var(--aioff-line); border-radius: 999px; padding: 0 8px; color: var(--aioff-ink-soft); white-space: nowrap; }
+.tag.ok { color: var(--aioff-ok); border-color: var(--aioff-ok); }
+.tag.bad { color: var(--aioff-accent); border-color: var(--aioff-accent); }
+button.btn { appearance: none; font: inherit; padding: 7px 12px; border-radius: 8px; border: 1px solid var(--aioff-line); background: var(--aioff-surface); color: var(--aioff-ink); cursor: pointer; }
+button.btn.primary { background: var(--aioff-accent); border-color: var(--aioff-accent); color: #fff; }
+button.btn:disabled { opacity: .5; cursor: not-allowed; }
+.note { color: var(--aioff-ink-soft); font-size: 13px; }
+ol.steps { margin: 6px 0 0 18px; padding: 0; color: var(--aioff-ink-soft); font-size: 13px; }
+input.key { font: 12px var(--aioff-mono); width: 100%; padding: 8px; border-radius: 8px; border: 1px solid var(--aioff-line); background: var(--aioff-surface); color: var(--aioff-ink); box-sizing: border-box; }

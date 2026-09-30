@@ -1,0 +1,37 @@
+{
+  "id": "pinterest",
+  "name": "Pinterest",
+  "category": "social",
+  "match": [
+    "*://www.pinterest.com/*",
+    "*://*.pinterest.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "pin-ai-modified-label",
+      "kind": "hide",
+      "selectors": [],
+      "textAnchors": [
+        "AI modified",
+        "AI generated"
+      ],
+      "description": "AI modified label on pin close-up pages, usable as a Level 3 signal. No DOM selector in any list",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "low",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://help.pinterest.com/en/article/tune-your-home-feed"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://www.pinterest.com/ideas/"
+      }
+    ]
+  }
+}

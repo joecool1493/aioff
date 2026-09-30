@@ -1,0 +1,75 @@
+{
+  "id": "youtube-studio",
+  "name": "YouTube Studio",
+  "category": "google",
+  "match": [
+    "*://studio.youtube.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "yts-ask-studio",
+      "kind": "hide",
+      "selectors": [
+        "ytcp-creator-chat-trigger",
+        "ytcp-creator-chat-entrypoint-button",
+        ".suggestion-chips-container:has(> ytcp-creator-chat-entrypoint-chips)",
+        ".ask-studio-container"
+      ],
+      "textAnchors": [
+        "Ask Studio"
+      ],
+      "anchorTarget": "control",
+      "description": "Ask Studio sparkle button, Catch me up, suggestion chips",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    },
+    {
+      "id": "yts-inspiration",
+      "kind": "hide",
+      "selectors": [
+        "#inspiration-tab",
+        "tp-yt-paper-item[test-id=\"brainstorm\"]",
+        "[test-id=\"VIDEO_BRAINSTORM_IDEA\"]",
+        ".brainstorm-ideas-button"
+      ],
+      "textAnchors": [
+        "Brainstorm video ideas"
+      ],
+      "description": "Inspiration tab and brainstorm entry points",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    },
+    {
+      "id": "yts-comment-smart-replies",
+      "kind": "hide",
+      "selectors": [
+        "#comment-smart-replies"
+      ],
+      "description": "AI comment reply suggestions",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "requiresLogin": true,
+    "entries": []
+  }
+}

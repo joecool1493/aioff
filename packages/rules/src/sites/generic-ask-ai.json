@@ -1,0 +1,111 @@
+{
+  "id": "generic-ask-ai",
+  "name": "\"Ask AI\" buttons (any site)",
+  "category": "generic",
+  "match": [
+    "*://*/*"
+  ],
+  "level": 1,
+  "generic": true,
+  "rules": [
+    {
+      "id": "generic-ask-ai-buttons",
+      "kind": "hide",
+      "selectors": [],
+      "textAnchors": [
+        "Ask AI",
+        "Ask AI assistant",
+        "Ask the AI",
+        "Ask our AI",
+        "Ask AI a question",
+        "Ask a question with AI",
+        "Ask Copilot",
+        "Chat with Copilot",
+        "Ask Gemini",
+        "Try Gemini",
+        "Ask Meta AI",
+        "Ask Grok",
+        "Ask Rufus",
+        "Ask ChatGPT",
+        "Ask Claude",
+        "Ask Sparky",
+        "Ask YouTube",
+        "Ask Canva",
+        "Ask Docs AI",
+        "AI Assistant",
+        "Open AI Assistant",
+        "AI Chat",
+        "AI chatbot",
+        "Chat with AI",
+        "Chat with our AI",
+        "Talk to AI",
+        "Summarize with AI",
+        "AI Summary",
+        "Get AI Summary",
+        "AI-generated summary",
+        "Summarize this page with AI",
+        "Summarize with Copilot",
+        "Summarize with Gemini",
+        "Summary by Copilot",
+        "Generate with AI",
+        "Create with AI",
+        "Build with AI",
+        "Design with AI",
+        "Write with AI",
+        "Rewrite with AI",
+        "Draft with AI",
+        "Draft with Copilot",
+        "Write with Copilot",
+        "Write with Gemini",
+        "Help me write",
+        "Enhance with AI",
+        "Improve with AI",
+        "Edit with AI",
+        "Translate with AI",
+        "Explain with AI",
+        "Explain error with AI",
+        "Explain with Copilot",
+        "Search with AI",
+        "AI-powered search",
+        "Open in ChatGPT",
+        "Open in Claude",
+        "Open in Perplexity",
+        "Open in Gemini",
+        "Ask ChatGPT about this page",
+        "Ask Claude about this page",
+        "GitBook Assistant",
+        "Mintlify Assistant",
+        "Kapa AI",
+        "Ask Kapa",
+        "Powered by Inkeep",
+        "Ask Inkeep"
+      ],
+      "anchorTarget": "control",
+      "description": "Buttons and links whose name is an unmistakable AI entry point, such as \"Ask AI\" or \"Summarize with AI\". Matches the start of short control names only, never page text.",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": "curated phrase list; measure false positives"
+      }
+    },
+    {
+      "id": "generic-open-in-llm",
+      "kind": "hide",
+      "selectors": [
+        "a[href^=\"https://chatgpt.com/?\"][href*=\"q=\"]",
+        "a[href^=\"https://claude.ai/new?q=\"]",
+        "a[href^=\"https://www.perplexity.ai/search?q=\"]",
+        "a[href^=\"https://chat.openai.com/?q=\"]"
+      ],
+      "description": "\"Open this page in ChatGPT, Claude, or Perplexity\" links that docs sites add to every page",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": "URL patterns of the vendors own prefill links"
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": []
+  }
+}

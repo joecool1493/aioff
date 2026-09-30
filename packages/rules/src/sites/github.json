@@ -1,0 +1,202 @@
+{
+  "id": "github",
+  "name": "GitHub",
+  "category": "dev",
+  "match": [
+    "*://github.com/*",
+    "*://support.github.com/*",
+    "*://docs.github.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "gh-copilot-header",
+      "kind": "hide",
+      "selectors": [
+        "[data-testid=\"top-bar-actions\"] > div:has(> [class*=\"CopilotItems-module__Wrapper\"])",
+        "[data-testid=\"side-nav-menu-item-COPILOT\"]",
+        "command-palette-item[data-item-title=\"Copilot\"]"
+      ],
+      "textAnchors": [
+        "Chat with Copilot"
+      ],
+      "description": "Copilot chat button next to the header search, Copilot in the left side nav and command palette",
+      "since": "2026-09-20",
+      "defaultEnabled": false,
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "gh-copilot-search",
+      "kind": "hide",
+      "selectors": [
+        "[data-component=\"ActionList.Group\"]:has([data-testid=\"quick-search-suggestion\"][href=\"/copilot\"])"
+      ],
+      "textAnchors": [
+        "Ask Copilot",
+        "Chat with Copilot"
+      ],
+      "anchorTarget": "control",
+      "description": "Copilot suggestion group in the header search dropdown",
+      "since": "2026-09-20",
+      "defaultEnabled": false,
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "gh-copilot-dashboard",
+      "kind": "hide",
+      "selectors": [
+        ".copilotPreview__container",
+        ".DashboardBannerCopilotApp",
+        "[partial-name=\"sidebar-nudge\"]:has([data-test-selector*=\"copilot\"])"
+      ],
+      "textAnchors": [
+        "Ask Copilot"
+      ],
+      "anchorTarget": "control",
+      "description": "Ask Copilot prompt box on the home dashboard and Copilot promo banners",
+      "since": "2026-09-20",
+      "defaultEnabled": false,
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    },
+    {
+      "id": "gh-copilot-file-view",
+      "kind": "hide",
+      "selectors": [
+        "#blob-view-header-copilot-icon",
+        "#copilot-button-container",
+        "div:has(> [class*=\"CopilotPopover-module__copilotButton\"])",
+        "[data-testid=\"copilot-menu-items\"]",
+        "[data-testid=\"copilot-ask-menu\"]"
+      ],
+      "textAnchors": [
+        "Ask Copilot about this file",
+        "Ask Copilot"
+      ],
+      "anchorTarget": "control",
+      "description": "Ask Copilot on file view: header icon, selected-lines button, symbols pane, overflow menu",
+      "since": "2026-09-20",
+      "defaultEnabled": false,
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "gh-copilot-pr",
+      "kind": "hide",
+      "selectors": [
+        "[partial-name=\"copilot-code-chat\"]",
+        "[data-testid=\"copilot-diff-explain-button\"]",
+        "[data-testid=\"more-copilot-button\"]",
+        "[data-target=\"copilot-diff-entry.menuItemsSlot\"]",
+        "[partial-name=\"copilot-assisted-review-upsell\"]",
+        "div:has(> [data-assignee-name=\"Copilot\"])",
+        "#copilot-md-menu-anchor-new_comment_field",
+        "[data-component=\"IconButton\"]:has(> .octicon-copilot)"
+      ],
+      "textAnchors": [
+        "Ask Copilot",
+        "Request review from Copilot",
+        "Generate pull request title with Copilot"
+      ],
+      "anchorTarget": "control",
+      "description": "Pull requests: Ask Copilot, diff explain, Copilot code review request and upsell, PR title generation",
+      "since": "2026-09-20",
+      "defaultEnabled": false,
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "gh-copilot-menuitems",
+      "kind": "hide",
+      "selectors": [
+        "[role=\"menuitem\"]:has(.octicon-copilot)",
+        "[data-component=\"ActionList.Item\"]:has([class^=\"CopilotAppOpenAction-module_\"])",
+        "[data-test-id=\"copilot-actions-chat-button\"]"
+      ],
+      "textAnchors": [
+        "Explain error",
+        "Open in GitHub Copilot"
+      ],
+      "anchorTarget": "control",
+      "description": "Copilot entries in action menus, issue sidebar, and Explain error on failed Actions jobs",
+      "since": "2026-09-20",
+      "defaultEnabled": false,
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "gh-agents-tab",
+      "kind": "hide",
+      "selectors": [
+        "li:has(> [data-tab-item=\"agents\"])",
+        "[data-component=\"ActionList.Item\"]:has(> [data-tab-item=\"agents\"])",
+        "[data-component=\"NavList.Item\"][href=\"/mcp\"]"
+      ],
+      "description": "Agents tab in repo nav and MCP Registry link",
+      "since": "2026-09-20",
+      "defaultEnabled": false,
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "gh-support-docs-copilot",
+      "kind": "hide",
+      "selectors": [
+        "[data-fs=\"copilot_chat_nav\"]",
+        "#ask-ai-result-container"
+      ],
+      "textAnchors": [
+        "Ask Copilot"
+      ],
+      "anchorTarget": "control",
+      "description": "support.github.com Copilot nav button and docs.github.com Ask AI results",
+      "since": "2026-09-20",
+      "defaultEnabled": false,
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://github.com/torvalds/linux"
+      }
+    ]
+  }
+}

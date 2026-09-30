@@ -1,0 +1,9 @@
+{
+  "name": "@aioff/site",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": { "dev": "astro dev", "build": "astro build", "preview": "astro preview" },
+  "dependencies": { "@aioff/rules": "workspace:*", "@aioff/policies": "workspace:*", "@aioff/dns": "workspace:*", "astro": "^7.0.0" }
+}

@@ -1,0 +1,114 @@
+---
+// The physical switch demo, as specified in docs/design/CODEX-REDESIGN.md. It changes an example
+// page and nothing else. Initial state: AI ON. Sound is off until the visitor turns it on.
+---
+<div class="demo" id="demo">
+  <div class="switch-col">
+    <button class="sw" type="button" role="switch" aria-checked="true" aria-label="AI features in the example" id="demo-switch">
+      <span class="plate">
+        <span class="screw top"></span>
+        <span class="lbl on"><span class="dot"></span>ON</span>
+        <span class="slot"><span class="lever"></span></span>
+        <span class="lbl off"><span class="dot"></span>OFF</span>
+        <span class="screw bottom"></span>
+      </span>
+    </button>
+    <p class="state" id="demo-state" aria-live="polite">AI is on in this example.</p>
+    <button class="btn secondary" type="button" id="demo-sound" aria-pressed="false">Sound off</button>
+  </div>
+  <div class="mock" id="mock">
+    <div class="mock-top"><span class="mock-label">Example page</span></div>
+    <input class="mock-search" type="text" value="how to grow tomatoes" readonly tabindex="-1" aria-label="Example search" />
+    <div class="ai-block" data-ai><div class="ai-title">AI Overview</div><p>An answer you did not ask for.</p></div>
+    <button class="ask" type="button" tabindex="-1" data-ai>Ask AI</button>
+    <div class="result"><div class="rt">When to plant tomatoes</div><div class="lines" aria-hidden="true"><i></i><i class="short"></i></div></div>
+    <div class="result"><div class="rt">A guide to watering</div><div class="lines" aria-hidden="true"><i></i><i class="short"></i></div></div>
+    <div class="result"><div class="rt">Choosing a sunny spot</div><div class="lines" aria-hidden="true"><i></i><i class="short"></i></div></div>
+    <noscript><p class="small">This example needs JavaScript. The rest of this page does not.</p></noscript>
+  </div>
+</div>
+<p class="caption">Try the switch. The page stays. The AI extras go.</p>
+<p class="caption small soft">A demonstration of hiding AI features, not a change to your browser.</p>
+<style>
+  .demo { display: flex; gap: 48px; align-items: flex-start; justify-content: center; margin: 48px 0 16px; }
+  .switch-col { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .sw { appearance: none; border: 0; background: none; padding: 0; cursor: pointer; font-family: var(--font); -webkit-tap-highlight-color: transparent; border-radius: 24px; }
+  .sw:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+  .plate { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: space-between; width: 184px; height: 288px; padding: 34px 0; border-radius: 24px;
+    background: linear-gradient(170deg, var(--surface), var(--line)); border: 1px solid var(--line);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), inset 0 -2px 0 rgba(0,0,0,0.08), 0 16px 32px rgba(0,0,0,0.18); }
+  .screw { position: absolute; left: 50%; width: 10px; height: 10px; margin-left: -5px; border-radius: 50%; background: var(--line); box-shadow: inset 0 0 0 1px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.5); }
+  .screw::after { content: ""; position: absolute; left: 1px; right: 1px; top: 4px; height: 2px; background: rgba(0,0,0,0.25); transform: rotate(35deg); }
+  .screw.top { top: 12px; } .screw.bottom { bottom: 12px; }
+  .lbl { display: inline-flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 750; letter-spacing: 0.16em; color: var(--soft); }
+  .lbl .dot { width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid currentColor; }
+  .sw[aria-checked="true"] .lbl.on { color: var(--ink); } .sw[aria-checked="true"] .lbl.on .dot { background: currentColor; }
+  .sw[aria-checked="false"] .lbl.off { color: var(--accent); } .sw[aria-checked="false"] .lbl.off .dot { background: currentColor; }
+  .slot { position: relative; width: 74px; height: 150px; border-radius: 12px; background: #0f110e; box-shadow: inset 0 3px 8px rgba(0,0,0,0.7), 0 1px 0 rgba(255,255,255,0.35); overflow: hidden; }
+  .lever { position: absolute; left: 8%; width: 84%; height: 56%; top: 4%; border-radius: 9px; background: linear-gradient(180deg, var(--surface) 0 55%, var(--line)); box-shadow: 0 6px 10px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.7); transition: top 120ms cubic-bezier(0.3, 1.4, 0.6, 1); }
+  .sw[aria-checked="false"] .lever { top: 40%; background: linear-gradient(0deg, var(--surface) 0 55%, var(--line)); box-shadow: 0 -4px 10px rgba(0,0,0,0.5), inset 0 -1px 0 rgba(255,255,255,0.6); }
+  .state { margin: 0; font-size: 16px; color: var(--ink); }
+  .mock { width: 420px; max-width: 100%; min-height: 330px; text-align: left; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px 20px; }
+  .mock-top { display: flex; margin-bottom: 12px; }
+  .mock-label { font-size: 14px; color: var(--soft); }
+  .mock-search { display: block; width: 100%; font: inherit; font-size: 15px; border: 1px solid var(--line); background: transparent; border-radius: 999px; padding: 8px 14px; color: var(--ink); margin-bottom: 14px; }
+  .ai-block { border: 1px solid var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent); border-radius: 8px; padding: 10px 12px; margin-bottom: 12px; overflow: hidden; max-height: 120px; transition: max-height 180ms ease, opacity 180ms ease, margin 180ms ease, padding 180ms ease; }
+  .ai-title { font-size: 14px; font-weight: 650; color: var(--accent); margin-bottom: 2px; }
+  .ai-block p { margin: 0; font-size: 15px; }
+  .ask { font: inherit; font-size: 14px; border: 1px solid var(--accent); color: var(--accent); background: transparent; border-radius: 999px; padding: 3px 12px; margin: 2px 0 12px; display: inline-block; overflow: hidden; max-height: 40px; transition: max-height 180ms ease, opacity 180ms ease, margin 180ms ease, padding 180ms ease; cursor: default; }
+  .result { padding: 6px 0 10px; }
+  .rt { font-size: 17px; color: #1a4fc4; margin-bottom: 6px; }
+  @media (prefers-color-scheme: dark) { .rt { color: #8fb4ff; } }
+  .lines i { display: block; height: 8px; border-radius: 4px; background: var(--muted); margin: 5px 0; }
+  .lines i.short { width: 70%; }
+  .mock.ai-off [data-ai] { max-height: 0; opacity: 0; margin: 0; padding-top: 0; padding-bottom: 0; border-width: 0; }
+  .caption { text-align: center; margin: 0 auto 4px; }
+  @media (max-width: 640px) { .demo { flex-direction: column; align-items: center; gap: 24px; } }
+  @media (prefers-reduced-motion: reduce) { .lever, .ai-block, .ask { transition: none; } }
+</style>
+<script>
+  const sw = document.getElementById('demo-switch') as HTMLButtonElement;
+  const mock = document.getElementById('mock')!;
+  const state = document.getElementById('demo-state')!;
+  const soundBtn = document.getElementById('demo-sound') as HTMLButtonElement;
+  let sound = false;
+  let ctx: AudioContext | null = null;
+  function click(on: boolean) {
+    if (!sound) return;
+    try {
+      ctx ??= new AudioContext();
+      const burst = (at: number, freq: number, gain: number, dur: number) => {
+        const len = Math.floor(ctx!.sampleRate * dur);
+        const buf = ctx!.createBuffer(1, len, ctx!.sampleRate);
+        const d = buf.getChannelData(0);
+        for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 6);
+        const src = ctx!.createBufferSource(); src.buffer = buf;
+        const bp = ctx!.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = freq; bp.Q.value = 1.2;
+        const g = ctx!.createGain(); g.gain.value = gain;
+        src.connect(bp).connect(g).connect(ctx!.destination); src.start(at);
+      };
+      burst(ctx.currentTime, on ? 2400 : 1800, 0.5, 0.03);
+      burst(ctx.currentTime + 0.035, on ? 900 : 700, 0.35, 0.05);
+    } catch { /* sound is optional */ }
+  }
+  // The ON layout sets the height, so the demo does not jump when the AI blocks close up.
+  mock.style.minHeight = `${mock.offsetHeight}px`;
+  const aiBlocks = Array.from(mock.querySelectorAll<HTMLElement>('[data-ai]'));
+  sw.addEventListener('click', () => {
+    const wasOn = sw.getAttribute('aria-checked') === 'true';
+    sw.setAttribute('aria-checked', String(!wasOn));
+    mock.classList.toggle('ai-off', wasOn);
+    // Removed from the accessibility tree too, not just visually.
+    for (const el of aiBlocks) {
+      el.setAttribute('aria-hidden', String(wasOn));
+      el.inert = wasOn;
+    }
+    state.textContent = wasOn ? 'AI is off in this example.' : 'AI is on in this example.';
+    click(!wasOn);
+  });
+  soundBtn.addEventListener('click', () => {
+    sound = !sound;
+    soundBtn.setAttribute('aria-pressed', String(sound));
+    soundBtn.textContent = sound ? 'Sound on' : 'Sound off';
+  });
+</script>

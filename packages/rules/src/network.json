@@ -1,0 +1,17 @@
+[
+  {
+    "id": "ai-ads-tracking",
+    "kind": "block",
+    "level": 1,
+    "description": "Ad, analytics, and telemetry endpoints run by AI companies. Safe to block: no product feature depends on them.",
+    "tier": "adsTracking"
+  },
+  {
+    "id": "ai-products-blackout",
+    "kind": "block",
+    "level": 4,
+    "description": "Blackout: AI chatbots, generators, and their APIs. This blocks AI products you may use on purpose.",
+    "tier": "products",
+    "blockNavigation": true
+  }
+]

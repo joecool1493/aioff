@@ -1,0 +1,6 @@
+{
+  "kind": "control",
+  "url": "https://www.linkedin.com/feed/",
+  "note": "Feed without AI prompts.",
+  "expect": []
+}

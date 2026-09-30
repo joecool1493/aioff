@@ -1,0 +1,9 @@
+{
+  "kind": "captured",
+  "url": "https://www.quora.com/What-is-photosynthesis",
+  "locale": "en-US",
+  "capturedAt": "2026-09-20T22:00:04.168Z",
+  "expect": [
+    "quora-poe-assistant-answer"
+  ]
+}

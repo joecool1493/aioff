@@ -1,0 +1,52 @@
+{
+  "id": "search-qwant",
+  "name": "Qwant",
+  "category": "search",
+  "match": [
+    "*://www.qwant.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "qwant-cookie-llm",
+      "kind": "setCookie",
+      "cookie": {
+        "name": "llm",
+        "value": "0",
+        "domain": "www.qwant.com",
+        "maxAgeDays": 365
+      },
+      "description": "Set the site's own preference: Disable Flash Answers (from Stevo list; not reproducible from US IP)",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": "Disable Flash Answers (from Stevo list; not reproducible from US IP)"
+      }
+    },
+    {
+      "id": "q-flash",
+      "kind": "hide",
+      "selectors": [
+        "div:has(> #llmMode)",
+        "#llmMode"
+      ],
+      "textAnchors": [
+        "Flash Answer",
+        "Réponse Flash"
+      ],
+      "description": "Flash Answer toggle in search options",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": "Stevos-AI-Blocklist (MIT), simplified to the stable id"
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://www.qwant.com/?q=why+is+the+sky+blue&t=web"
+      }
+    ]
+  }
+}

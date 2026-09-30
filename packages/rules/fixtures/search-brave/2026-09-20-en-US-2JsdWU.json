@@ -1,0 +1,10 @@
+{
+  "kind": "captured",
+  "url": "https://search.brave.com/search?q=why+is+the+sky+blue",
+  "locale": "en-US",
+  "capturedAt": "2026-09-20T21:55:00.203Z",
+  "expect": [
+    "br-answer",
+    "br-ask"
+  ]
+}

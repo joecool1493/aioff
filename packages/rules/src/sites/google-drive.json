@@ -1,0 +1,139 @@
+{
+  "id": "google-drive",
+  "name": "Google Drive",
+  "category": "google",
+  "match": [
+    "*://drive.google.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "gdrive-ask-gemini-header",
+      "kind": "hide",
+      "selectors": [
+        "#askGemini",
+        "#WWNEkf",
+        "#viewer-sidekick-button",
+        ".TLiyPe"
+      ],
+      "textAnchors": [
+        "Ask Gemini"
+      ],
+      "anchorTarget": "control",
+      "description": "Ask Gemini icon in Drive header and in the file or PDF viewer",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt",
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "gdrive-help-me-organize",
+      "kind": "hide",
+      "selectors": [
+        "[data-test-id=\"help-me-organize-chip-container\"]"
+      ],
+      "textAnchors": [
+        "Suggest file moves",
+        "Help me organize"
+      ],
+      "description": "Help me organize or Suggest file moves chip in My Drive",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    },
+    {
+      "id": "gdrive-selection-gemini",
+      "kind": "hide",
+      "selectors": [
+        ".iQnZTe.SMHH7",
+        ".oaTPh"
+      ],
+      "textAnchors": [
+        "Ask Gemini",
+        "Catch me up",
+        "Summarize this file"
+      ],
+      "anchorTarget": "control",
+      "description": "Ask Gemini and Catch me up buttons when a file is selected, Summarize this file hover chip",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "gdrive-search-ai-overview",
+      "kind": "hide",
+      "selectors": [
+        ".De8rPe",
+        ".p5rLxe.HBDJjb"
+      ],
+      "textAnchors": [
+        "AI Overview"
+      ],
+      "description": "AI Overview card in Drive search and sources icon in the search bar",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "gdrive-menu-ask-gemini",
+      "kind": "hide",
+      "selectors": [
+        ".h-v[role=\"menuitem\"]:has(.Nsw7Y)"
+      ],
+      "textAnchors": [
+        "Ask Gemini",
+        "Create an audio overview"
+      ],
+      "anchorTarget": "control",
+      "description": "Ask Gemini entry in the More actions menu. In the PDF viewer the source matches role=menuitem by text",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "gdrive-audio-overview-promo",
+      "kind": "hide",
+      "selectors": [
+        ".j6o35e:has([aria-label=\"You now have promotional access to audio overviews in Drive\"])",
+        ".DbMyfd.LOB30e:has([aria-label=\"Create an audio overview\"])"
+      ],
+      "textAnchors": [
+        "Create an audio overview"
+      ],
+      "anchorTarget": "control",
+      "description": "Audio overview promo and button",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "requiresLogin": true,
+    "entries": []
+  }
+}

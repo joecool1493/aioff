@@ -1,0 +1,38 @@
+{
+  "name": "aioff",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "description": "AI Off: one switch that removes AI from your browser, computer, phone, and network. Contains no AI.",
+  "license": "MIT",
+  "packageManager": "pnpm@12.5.1",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "pnpm rules:build && pnpm --filter @aioff/extension exec wxt prepare && vitest run",
+    "test:watch": "vitest",
+    "typecheck": "pnpm -r typecheck",
+    "rules:build": "pnpm --filter @aioff/rules build",
+    "rules:sign": "pnpm --filter @aioff/rules sign",
+    "rules:keygen": "pnpm --filter @aioff/rules keygen",
+    "dns:build": "pnpm --filter @aioff/dns build",
+    "policies:build": "pnpm --filter @aioff/policies build",
+    "ext:dev": "pnpm --filter @aioff/extension dev",
+    "ext:build": "pnpm rules:build && pnpm --filter @aioff/extension build:all",
+    "site:dev": "pnpm --filter @aioff/site dev",
+    "site:build": "pnpm rules:build && pnpm dns:build && pnpm --filter @aioff/site build",
+    "healthcheck": "pnpm --filter @aioff/healthcheck start",
+    "check:copy": "node tools/check-copy.mjs",
+    "build": "pnpm rules:build && pnpm dns:build && pnpm policies:build && pnpm --filter @aioff/extension build:all && pnpm --filter @aioff/site build"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^30.0.0",
+    "@types/node": "^24.0.0",
+    "happy-dom": "^20.14.5",
+    "jsdom": "^27.4.0",
+    "tsx": "~4.23.0",
+    "typescript": "^5.9.0",
+    "vitest": "^5.0.1"
+  }
+}

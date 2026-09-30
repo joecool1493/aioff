@@ -1,0 +1,10 @@
+{
+  "kind": "captured",
+  "url": "https://search.yahoo.com/search?p=why+is+the+sky+blue",
+  "locale": "en-US",
+  "capturedAt": "2026-09-20T21:55:36.863Z",
+  "expect": [
+    "y-ai-summary",
+    "y-scout"
+  ]
+}

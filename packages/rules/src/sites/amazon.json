@@ -1,0 +1,144 @@
+{
+  "id": "amazon",
+  "name": "Amazon",
+  "category": "commerce",
+  "match": [
+    "*://www.amazon.*/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "amz-rufus-nav",
+      "kind": "hide",
+      "selectors": [
+        "#nav-rufus-disco",
+        ".nav-rufus-disco",
+        ".rufus-pill"
+      ],
+      "description": "Rufus button in the nav bar",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    },
+    {
+      "id": "amz-rufus-panel",
+      "kind": "hide",
+      "selectors": [
+        ".rufus-panel-container",
+        "#rufus-ask-rufus-tooltip",
+        "[id*=\"rufus\"]"
+      ],
+      "textAnchors": [
+        "Ask Rufus"
+      ],
+      "anchorTarget": "control",
+      "description": "Rufus side panel and the Ask Rufus tooltip on text selection. The [id*=rufus] catch-all is caller-supplied and broad",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt",
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "caller-supplied hint, not confirmed in any list"
+        ]
+      }
+    },
+    {
+      "id": "amz-rufus-inline",
+      "kind": "hide",
+      "selectors": [
+        "#nile-inline_feature_div",
+        "#nile-inline-btf_feature_div",
+        "#dpx-rex-nice-widget-container",
+        ".s-ask-rufus-mshop-suggestion-container",
+        ".s-suggestion-nile-desktop-container"
+      ],
+      "textAnchors": [
+        "Ask Rufus",
+        "Looking for specific info?"
+      ],
+      "anchorTarget": "control",
+      "description": "Ask Rufus question chips on product pages and in search suggestions (nile is the internal name)",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    },
+    {
+      "id": "amz-customers-say",
+      "kind": "hide",
+      "selectors": [
+        "[data-csa-c-item-id=\"cr-product-insights-cards\"]",
+        "[data-csa-c-item-id=\"cr-product-insights-detail-page\"]",
+        "#cr-product-insights-cards",
+        "[data-hook=\"cr-insights-widget-summary\"]"
+      ],
+      "textAnchors": [
+        "AI-generated from the text of customer reviews",
+        "AI Generated from the text of customer reviews"
+      ],
+      "description": "AI review summary. First two selectors from Stevo; the id and data-hook forms are caller-supplied and unconfirmed",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "caller-supplied hint, not confirmed in any list"
+        ]
+      }
+    },
+    {
+      "id": "amz-hear-the-highlights",
+      "kind": "hide",
+      "selectors": [],
+      "textAnchors": [
+        "Hear the highlights"
+      ],
+      "description": "AI audio product summaries. No selector found in any list",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "low",
+        "source": [
+          "researcher memory of site DOM, not confirmed in any list on 2026-09-20"
+        ]
+      }
+    },
+    {
+      "id": "amz-health-ai",
+      "kind": "hide",
+      "selectors": [
+        ".nav-li:has([data-csa-c-content-id$=\"_cs_health_ai\"])",
+        ".health-ai-header",
+        ".ask-health-ai-section",
+        "#nav-health-ai"
+      ],
+      "textAnchors": [
+        "Health AI"
+      ],
+      "description": "Health AI nav items (amazon.com and health.amazon.com)",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://www.amazon.com/dp/B0CHX1W1XY"
+      }
+    ]
+  }
+}

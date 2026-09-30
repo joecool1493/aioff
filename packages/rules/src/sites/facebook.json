@@ -1,0 +1,145 @@
+{
+  "id": "facebook",
+  "name": "Facebook and Messenger",
+  "category": "social",
+  "match": [
+    "*://www.facebook.com/*",
+    "*://www.messenger.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "fb-meta-ai-links",
+      "kind": "hide",
+      "selectors": [
+        "[role=\"listitem\"]:has([href*=\"www.meta.ai\"], [href^=\"https://aistudio.facebook.com/\"])",
+        ".html-li [role=\"link\"][href^=\"https://www.meta.ai/\"]",
+        ".html-li [role=\"link\"][href^=\"https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.meta.ai\"]",
+        ".html-li [role=\"link\"][href^=\"https://aistudio.facebook.com/\"]"
+      ],
+      "textAnchors": [
+        "Meta AI",
+        "Chat with AIs",
+        "AI Studio"
+      ],
+      "description": "Meta AI and AI Studio shortcuts in the left sidebar and the app menu",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "fb-meta-ai-contact",
+      "kind": "hide",
+      "selectors": [
+        "[role=\"link\"][href=\"/messages/t/156025504001094/\"]",
+        "a[role=\"link\"][href=\"/t/156025504001094/\"]"
+      ],
+      "textAnchors": [
+        "Meta AI"
+      ],
+      "description": "Meta AI chat entry in the Messenger dropdown, contacts list, and messenger.com chat list (hide the closest row)",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "fb-generate-images",
+      "kind": "hide",
+      "selectors": [
+        "[aria-label=\"Generate images using AI\"]"
+      ],
+      "description": "Generate images button in the post composer",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "fb-comment-summary",
+      "kind": "hide",
+      "selectors": [
+        "[role=\"presentation\"] div:has(> div [alt=\"Meta AI logo\"])"
+      ],
+      "textAnchors": [
+        "What people are saying",
+        "Summarized by AI"
+      ],
+      "description": "AI comment summary on posts. Anchor on img alt Meta AI logo; container classes in source are atomic",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "fb-ask-meta-ai-chips",
+      "kind": "hide",
+      "selectors": [
+        "[aria-label=\"Meta AI icon\"]"
+      ],
+      "textAnchors": [
+        "Ask Meta AI",
+        "Ask Meta AI or Search"
+      ],
+      "anchorTarget": "control",
+      "description": "Ask Meta AI suggestion chips (source only covers the Help Center variant) and search entry",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "low",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "researcher memory of site DOM, not confirmed in any list on 2026-09-20"
+        ]
+      }
+    },
+    {
+      "id": "fb-support-assistant",
+      "kind": "hide",
+      "selectors": [
+        "[aria-label=\"Chat with Meta AI support assistant\"][role=\"button\"]"
+      ],
+      "description": "Meta AI support assistant button in Help Center",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "fb-ai-info-label-level3",
+      "kind": "hide",
+      "selectors": [],
+      "textAnchors": [
+        "AI info",
+        "AI content"
+      ],
+      "description": "AI info disclosure on posts, usable as a Level 3 hide signal (source walks up from a role=button with this text)",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "requiresLogin": true,
+    "entries": []
+  }
+}

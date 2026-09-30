@@ -1,0 +1,45 @@
+{
+  "id": "search-yandex",
+  "name": "Yandex",
+  "category": "search",
+  "match": [
+    "*://ya.ru/*",
+    "*://yandex.com/*",
+    "*://yandex.ru/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "yx-neuro",
+      "kind": "hide",
+      "selectors": [
+        "[data-fast-name=\"neuro_answer\"]",
+        "[class*=\"__futuris-snippet\"]",
+        ".Root-FuturisSearchOuter",
+        ".HeaderNav-Tab[href$=\"&promo=force_neuro\"]",
+        ".HeaderNav-Tab[href*=\"/alice?\"]",
+        ".search3__placeholder-label",
+        ".alice-ai-button__wrapper"
+      ],
+      "textAnchors": [
+        "Yandex AI"
+      ],
+      "description": "Neuro AI answer, AI tabs and homepage prompts",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": "Stevos-AI-Blocklist (MIT); EasyList AI list (fact)"
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://yandex.com/search/?text=why+is+the+sky+blue",
+        "expect": [
+          "yx-neuro"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "etsy",
+  "name": "Etsy",
+  "category": "commerce",
+  "match": [
+    "*://www.etsy.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "etsy-buyer-highlights",
+      "kind": "hide",
+      "selectors": [
+        "[data-appears-component-name=\"reviews_feature_tags\"]"
+      ],
+      "textAnchors": [
+        "Buyer highlights"
+      ],
+      "description": "Etsy AI buyer highlights",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://www.etsy.com/"
+      }
+    ]
+  }
+}

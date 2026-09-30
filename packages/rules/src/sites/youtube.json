@@ -1,0 +1,156 @@
+{
+  "id": "youtube",
+  "name": "YouTube",
+  "category": "google",
+  "match": [
+    "*://www.youtube.com/*",
+    "*://m.youtube.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "yt-ask-button",
+      "kind": "hide",
+      "selectors": [
+        "yt-button-view-model:has(> .you-chat-entrypoint-button)",
+        ".you-chat-entrypoint-button",
+        ".ytp-suggested-action-badge[aria-label=\"Ask about this video\"]"
+      ],
+      "textAnchors": [
+        "Ask about this video"
+      ],
+      "anchorTarget": "control",
+      "description": "Ask (Gemini conversational AI) button under the player and floating badge on the player",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "yt-ask-description-section",
+      "kind": "hide",
+      "selectors": [
+        "yt-video-description-youchat-section-view-model"
+      ],
+      "description": "Ask questions section inside the video description",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    },
+    {
+      "id": "yt-video-summary",
+      "kind": "hide",
+      "selectors": [
+        "#video-summary",
+        "ytd-expandable-metadata-renderer[has-video-summary]",
+        "ytm-expandable-metadata-renderer:has(.expandableMetadataRendererCollapsedLeftSectionSummary)"
+      ],
+      "textAnchors": [
+        "AI-generated video summary"
+      ],
+      "description": "AI video summary in the description and on search result cards",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "yt-ask-youtube-search",
+      "kind": "hide",
+      "selectors": [
+        ".ytSearchboxComponentInputBox > [client-ve-type]",
+        ".ytSearchboxComponentActions > .ytSearchboxComponentActionsButton[client-ve-type]",
+        ".ytSearchboxComponentAiSuggestionsContainer",
+        "[chip-style=\"STYLE_AI_MODE_CHIP\"]",
+        "[aria-label=\"Ask YouTube\"]"
+      ],
+      "textAnchors": [
+        "Ask YouTube"
+      ],
+      "anchorTarget": "control",
+      "description": "Ask YouTube (AI mode) button in the search box, AI suggestions, and the AI chip on results",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    },
+    {
+      "id": "yt-talk-to-recs",
+      "kind": "hide",
+      "selectors": [
+        "ytd-talk-to-recs-flow-renderer"
+      ],
+      "textAnchors": [
+        "Ask for videos any way you like"
+      ],
+      "anchorTarget": "control",
+      "description": "Prompt-driven custom feed on the home page",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    },
+    {
+      "id": "yt-live-chat-summary",
+      "kind": "hide",
+      "selectors": [
+        "yt-live-chat-banner-manager:has(yt-live-chat-banner-chat-summary-renderer)"
+      ],
+      "description": "AI live chat summary banner",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "yt-mobile-summarize-bar",
+      "kind": "hide",
+      "selectors": [],
+      "textAnchors": [
+        "Summarize the video"
+      ],
+      "anchorTarget": "control",
+      "description": "m.youtube.com Summarize the video bar in the description panel",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://www.youtube.com/watch?v=jNQXAC9IVRw",
+        "expect": [
+          "yt-video-summary"
+        ]
+      }
+    ]
+  }
+}

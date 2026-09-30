@@ -1,0 +1,31 @@
+---
+// Catalog rows for the computer and phone pages. Instructions for the visitor, not changes this site makes.
+import type { ChecklistItem } from '@aioff/policies';
+interface Props { groups: { name: string; intro?: string; items: ChecklistItem[] }[] }
+const { groups } = Astro.props;
+const status = (c: ChecklistItem) => (c.canDisable === 'yes' ? ['ok', 'Can be turned off'] : c.canDisable === 'partial' ? ['', 'Partly'] : ['accent', 'Cannot be turned off']);
+const settingUrl = (c: ChecklistItem) => (c.url && /^(https?:|x-apple\.systempreferences:|ms-settings:|intent:)/.test(c.url) ? c.url : null);
+const sourceUrls = (c: ChecklistItem) => (c.source || '').split(/\s*;\s*/).map((u) => u.trim()).filter((u) => /^https?:/.test(u));
+---
+{groups.map((g) => g.items.length > 0 && (
+  <section>
+    <h3 id={g.name.toLowerCase().replace(/[^a-z]+/g, '-')}>{g.name}</h3>
+    <div class="faq">
+      {g.items.map((c) => (
+        <details>
+          <summary><span>{c.app} <span class="soft small">{c.platform}</span></span><span class={`pill ${status(c)[0]}`}>{status(c)[1]}</span></summary>
+          {c.canDisable === 'partial' && c.canDisableNote && <p><strong>Limit:</strong> {c.canDisableNote}</p>}
+          {c.canDisable === 'partial' && c.displayNotes && <p>{c.displayNotes}</p>}
+          <ol class="steps">{c.steps.map((s) => <li>{s}</li>)}</ol>
+          {c.canDisable !== 'partial' && c.canDisableNote && <p>{c.canDisableNote}</p>}
+          {c.canDisable !== 'partial' && c.displayNotes && <p>{c.displayNotes}</p>}
+          <p class="small">
+            {c.verified ? <span>Last verified: {c.lastVerified}</span> : <><span>Not yet verified</span> <span>Last reviewed: {c.lastVerified}</span></>}
+            {settingUrl(c) && <> <a href={settingUrl(c)!}>Open the setting</a></>}
+            {sourceUrls(c).map((u, i) => <> <a href={u}>{i === 0 ? 'Read the source' : `Read the source (${i + 1})`}</a></>)}
+          </p>
+        </details>
+      ))}
+    </div>
+  </section>
+))}

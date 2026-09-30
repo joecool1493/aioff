@@ -1,0 +1,15 @@
+{
+  "name": "@aioff/core",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "description": "AI Off rule engine: matching, hiding, keyword muting, DNR compilation, stats, feed verification. Contains no AI.",
+  "exports": {
+    ".": "./src/index.ts",
+    "./license": "./src/license.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  }
+}

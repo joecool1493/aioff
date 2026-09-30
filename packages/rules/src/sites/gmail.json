@@ -1,0 +1,154 @@
+{
+  "id": "gmail",
+  "name": "Gmail",
+  "category": "google",
+  "match": [
+    "*://mail.google.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "gmail-gemini-topbar",
+      "kind": "hide",
+      "selectors": [
+        ".Zmxtcf"
+      ],
+      "textAnchors": [
+        "Ask Gemini",
+        "Try Gemini"
+      ],
+      "anchorTarget": "control",
+      "description": "Gemini (Ask Gemini) icon in the top bar that opens the side panel",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "gmail-workspace-studio-topbar",
+      "kind": "hide",
+      "selectors": [
+        ".lRwCV"
+      ],
+      "textAnchors": [
+        "Google Workspace Studio"
+      ],
+      "anchorTarget": "control",
+      "description": "Workspace Studio (AI agents) icon in the top bar",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "gmail-summarize-email",
+      "kind": "hide",
+      "selectors": [
+        ".eJPjde"
+      ],
+      "textAnchors": [
+        "Summarize this email",
+        "AI Overview"
+      ],
+      "anchorTarget": "control",
+      "description": "Summarize this email chip and AI Overview card above an opened thread",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "gmail-help-me-write",
+      "kind": "hide",
+      "selectors": [
+        "[data-tooltip*=\"Help me write\"]",
+        ".bDl[command=\"sdt\"]",
+        ".eLNZDd[command=\"sdt\"]",
+        ".jKzJCd"
+      ],
+      "textAnchors": [
+        "Help me write"
+      ],
+      "anchorTarget": "control",
+      "description": "Help me write button next to Send, and the inline prompt shown in an empty compose body. Source notes hiding the button moves Insert signature into the overflow menu",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt",
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "gmail-search-ai-overview",
+      "kind": "hide",
+      "selectors": [
+        ".JLWipf"
+      ],
+      "textAnchors": [
+        "AI Overview"
+      ],
+      "description": "AI Overview block on the mail search results page",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "gmail-gemini-promos",
+      "kind": "hide",
+      "selectors": [
+        "[data-pep-id=\"global-pep-gmail\"]",
+        "[data-rp-placement-id=\"gemkick-pep-icon-callout-id\"]"
+      ],
+      "textAnchors": [
+        "Try Gemini"
+      ],
+      "anchorTarget": "control",
+      "description": "Gemini promo callouts and cards (gemkick placement ids)",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    },
+    {
+      "id": "gmail-ask-gmail-search-placeholder",
+      "kind": "hide",
+      "selectors": [
+        ".searchboxInputFontClass[placeholder=\"Ask Gmail\"]"
+      ],
+      "textAnchors": [
+        "Ask Gmail"
+      ],
+      "anchorTarget": "control",
+      "description": "Search box rebranded as Ask Gmail. Do not hide the input; source rewrites the placeholder to Search mail",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "requiresLogin": true,
+    "entries": []
+  }
+}

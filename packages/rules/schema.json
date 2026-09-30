@@ -1,0 +1,256 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://aioff.app/schema/rules.schema.json",
+  "title": "AI Off ruleset",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "minExtensionVersion", "hostGroups", "sites", "network", "mute", "provenance"],
+  "properties": {
+    "version": { "type": "string", "pattern": "^\\d{4}\\.\\d{1,2}\\.\\d{1,2}\\.\\d+$" },
+    "minExtensionVersion": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "generatedAt": { "type": "string" },
+    "hostGroups": {
+      "type": "object",
+      "propertyNames": { "pattern": "^[a-z0-9-]+\\.\\*$" },
+      "additionalProperties": { "type": "array", "items": { "$ref": "#/definitions/domain" }, "minItems": 1 }
+    },
+    "sites": { "type": "array", "items": { "$ref": "#/definitions/site" } },
+    "network": { "type": "array", "items": { "$ref": "#/definitions/networkRule" } },
+    "mute": { "$ref": "#/definitions/mute" },
+    "provenance": { "$ref": "#/definitions/provenance" }
+  },
+  "definitions": {
+    "level": { "type": "integer", "minimum": 1, "maximum": 4 },
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$", "maxLength": 64 },
+    "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "domain": { "type": "string", "pattern": "^(?=.{1,253}$)([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\\.)+[a-z][a-z0-9-]{1,62}$" },
+    "matchPattern": {
+      "type": "string",
+      "pattern": "^(<all_urls>|(\\*|https?)://(\\*|(\\*\\.)?[a-z0-9.-]+(\\.\\*)?)/.*)$"
+    },
+    "selectorList": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "site": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "category", "match", "level", "rules"],
+      "properties": {
+        "id": { "$ref": "#/definitions/id" },
+        "name": { "type": "string" },
+        "category": {
+          "enum": ["search", "google", "microsoft", "social", "commerce", "knowledge", "dev", "productivity", "generic"]
+        },
+        "match": { "type": "array", "items": { "$ref": "#/definitions/matchPattern" }, "minItems": 1 },
+        "excludeMatch": { "type": "array", "items": { "$ref": "#/definitions/matchPattern" } },
+        "level": { "$ref": "#/definitions/level" },
+        "generic": { "type": "boolean" },
+        "rules": { "type": "array", "items": { "$ref": "#/definitions/rule" }, "minItems": 1 },
+        "healthcheck": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["entries"],
+          "properties": {
+            "requiresLogin": { "type": "boolean" },
+            "setup": { "type": "string" },
+            "entries": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["url"],
+                "properties": {
+                  "url": { "type": "string", "pattern": "^https://" },
+                  "expect": { "type": "array", "items": { "$ref": "#/definitions/id" } },
+                  "locale": { "type": "string" },
+                  "note": { "type": "string" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "ruleCommon": {
+      "type": "object",
+      "required": ["id", "kind", "description"],
+      "properties": {
+        "id": { "$ref": "#/definitions/id" },
+        "description": { "type": "string", "minLength": 8 },
+        "level": { "$ref": "#/definitions/level" },
+        "since": { "$ref": "#/definitions/date" },
+        "until": { "$ref": "#/definitions/date" },
+        "defaultEnabled": { "type": "boolean" }
+      }
+    },
+    "rule": {
+      "allOf": [{ "$ref": "#/definitions/ruleCommon" }],
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["selectors"],
+          "additionalProperties": false,
+          "properties": {
+            "id": {}, "description": {}, "level": {}, "since": {}, "until": {}, "defaultEnabled": {},
+            "kind": { "enum": ["hide", "remove"] },
+            "selectors": { "$ref": "#/definitions/selectorList" },
+            "textAnchors": { "type": "array", "items": { "type": "string", "minLength": 3 } },
+            "anchorTarget": { "enum": ["block", "control", "self"] },
+            "anchorContainer": { "type": "string" },
+            "anchorScope": { "$ref": "#/definitions/selectorList" },
+            "hideClosest": { "type": "string" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "id": {}, "description": {}, "level": {}, "since": {}, "until": {}, "defaultEnabled": {},
+            "kind": { "const": "urlRewrite" },
+            "when": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "paramMissing": {
+                  "oneOf": [{ "type": "string" }, { "type": "array", "items": { "type": "string" } }]
+                },
+                "pathPrefix": { "type": "string" }
+              }
+            },
+            "set": { "type": "object", "additionalProperties": { "type": "string" } },
+            "remove": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["cookie"],
+          "additionalProperties": false,
+          "properties": {
+            "id": {}, "description": {}, "level": {}, "since": {}, "until": {}, "defaultEnabled": {},
+            "kind": { "const": "setCookie" },
+            "cookie": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["name", "value", "domain"],
+              "properties": {
+                "name": { "type": "string" },
+                "value": { "type": "string" },
+                "domain": { "type": "string" },
+                "path": { "type": "string" },
+                "maxAgeDays": { "type": "integer", "minimum": 1, "maximum": 400 }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["selector"],
+          "additionalProperties": false,
+          "properties": {
+            "id": {}, "description": {}, "level": {}, "since": {}, "until": {}, "defaultEnabled": {},
+            "kind": { "const": "click" },
+            "selector": { "type": "string" },
+            "onlyIf": { "type": "string" }
+          }
+        }
+      ]
+    },
+    "networkRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "level", "description", "domains"],
+      "properties": {
+        "id": { "$ref": "#/definitions/id" },
+        "kind": { "const": "block" },
+        "level": { "$ref": "#/definitions/level" },
+        "description": { "type": "string" },
+        "domains": { "type": "array", "items": { "$ref": "#/definitions/domain" }, "minItems": 1 },
+        "resourceTypes": {
+          "type": "array",
+          "items": {
+            "enum": ["main_frame", "sub_frame", "stylesheet", "script", "image", "font", "object", "xmlhttprequest", "ping", "media", "websocket", "other"]
+          }
+        },
+        "blockNavigation": { "type": "boolean" }
+      }
+    },
+    "muteContainer": {
+      "oneOf": [
+        { "type": "string", "minLength": 1 },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["selector"],
+          "properties": {
+            "selector": { "type": "string" },
+            "text": { "type": "string" },
+            "nextSiblings": { "type": "integer", "minimum": 0, "maximum": 3 }
+          }
+        }
+      ]
+    },
+    "mute": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "terms", "exclusions", "matchMode", "containers", "genericContainers", "headlineSelectors", "ads"],
+      "properties": {
+        "level": { "$ref": "#/definitions/level" },
+        "terms": { "type": "array", "items": { "type": "string", "minLength": 2 }, "minItems": 1 },
+        "exclusions": { "type": "array", "items": { "type": "string" } },
+        "matchMode": { "const": "wordBoundary" },
+        "containers": {
+          "type": "object",
+          "additionalProperties": { "type": "array", "items": { "$ref": "#/definitions/muteContainer" } }
+        },
+        "genericContainers": { "type": "array", "items": { "$ref": "#/definitions/muteContainer" } },
+        "headlineSelectors": { "$ref": "#/definitions/selectorList" },
+        "ads": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["slotSelectors", "landingDomains"],
+          "properties": {
+            "slotSelectors": { "$ref": "#/definitions/selectorList" },
+            "landingDomains": { "type": "array", "items": { "$ref": "#/definitions/domain" } }
+          }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "hideC2paGenerative", "generativeSourceTypes", "editedSourceTypes", "minImagePixels", "domainLists", "youtubeChannelLists", "starterDomains", "starterYoutubeChannels", "resultContainers", "platformLabels"],
+      "properties": {
+        "level": { "$ref": "#/definitions/level" },
+        "hideC2paGenerative": { "type": "boolean" },
+        "generativeSourceTypes": { "type": "array", "items": { "type": "string" } },
+        "editedSourceTypes": { "type": "array", "items": { "type": "string" } },
+        "minImagePixels": { "type": "integer", "minimum": 0 },
+        "domainLists": { "type": "array", "items": { "type": "string", "pattern": "^https://" } },
+        "youtubeChannelLists": { "type": "array", "items": { "type": "string", "pattern": "^https://" } },
+        "starterDomains": { "type": "array", "items": { "type": "string" } },
+        "starterYoutubeChannels": { "type": "array", "items": { "type": "string" } },
+        "resultContainers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["host", "container"],
+            "properties": { "host": { "type": "string" }, "container": { "type": "string" } }
+          }
+        },
+        "platformLabels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["host", "container", "labelSelectors"],
+            "properties": {
+              "host": { "type": "string" },
+              "container": { "type": "string" },
+              "labelSelectors": { "$ref": "#/definitions/selectorList" },
+              "textAnchors": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        }
+      }
+    }
+  }
+}

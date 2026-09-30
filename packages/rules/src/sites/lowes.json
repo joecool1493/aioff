@@ -1,0 +1,35 @@
+{
+  "id": "lowes",
+  "name": "Lowe's",
+  "category": "commerce",
+  "match": [
+    "*://www.lowes.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "lowes-mylow",
+      "kind": "hide",
+      "selectors": [
+        ".nav-diy-icons:has(> [data-linkid=\"mylow\"])",
+        "li:has(> [data-linkid=\"Mylow\"])",
+        ".review-ai-summary"
+      ],
+      "description": "Lowes Mylow assistant links and AI review summary",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://www.lowes.com/"
+      }
+    ]
+  }
+}

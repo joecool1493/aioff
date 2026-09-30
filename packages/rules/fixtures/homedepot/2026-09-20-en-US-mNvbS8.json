@@ -1,0 +1,9 @@
+{
+  "kind": "captured",
+  "url": "https://www.homedepot.com/",
+  "locale": "en-US",
+  "capturedAt": "2026-09-20T21:59:32.179Z",
+  "expect": [
+    "homedepot-magic-apron"
+  ]
+}

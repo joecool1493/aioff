@@ -1,0 +1,75 @@
+{
+  "id": "search-ecosia",
+  "name": "Ecosia",
+  "category": "search",
+  "match": [
+    "*://www.ecosia.org/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "ecosia-cookie-ecnoai",
+      "kind": "setCookie",
+      "cookie": {
+        "name": "ECNOAI",
+        "value": "true",
+        "domain": ".ecosia.org",
+        "maxAgeDays": 365
+      },
+      "description": "Set the site's own preference: AI-free searching (name verified in Ecosia JS; value from Stevo list, parser accepts true/1)",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": "AI-free searching (name verified in Ecosia JS; value from Stevo list, parser accepts true/1)"
+      }
+    },
+    {
+      "id": "e-aio",
+      "kind": "hide",
+      "selectors": [
+        "[data-test-id=\"mainline-result-aiOverview\"]",
+        "[data-test-id=\"ai-overview\"]",
+        ".ai-overview__card"
+      ],
+      "description": "AI Overview card",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": "own live observation"
+      }
+    },
+    {
+      "id": "e-chat",
+      "kind": "hide",
+      "selectors": [
+        "[data-test-id=\"search-navigation-item-chat\"]",
+        ".search-navigation__divider:has(+ [data-test-id=\"search-navigation-item-chat\"])",
+        "[data-test-id=\"ai-chat-ai-overview-entry-point\"]",
+        ".omnibox-search-form__ai-chat",
+        ".omnibox-search-form__ai-search",
+        ".ai-search-button",
+        "[data-test-id=\"search-form-ai-suggestion\"]"
+      ],
+      "textAnchors": [
+        "AI Chat",
+        "AI Search"
+      ],
+      "description": "AI Chat nav item and search box entry points",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": "Stevos-AI-Blocklist (MIT); EasyList AI list (fact); nav item reproduced live"
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://www.ecosia.org/search?q=what+is+photosynthesis",
+        "expect": [
+          "e-chat"
+        ]
+      }
+    ]
+  }
+}

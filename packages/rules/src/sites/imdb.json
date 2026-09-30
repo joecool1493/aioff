@@ -1,0 +1,33 @@
+{
+  "id": "imdb",
+  "name": "IMDb",
+  "category": "knowledge",
+  "match": [
+    "*://www.imdb.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "imdb-ai-review-summary",
+      "kind": "hide",
+      "selectors": [
+        "[data-testid=\"ai-review-summary\"]"
+      ],
+      "description": "IMDb AI review summary",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://www.imdb.com/title/tt0111161/"
+      }
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "tiktok",
+  "name": "TikTok",
+  "category": "social",
+  "match": [
+    "*://www.tiktok.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "tiktok-ai-generated-label",
+      "kind": "hide",
+      "selectors": [],
+      "textAnchors": [
+        "AI-generated",
+        "Creator labeled as AI-generated",
+        "AI-generated media"
+      ],
+      "description": "AI-generated label on videos, Level 3 signal. Text anchors only",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "low",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://www.tiktok.com/explore"
+      }
+    ]
+  }
+}

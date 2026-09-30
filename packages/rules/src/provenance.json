@@ -1,0 +1,140 @@
+{
+  "level": 3,
+  "hideC2paGenerative": true,
+  "generativeSourceTypes": [
+    "trainedAlgorithmicMedia"
+  ],
+  "editedSourceTypes": [
+    "compositeWithTrainedAlgorithmicMedia",
+    "compositeSynthetic",
+    "virtualRecording"
+  ],
+  "minImagePixels": 40000,
+  "domainLists": [
+    "https://raw.githubusercontent.com/laylavish/uBlockOrigin-HUGE-AI-Blocklist/main/list_uBlacklist.txt"
+  ],
+  "youtubeChannelLists": [],
+  "starterDomains": [],
+  "starterYoutubeChannels": [],
+  "resultContainers": [
+    {
+      "host": "google",
+      "container": "#rso div.MjjYud, #rso div.g, div[data-lpage]"
+    },
+    {
+      "host": "bing.com",
+      "container": "li.b_algo, .imgpt, .iusc"
+    },
+    {
+      "host": "duckduckgo.com",
+      "container": "article[data-testid='result'], li[data-layout='organic'], .tile--img"
+    },
+    {
+      "host": "search.brave.com",
+      "container": "div.snippet[data-type='web'], div.snippet"
+    },
+    {
+      "host": "search.yahoo.com",
+      "container": "#web li .algo, #web li"
+    },
+    {
+      "host": "ecosia.org",
+      "container": "[data-test-id='mainline-result-web'], article.result"
+    },
+    {
+      "host": "startpage.com",
+      "container": ".result, .w-gl__result"
+    },
+    {
+      "host": "kagi.com",
+      "container": ".search-result, ._0_SRI"
+    }
+  ],
+  "platformLabels": [
+    {
+      "host": "pinterest.com",
+      "container": "[data-test-id='pin'], [data-grid-item]",
+      "labelSelectors": [
+        "[data-test-id='ai-modified-label']",
+        "[data-test-id='gen-ai-label']"
+      ],
+      "textAnchors": [
+        "AI modified",
+        "AI-generated"
+      ]
+    },
+    {
+      "host": "tiktok.com",
+      "container": "[data-e2e='recommend-list-item-container'], [data-e2e='search_top-item'], [data-e2e='user-post-item']",
+      "labelSelectors": [
+        "[data-e2e='aigc-label']"
+      ],
+      "textAnchors": [
+        "AI-generated",
+        "Creator labeled as AI-generated"
+      ]
+    },
+    {
+      "host": "instagram.com",
+      "container": "article",
+      "labelSelectors": [],
+      "textAnchors": [
+        "AI info"
+      ]
+    },
+    {
+      "host": "facebook.com",
+      "container": "div[role='article'][aria-posinset]",
+      "labelSelectors": [],
+      "textAnchors": [
+        "AI info"
+      ]
+    },
+    {
+      "host": "threads.com",
+      "container": "div[data-pressable-container='true']",
+      "labelSelectors": [],
+      "textAnchors": [
+        "AI info"
+      ]
+    },
+    {
+      "host": "linkedin.com",
+      "container": "div.feed-shared-update-v2",
+      "labelSelectors": [
+        "button[aria-label*='Content credentials' i]",
+        "[class*='content-credentials']"
+      ],
+      "textAnchors": []
+    },
+    {
+      "host": "youtube.com",
+      "container": "ytd-rich-item-renderer, ytd-video-renderer, yt-lockup-view-model",
+      "labelSelectors": [
+        "[aria-label*='Altered or synthetic' i]"
+      ],
+      "textAnchors": [
+        "Altered or synthetic content"
+      ]
+    },
+    {
+      "host": "x.com",
+      "container": "article[data-testid='tweet']",
+      "labelSelectors": [
+        "a[href^='/i/grok/share/']",
+        "[aria-label='Made with AI']"
+      ],
+      "textAnchors": [
+        "Made with AI"
+      ]
+    },
+    {
+      "host": "bsky.app",
+      "container": "div[data-testid^='feedItem-']",
+      "labelSelectors": [],
+      "textAnchors": [
+        "AI-generated"
+      ]
+    }
+  ]
+}

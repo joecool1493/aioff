@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="AI Off privacy details" description="AI Off's request inventory: rules, labels, managed settings, optional sync, payments, and email. No telemetry or student reporting in v1." narrow>
+  <h1>AI Off privacy details</h1>
+  <p class="intro">No telemetry, analytics, crash reporting, fingerprinting, advertising identifiers, accounts, or AI. Recipients see connection information, including IP addresses.</p>
+
+  <h2>Requests</h2>
+  <p><strong>Signed rules:</strong> <code>rules.aioff.app/rules.json</code> and <code>rules.json.sig</code>, every six hours. Same public feed, no identifier.</p>
+  <p><strong>Lists:</strong> Level 3 and above fetch public GitHub domain/channel lists daily.</p>
+  <p><strong>Images:</strong> Level 3 and above read labels locally. Cache misses fetch image bytes from their source only.</p>
+  <p><strong>Policy:</strong> Configured hosted URLs: every 15 minutes. Static policies: no hosted request.</p>
+  <p><strong>Sync:</strong> Not available yet. When enabled, <code>sync.aioff.app</code> receives passphrase-encrypted settings, a sync identifier, and a license key without name/email. Stored ciphertext is unreadable without the passphrase. Requests: during use and every six hours.</p>
+  <p><strong>Purchases:</strong> Not available yet. Stripe or Lemon Squeezy handles payment/email under its policy; purchase notifications reach the license service. <code>license.aioff.app</code> uses provider/receipt identifiers for key pickup, retrying every three seconds for about one minute. Receipt/key retention: 366 days; no email customer database. Configured Resend delivery receives address/message.</p>
+  <p><strong>Chosen links:</strong> GitHub receives opened links; reports submit only after review and Submit, containing URL/selector. Exclude private content. Email shares address/message.</p>
+  <p><strong>Network:</strong> Subscribed tools fetch list files from <code>rules.aioff.app</code> on their schedule. DNS providers process DNS requests under their policies. Partner profile unavailable.</p>
+
+  <h2>Local data and site</h2>
+  <p>Local: level, paused sites, words, rules, daily per-rule counts without URLs/content, image-label cache keyed by hashed address. Only optional sync sends encrypted settings. License checks are local.</p>
+  <p>No student data/reporting in v1. Future aggregate reporting requires default-off controls, disclosure inside the extension, and a signed data privacy agreement.</p>
+  <p>Static site: no cookies, third-party scripts, or fonts. Checkout is external.</p>
+</Base>

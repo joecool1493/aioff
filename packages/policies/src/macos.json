@@ -1,0 +1,229 @@
+{
+ "restrictionKeys": [
+  {
+   "key": "allowWritingTools",
+   "payloadType": "com.apple.applicationaccess",
+   "type": "boolean",
+   "valueToDisable": false,
+   "minOS": "15.0",
+   "requiresSupervision": false,
+   "allowManualInstall": true,
+   "deprecatedIn": "26.4",
+   "verified": true,
+   "source": "https://developer.apple.com/documentation/devicemanagement/restrictions ; https://github.com/apple/device-management/blob/release/mdm/profiles/com.apple.applicationaccess.yaml"
+  },
+  {
+   "key": "allowGenmoji",
+   "payloadType": "com.apple.applicationaccess",
+   "type": "boolean",
+   "valueToDisable": false,
+   "minOS": "15.0",
+   "requiresSupervision": false,
+   "allowManualInstall": true,
+   "deprecatedIn": "26.4",
+   "verified": true,
+   "source": "https://developer.apple.com/documentation/devicemanagement/restrictions ; https://github.com/apple/device-management/blob/release/mdm/profiles/com.apple.applicationaccess.yaml"
+  },
+  {
+   "key": "allowImagePlayground",
+   "payloadType": "com.apple.applicationaccess",
+   "type": "boolean",
+   "valueToDisable": false,
+   "minOS": "15.0",
+   "requiresSupervision": false,
+   "allowManualInstall": true,
+   "deprecatedIn": "26.4",
+   "verified": true,
+   "source": "https://developer.apple.com/documentation/devicemanagement/restrictions ; https://github.com/apple/device-management/blob/release/mdm/profiles/com.apple.applicationaccess.yaml"
+  },
+  {
+   "key": "allowMailSummary",
+   "payloadType": "com.apple.applicationaccess",
+   "type": "boolean",
+   "valueToDisable": false,
+   "minOS": "15.1",
+   "requiresSupervision": false,
+   "allowManualInstall": true,
+   "deprecatedIn": "26.4",
+   "verified": true,
+   "source": "https://developer.apple.com/documentation/devicemanagement/restrictions ; https://github.com/apple/device-management/blob/release/mdm/profiles/com.apple.applicationaccess.yaml",
+   "notes": "Manual summaries only; does not affect automatic summary generation."
+  },
+  {
+   "key": "allowMailSmartReplies",
+   "payloadType": "com.apple.applicationaccess",
+   "type": "boolean",
+   "valueToDisable": false,
+   "minOS": "15.4",
+   "requiresSupervision": false,
+   "allowManualInstall": true,
+   "deprecatedIn": "26.4",
+   "verified": true,
+   "source": "https://developer.apple.com/documentation/devicemanagement/restrictions ; https://github.com/apple/device-management/blob/release/mdm/profiles/com.apple.applicationaccess.yaml"
+  },
+  {
+   "key": "allowSafariSummary",
+   "payloadType": "com.apple.applicationaccess",
+   "type": "boolean",
+   "valueToDisable": false,
+   "minOS": "15.4",
+   "requiresSupervision": false,
+   "allowManualInstall": true,
+   "deprecatedIn": "26.4",
+   "verified": true,
+   "source": "https://developer.apple.com/documentation/devicemanagement/restrictions ; https://github.com/apple/device-management/blob/release/mdm/profiles/com.apple.applicationaccess.yaml"
+  },
+  {
+   "key": "allowNotesTranscription",
+   "payloadType": "com.apple.applicationaccess",
+   "type": "boolean",
+   "valueToDisable": false,
+   "minOS": "15.4",
+   "requiresSupervision": false,
+   "allowManualInstall": true,
+   "deprecatedIn": "26.4",
+   "verified": true,
+   "source": "https://developer.apple.com/documentation/devicemanagement/restrictions ; https://github.com/apple/device-management/blob/release/mdm/profiles/com.apple.applicationaccess.yaml"
+  },
+  {
+   "key": "allowNotesTranscriptionSummary",
+   "payloadType": "com.apple.applicationaccess",
+   "type": "boolean",
+   "valueToDisable": false,
+   "minOS": "15.3",
+   "requiresSupervision": false,
+   "allowManualInstall": true,
+   "deprecatedIn": "26.4",
+   "verified": true,
+   "source": "https://developer.apple.com/documentation/devicemanagement/restrictions ; https://github.com/apple/device-management/blob/release/mdm/profiles/com.apple.applicationaccess.yaml"
+  },
+  {
+   "key": "allowAppleIntelligenceReport",
+   "payloadType": "com.apple.applicationaccess",
+   "type": "boolean",
+   "valueToDisable": false,
+   "minOS": "15.4",
+   "requiresSupervision": false,
+   "allowManualInstall": true,
+   "deprecatedIn": "26.4",
+   "verified": true,
+   "source": "https://developer.apple.com/documentation/devicemanagement/restrictions ; https://github.com/apple/device-management/blob/release/mdm/profiles/com.apple.applicationaccess.yaml"
+  },
+  {
+   "key": "allowExternalIntelligenceIntegrations",
+   "payloadType": "com.apple.applicationaccess",
+   "type": "boolean",
+   "valueToDisable": false,
+   "minOS": "15.2",
+   "requiresSupervision": false,
+   "allowManualInstall": true,
+   "deprecatedIn": "26.4",
+   "verified": true,
+   "source": "https://developer.apple.com/documentation/devicemanagement/restrictions ; https://github.com/apple/device-management/blob/release/mdm/profiles/com.apple.applicationaccess.yaml",
+   "notes": "ChatGPT and other external providers. Allowed in user enrollments."
+  },
+  {
+   "key": "allowExternalIntelligenceIntegrationsSignIn",
+   "payloadType": "com.apple.applicationaccess",
+   "type": "boolean",
+   "valueToDisable": false,
+   "minOS": "15.2",
+   "requiresSupervision": false,
+   "allowManualInstall": true,
+   "deprecatedIn": "26.4",
+   "verified": true,
+   "source": "https://developer.apple.com/documentation/devicemanagement/restrictions ; https://github.com/apple/device-management/blob/release/mdm/profiles/com.apple.applicationaccess.yaml"
+  },
+  {
+   "key": "allowedExternalIntelligenceWorkspaceIDs",
+   "payloadType": "com.apple.applicationaccess",
+   "type": "array",
+   "valueToDisable": null,
+   "minOS": "15.3",
+   "requiresSupervision": false,
+   "allowManualInstall": false,
+   "deprecatedIn": "26.4",
+   "verified": true,
+   "source": "https://developer.apple.com/documentation/devicemanagement/restrictions ; https://github.com/apple/device-management/blob/release/mdm/profiles/com.apple.applicationaccess.yaml",
+   "notes": "MDM only on macOS (allowmanualinstall false). Array with one string."
+  },
+  {
+   "key": "allowAssistant",
+   "payloadType": "com.apple.applicationaccess",
+   "type": "boolean",
+   "valueToDisable": false,
+   "minOS": "14.0",
+   "requiresSupervision": false,
+   "allowManualInstall": true,
+   "deprecatedIn": "26.4",
+   "verified": true,
+   "source": "https://developer.apple.com/documentation/devicemanagement/restrictions ; https://github.com/apple/device-management/blob/release/mdm/profiles/com.apple.applicationaccess.yaml",
+   "notes": "Disables Siri entirely."
+  },
+  {
+   "key": "allowDictation",
+   "payloadType": "com.apple.applicationaccess",
+   "type": "boolean",
+   "valueToDisable": false,
+   "minOS": "10.13",
+   "requiresSupervision": false,
+   "allowManualInstall": true,
+   "deprecatedIn": "26.4",
+   "verified": true,
+   "source": "https://developer.apple.com/documentation/devicemanagement/restrictions ; https://github.com/apple/device-management/blob/release/mdm/profiles/com.apple.applicationaccess.yaml"
+  },
+  {
+   "key": "forceOnDeviceOnlyDictation",
+   "payloadType": "com.apple.applicationaccess",
+   "type": "boolean",
+   "valueToDisable": true,
+   "minOS": "14.0",
+   "requiresSupervision": false,
+   "allowManualInstall": true,
+   "deprecatedIn": "26.4",
+   "verified": true,
+   "source": "https://developer.apple.com/documentation/devicemanagement/restrictions ; https://github.com/apple/device-management/blob/release/mdm/profiles/com.apple.applicationaccess.yaml",
+   "notes": "Set true to keep dictation on device."
+  },
+  {
+   "key": "allowCallRecording",
+   "payloadType": "com.apple.applicationaccess",
+   "type": "boolean",
+   "valueToDisable": false,
+   "minOS": "26.0",
+   "requiresSupervision": false,
+   "allowManualInstall": true,
+   "deprecatedIn": null,
+   "verified": true,
+   "source": "https://developer.apple.com/documentation/devicemanagement/restrictions ; https://github.com/apple/device-management/blob/release/mdm/profiles/com.apple.applicationaccess.yaml"
+  },
+  {
+   "key": "allowImageWand",
+   "minOS": "n/a on macOS (iOS 18.0, supervised)",
+   "requiresSupervision": "n/a",
+   "verified": true,
+   "source": "https://github.com/apple/device-management/blob/release/mdm/profiles/com.apple.applicationaccess.yaml"
+  },
+  {
+   "key": "allowPersonalizedHandwritingResults",
+   "minOS": "n/a on macOS (iOS 18.0, supervised)",
+   "requiresSupervision": "n/a",
+   "verified": true,
+   "source": "https://github.com/apple/device-management/blob/release/mdm/profiles/com.apple.applicationaccess.yaml"
+  },
+  {
+   "key": "allowVisualIntelligenceSummary",
+   "minOS": "n/a on macOS (iOS 18.3, supervised)",
+   "requiresSupervision": "n/a",
+   "verified": true,
+   "source": "https://github.com/apple/device-management/blob/release/mdm/profiles/com.apple.applicationaccess.yaml"
+  },
+  {
+   "key": "allowSiriAI",
+   "minOS": "n/a on macOS in legacy payload (iOS 27.0); macOS 27 only via declarative com.apple.configuration.siri.settings AllowSiriAI (supervised)",
+   "requiresSupervision": "n/a",
+   "verified": true,
+   "source": "https://github.com/apple/device-management/blob/release/mdm/profiles/com.apple.applicationaccess.yaml"
+  }
+ ]
+}

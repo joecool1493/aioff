@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "orgName": { "type": "string", "title": "Organization name", "description": "Shown to the user as: Managed by <orgName>." },
+    "level": { "type": "integer", "title": "Level (1 to 4)", "description": "1 hide AI features, 2 also mute AI talk, 3 also hide AI-made content, 4 also block AI sites." },
+    "locked": { "type": "boolean", "title": "Lock settings", "description": "When true the user cannot pause, allow-list, or change the level." },
+    "allowSites": { "type": "array", "title": "Sites where AI Off stays out of the way", "items": { "type": "string" } },
+    "denyExtraDomains": { "type": "array", "title": "Extra domains to block", "items": { "type": "string" } },
+    "muteExtraTerms": { "type": "array", "title": "Extra words to mute at Level 2", "items": { "type": "string" } },
+    "schedule": {
+      "type": "object",
+      "properties": {
+        "timezone": { "type": "string" },
+        "alwaysOn": { "type": "boolean" },
+        "windows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "days": { "type": "array", "items": { "type": "integer" } },
+              "start": { "type": "string" },
+              "end": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "examMode": {
+      "type": "object",
+      "properties": { "enabled": { "type": "boolean" }, "until": { "type": "string" } }
+    },
+    "reporting": { "type": "object", "properties": { "mode": { "type": "string" } } },
+    "configUrl": { "type": "string", "title": "Hosted config URL (optional)", "description": "Signed org config fetched every 15 minutes. Leave empty for static policy with no extra network calls." }
+  }
+}

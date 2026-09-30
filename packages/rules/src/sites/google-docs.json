@@ -1,0 +1,219 @@
+{
+  "id": "google-docs",
+  "name": "Google Docs, Sheets, Slides",
+  "category": "google",
+  "match": [
+    "*://docs.google.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "gdocs-gemini-header-button",
+      "kind": "hide",
+      "selectors": [
+        "#docs-sidekick-button-container",
+        "#docs-sidekick-gen-ai-promo-button-container",
+        ".appsElementsSidekickAuroraEntryPointRoot"
+      ],
+      "textAnchors": [
+        "Ask Gemini",
+        "Try Gemini"
+      ],
+      "anchorTarget": "control",
+      "description": "Gemini button in the editor header (opens side panel) and its promo variant",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    },
+    {
+      "id": "gdocs-help-me-write-pill",
+      "kind": "hide",
+      "selectors": [
+        ".superfab-aitextgeneratormenu-button",
+        ".WithHideTransition.kixWizBarkickWrapper",
+        ".appsElementsSidekickBarkickMinimizedButton",
+        ".appsElementsCalloutIsPrimary.appsElementsCalloutAnchorPaddingContainer"
+      ],
+      "textAnchors": [
+        "Help me write",
+        "Write with Gemini"
+      ],
+      "anchorTarget": "control",
+      "description": "Floating Help me write pill and Write with Gemini footer bar in Docs",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    },
+    {
+      "id": "gdocs-refine-selection",
+      "kind": "hide",
+      "selectors": [
+        ".inlineFabBubbleContainerRefineButtonContainer",
+        ".appsSketchyPluginsFloatingToolbarFloatingToolbarComponentGenerativeAiButton"
+      ],
+      "description": "Refine (AI rewrite) icon in the text selection bubble (Docs) and floating toolbar (Slides)",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "gdocs-menu-gemini",
+      "kind": "hide",
+      "selectors": [
+        "#docs-gemini-menu",
+        ".ai-standard-menu-item",
+        ".apps-menuitem:has(.goog-menuitem-label[aria-label=\"Gemini 2\"])"
+      ],
+      "description": "Gemini top-level menu (Sheets) and AI menu items in Tools",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "gdocs-audio-tts",
+      "kind": "hide",
+      "selectors": [
+        "#textToSpeechToolbarButton"
+      ],
+      "textAnchors": [
+        "Listen to this tab"
+      ],
+      "description": "AI audio (Listen to this tab) toolbar button",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "gsheets-gemini-formula",
+      "kind": "hide",
+      "selectors": [
+        ".FormulaBarContainerGeminiSummarizeButton",
+        ".geminiFixButtonWrapper",
+        ".waffle-unified-formula-help-gemini-button-only",
+        ".waffleGriddySuggestionsBubbleGeminiUi",
+        ".extendTableControlsOverlayIconContainer:has(> .extendTableControlsOverlayColumnsmithIcon)"
+      ],
+      "textAnchors": [
+        "Summarize this data"
+      ],
+      "anchorTarget": "control",
+      "description": "Sheets: Summarize this data, Gemini formula fix or generate, Insert AI column",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "gsheets-help-me-create-table",
+      "kind": "hide",
+      "selectors": [
+        ".building-blocks-sidekick-entrypoint-button",
+        ".building-blocks-promo-container"
+      ],
+      "textAnchors": [
+        "Help me create a table"
+      ],
+      "anchorTarget": "control",
+      "description": "Sheets pre-built tables: Help me create a table and AI enhanced tables promo",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "gslides-generate",
+      "kind": "hide",
+      "selectors": [
+        "#content-library-rail-slide-generation-element",
+        "#openSidekickForSlideGenerationButton",
+        ".goog-menuitem:has([aria-label^=\"Help me visualize\"])",
+        ".goog-menuitem:has([aria-label^=\"Create a slide\"])",
+        ".goog-menuitem:has([aria-label^=\"Beautify this slide\"])"
+      ],
+      "textAnchors": [
+        "Help me visualize",
+        "Beautify this slide"
+      ],
+      "anchorTarget": "control",
+      "description": "Slides: slide and image generation entry points and menu items",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "gvids-generate",
+      "kind": "hide",
+      "selectors": [
+        "#content-library-rail-image-synthesis-element",
+        "#content-library-rail-avatars-element",
+        "#content-library-rail-voiceovers-element",
+        "#content-library-rail-video-generation-element",
+        "#video-generation-promo"
+      ],
+      "description": "Vids: Generate, Avatar, Voiceover, Veo rail buttons and promo",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "gforms-help-me-create",
+      "kind": "hide",
+      "selectors": [
+        "[data-action-id=\"freebird-open-help-me-ask-from-icon\"]",
+        "[role=\"menuitem\"]:has(> [data-action-id=\"freebird-open-help-me-ask-from-icon\"])"
+      ],
+      "textAnchors": [
+        "Help me create a form"
+      ],
+      "anchorTarget": "control",
+      "description": "Forms: Help me create a form button",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "requiresLogin": true,
+    "entries": []
+  }
+}

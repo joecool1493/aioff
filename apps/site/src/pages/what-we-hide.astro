@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import ruleset from '@aioff/rules';
+import type { Ruleset, HideRule } from '@aioff/core';
+import summary from '@aioff/rules/dist/summary.json';
+const rs = ruleset as unknown as Ruleset;
+const publishedDate = new Date(summary.generatedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+const cats: [string, string][] = [['search', 'Search engines'], ['google', 'Google'], ['microsoft', 'Microsoft'], ['social', 'Social'], ['commerce', 'Shopping'], ['knowledge', 'Knowledge'], ['dev', 'Developer tools'], ['productivity', 'Work apps'], ['generic', 'Everywhere']];
+const kindLabel: Record<string, string> = { hide: 'hide', remove: 'remove', urlRewrite: 'ask for AI-free results', setCookie: "set the site's own AI-off preference", click: "click the site's own off switch" };
+---
+<Base title="What AI Off hides" description="Read AI Off's rules, word lists, labels, and blocked domains. See each rule's action, level, and exceptions.">
+  <h1>What AI Off hides</h1>
+  <p class="intro">{summary.ruleCount} rules across {summary.siteCount} sites. Version {summary.version}. Rules published: {publishedDate}.</p>
+  <p>These tables come from the rules. Opt in means a rule starts off, including GitHub Copilot rules.</p>
+  <p>Level 2 uses editable words. Level 3 uses declared labels and known lists. Levels 1 to 3 leave chatbots alone. Level 4 blocks listed AI services, including chatbots.</p>
+  <div class="notice"><p>Blackout blocks AI tools you may use. It is optional.</p></div>
+  <p>Site layouts vary. A rule can miss a target. A nightly check flags rules that stopped matching; it does not verify every account, language, or page.</p>
+  <p>Signed rule updates arrive as data. The extension checks every six hours.</p>
+  <p><a href="/privacy/">Network requests</a></p>
+  {cats.map(([cat, label]) => {
+    const sites = rs.sites.filter((s) => s.category === cat);
+    if (!sites.length) return null;
+    return (
+      <section>
+        <h2>{label}</h2>
+        <div class="faq">
+        {sites.map((site) => (
+          <details>
+            <summary><span><strong>{site.name}</strong> <span class="soft small">{site.rules.length} {site.rules.length === 1 ? 'rule' : 'rules'}</span></span></summary>
+            <div class="table-scroll"><table>
+              <thead><tr><th>What</th><th>How</th><th>Level</th></tr></thead>
+              <tbody>
+                {site.rules.map((r) => (
+                  <tr>
+                    <td>{r.description}{r.defaultEnabled === false && <span class="pill" style="margin-left:6px">Opt in</span>}<br /><code>{r.id}</code></td>
+                    <td class="soft">{kindLabel[r.kind]}{(r as HideRule).textAnchors?.length ? ', with a text fallback' : ''}</td>
+                    <td>{r.level ?? site.level}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table></div>
+          </details>
+        ))}
+        </div>
+      </section>
+    );
+  })}
+  <h2>Level 2 word list</h2>
+  <p>Whole words only. Short all-caps words such as "AI" match case exactly, so "said" and "Aidan" never trigger. Any word can be removed, and personal words can be added, in the extension.</p>
+  <p>{rs.mute.terms.map((t) => <><code>{t}</code>{' '}</>)}</p>
+  <h2>Network tiers</h2>
+  {rs.network.map((n) => (
+    <details><summary><strong>{n.description}</strong> <span class="soft">(Level {n.level}, {n.domains.length} domains)</span></summary><p>{n.domains.map((d) => <><code>{d}</code>{' '}</>)}</p></details>
+  ))}
+</Base>

@@ -1,0 +1,9 @@
+{
+  "kind": "captured",
+  "url": "https://www.ecosia.org/search?q=what+is+photosynthesis",
+  "locale": "en-US",
+  "capturedAt": "2026-09-20T21:55:44.117Z",
+  "expect": [
+    "e-chat"
+  ]
+}

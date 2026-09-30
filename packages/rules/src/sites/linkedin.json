@@ -1,0 +1,136 @@
+{
+  "id": "linkedin",
+  "name": "LinkedIn",
+  "category": "microsoft",
+  "match": [
+    "*://www.linkedin.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "li-rewrite-with-ai",
+      "kind": "hide",
+      "selectors": [
+        ".share-creation-state__writing-assistant-container--premium",
+        "[aria-label*=\"Rewrite with AI\"]",
+        "[aria-label*=\"Write with AI\"]"
+      ],
+      "textAnchors": [
+        "Rewrite with AI",
+        "Write with AI"
+      ],
+      "anchorTarget": "control",
+      "description": "Rewrite with AI button in the post composer",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/gggauravgandhi/no-more-ai/blob/main/public/rules/rules.json"
+        ]
+      }
+    },
+    {
+      "id": "li-ai-signal-icon",
+      "kind": "hide",
+      "selectors": [
+        "[data-test-icon*=\"signal-ai-small\"]",
+        "div.pvs-entity__secondary-action-container:has(svg[data-test-icon=\"premium-signal-ai-small\"])"
+      ],
+      "textAnchors": [
+        "Enhance with AI"
+      ],
+      "description": "Premium AI sparkle icon; profile Enhance with AI button. Hide the closest button or container, not just the svg",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://liverickson.com/blog/?p=385"
+        ]
+      }
+    },
+    {
+      "id": "li-post-takeaways",
+      "kind": "hide",
+      "selectors": [
+        ".artdeco-button[aria-label*=\"Get key takeaways from this post\"]",
+        ".coach-shared-hscroll-bar__multi-container"
+      ],
+      "textAnchors": [
+        "Get key takeaways from this post",
+        "AI-powered takeaways"
+      ],
+      "description": "AI takeaways button and coach prompt carousel under feed posts",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://liverickson.com/blog/?p=385",
+          "https://github.com/gggauravgandhi/no-more-ai/blob/main/public/rules/rules.json"
+        ]
+      }
+    },
+    {
+      "id": "li-ai-coach-prompts",
+      "kind": "hide",
+      "selectors": [
+        "[data-view-name*=\"ai-coach\"]",
+        "[data-view-name*=\"messaging-ai-suggestions\"]"
+      ],
+      "textAnchors": [
+        "Am I a good fit for this job?",
+        "How can I best position myself",
+        "Tailor my resume",
+        "Draft with AI",
+        "Help me write"
+      ],
+      "description": "Premium AI prompts on job pages and message drafting. Selectors are speculative (from no-more-ai)",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "low",
+        "source": [
+          "https://github.com/gggauravgandhi/no-more-ai/blob/main/public/rules/rules.json"
+        ]
+      }
+    },
+    {
+      "id": "li-ai-job-search",
+      "kind": "hide",
+      "selectors": [],
+      "textAnchors": [
+        "Describe the job you want",
+        "AI-powered job search",
+        "Hiring Assistant"
+      ],
+      "description": "AI job search entry. No selector found",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "low",
+        "source": [
+          "researcher memory of site DOM, not confirmed in any list on 2026-09-20"
+        ]
+      }
+    },
+    {
+      "id": "li-collab-article-badge",
+      "kind": "hide",
+      "selectors": [],
+      "textAnchors": [
+        "Powered by AI and the LinkedIn community"
+      ],
+      "description": "Collaborative article AI badge. No selector found",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "low",
+        "source": [
+          "researcher memory of site DOM, not confirmed in any list on 2026-09-20"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "requiresLogin": true,
+    "entries": []
+  }
+}

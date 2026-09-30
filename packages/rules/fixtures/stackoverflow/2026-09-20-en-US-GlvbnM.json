@@ -1,0 +1,11 @@
+{
+  "kind": "captured",
+  "url": "https://stackoverflow.com/questions",
+  "locale": "en-US",
+  "capturedAt": "2026-09-20T21:59:44.535Z",
+  "expect": [
+    "so-ai-assist-nav",
+    "so-ai-assist-home",
+    "so-agents-promo"
+  ]
+}

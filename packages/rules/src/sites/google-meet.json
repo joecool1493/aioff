@@ -1,0 +1,32 @@
+{
+  "id": "google-meet",
+  "name": "Google Meet",
+  "category": "google",
+  "match": [
+    "*://meet.google.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "gmeet-ai-background-promo",
+      "kind": "hide",
+      "selectors": [],
+      "textAnchors": [
+        "Express yourself with an AI-generated background"
+      ],
+      "anchorTarget": "control",
+      "description": "Meet landing promo (text match only in source)",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "low",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "requiresLogin": true,
+    "entries": []
+  }
+}

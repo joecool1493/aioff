@@ -1,0 +1,10 @@
+{
+  "kind": "captured",
+  "url": "https://search.brave.com/search?q=Why+are+we+here",
+  "locale": "en-US",
+  "capturedAt": "2026-09-20T21:55:18.128Z",
+  "expect": [
+    "br-answer",
+    "br-ask"
+  ]
+}

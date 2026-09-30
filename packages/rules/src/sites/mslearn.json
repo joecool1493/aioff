@@ -1,0 +1,44 @@
+{
+  "id": "mslearn",
+  "name": "Microsoft Learn",
+  "category": "microsoft",
+  "match": [
+    "*://learn.microsoft.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "mslearn-ask-learn",
+      "kind": "hide",
+      "selectors": [
+        "[data-bi-name=\"ask-learn-assistant-entry\"]",
+        "#ask-learn-flyout",
+        "[data-id=\"ai-summary\"]",
+        "#ms--ai-summary-cta",
+        "[data-assistant-on-homepage=\"enabled\"]",
+        "[id^=\"ai-answer-\"]"
+      ],
+      "textAnchors": [
+        "Ask Learn",
+        "Summarize this article for me"
+      ],
+      "anchorTarget": "control",
+      "description": "Microsoft Learn: Ask Learn, AI article summary, AI-generated Q and A answers",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://learn.microsoft.com/en-us/azure/"
+      }
+    ]
+  }
+}

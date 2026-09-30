@@ -1,0 +1,6 @@
+{
+  "kind": "synthetic",
+  "url": "https://docs.example.com/start",
+  "note": "Exercise for the generic phrase rule, including phrases that must NOT match.",
+  "expect": ["generic-ask-ai-buttons","generic-open-in-llm"]
+}

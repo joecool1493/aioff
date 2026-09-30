@@ -1,0 +1,34 @@
+{
+  "id": "figma",
+  "name": "Figma",
+  "category": "productivity",
+  "match": [
+    "*://www.figma.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "figma-ai-actions",
+      "kind": "hide",
+      "selectors": [],
+      "textAnchors": [
+        "First Draft",
+        "Make designs",
+        "Figma AI",
+        "Make an image"
+      ],
+      "description": "Figma Make and AI actions menu",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "low",
+        "source": [
+          "researcher memory of site DOM, not confirmed in any list on 2026-09-20"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "requiresLogin": true,
+    "entries": []
+  }
+}

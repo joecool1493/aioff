@@ -1,0 +1,30 @@
+{
+  "id": "proton-account",
+  "name": "Proton",
+  "category": "productivity",
+  "match": [
+    "*://account.proton.me/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "proton-lumo",
+      "kind": "hide",
+      "selectors": [
+        ".lumo-troubleshoot-launcher"
+      ],
+      "description": "Proton Lumo helper on the account login page",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "requiresLogin": true,
+    "entries": []
+  }
+}

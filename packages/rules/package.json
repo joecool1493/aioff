@@ -1,0 +1,28 @@
+{
+  "name": "@aioff/rules",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "description": "The AI Off rules feed: schema, per-site rule sources, fixtures, tests, build and sign scripts.",
+  "exports": {
+    ".": "./dist/rules.json",
+    "./schema": "./schema.json",
+    "./public-keys": "./public-keys.json",
+    "./load": "./scripts/load.ts",
+    "./dist/*": "./dist/*"
+  },
+  "scripts": {
+    "build": "tsx scripts/build.ts",
+    "sign": "tsx scripts/sign.ts",
+    "keygen": "tsx scripts/keygen.ts",
+    "verify": "tsx scripts/verify.ts",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@aioff/core": "workspace:*"
+  },
+  "devDependencies": {
+    "ajv": "^8.20.0"
+  }
+}

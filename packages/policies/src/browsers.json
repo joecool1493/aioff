@@ -1,0 +1,247 @@
+{
+ "_comment": "Verified against vendor docs on 2026-09-20. Source URLs are in the maintainers' notes. GenAiDefaultSettings is cloud-only in Chrome 147+ and is deliberately absent: every feature policy is set on its own.",
+ "chrome": {
+  "name": "Google Chrome",
+  "policies": {
+   "GeminiSettings": 1,
+   "GeminiActOnWebSettings": 1,
+   "GeminiSparkSettings": 1,
+   "AIModeSettings": 1,
+   "ThirdPartyAiChatSettings": 1,
+   "SearchContentSharingSettings": 1,
+   "SmartTabSharingSettings": 1,
+   "HelpMeWriteSettings": 2,
+   "HistorySearchSettings": 2,
+   "TabCompareSettings": 2,
+   "CreateThemesSettings": 2,
+   "DevToolsGenAiSettings": 2,
+   "AutofillPredictionSettings": 2,
+   "AutomatedPasswordChangeSettings": 2,
+   "VoiceTypingSettings": 2,
+   "TryOnYouSettings": 2,
+   "ChromeSuggestionsSettings": 1,
+   "GenAILocalFoundationalModelSettings": 1,
+   "BuiltInAIAPIsEnabled": false
+  },
+  "legacyPolicies": {
+   "LensOverlaySettings": 1,
+   "LensRegionSearchEnabled": false,
+   "LensDesktopNTPSearchEnabled": false,
+   "TabOrganizerSettings": 2
+  },
+  "chromeOsPolicies": {
+   "HelpMeReadSettings": 2,
+   "GenAIWallpaperSettings": 2,
+   "GenAIVcBackgroundSettings": 2,
+   "GenAIInlineImageSettings": 2,
+   "GenAIPhotoEditingSettings": 2,
+   "GenAISmartGroupingSettings": 2,
+   "GenAiChromeOsSmartActionsSettings": 2,
+   "ShowAiIntroScreenEnabled": false,
+   "ShowGeminiIntroScreenEnabled": false
+  },
+  "windowsKey": "SOFTWARE\\Policies\\Google\\Chrome",
+  "macDomain": "com.google.Chrome",
+  "linuxDir": "/etc/opt/chrome/policies/managed",
+  "macApp": "Google Chrome"
+ },
+ "chromium": {
+  "name": "Chromium",
+  "policies": {
+   "GeminiSettings": 1,
+   "GeminiActOnWebSettings": 1,
+   "GeminiSparkSettings": 1,
+   "AIModeSettings": 1,
+   "ThirdPartyAiChatSettings": 1,
+   "SearchContentSharingSettings": 1,
+   "SmartTabSharingSettings": 1,
+   "HelpMeWriteSettings": 2,
+   "HistorySearchSettings": 2,
+   "TabCompareSettings": 2,
+   "CreateThemesSettings": 2,
+   "DevToolsGenAiSettings": 2,
+   "AutofillPredictionSettings": 2,
+   "AutomatedPasswordChangeSettings": 2,
+   "VoiceTypingSettings": 2,
+   "TryOnYouSettings": 2,
+   "ChromeSuggestionsSettings": 1,
+   "GenAILocalFoundationalModelSettings": 1,
+   "BuiltInAIAPIsEnabled": false
+  },
+  "legacyPolicies": {
+   "LensOverlaySettings": 1,
+   "LensRegionSearchEnabled": false,
+   "LensDesktopNTPSearchEnabled": false,
+   "TabOrganizerSettings": 2
+  },
+  "windowsKey": "SOFTWARE\\Policies\\Chromium",
+  "macDomain": "org.chromium.Chromium",
+  "linuxDir": "/etc/chromium/policies/managed",
+  "macApp": "Chromium"
+ },
+ "edge": {
+  "name": "Microsoft Edge",
+  "policies": {
+   "HubsSidebarEnabled": false,
+   "StandaloneHubsSidebarEnabled": false,
+   "Microsoft365CopilotChatIconEnabled": false,
+   "CopilotPageContext": false,
+   "EdgeEntraCopilotPageContext": false,
+   "CopilotAddressBarSuggestionsEnabled": false,
+   "CopilotNewTabPageEnabled": false,
+   "CopilotCoworkToolActionsEnabled": false,
+   "AllowBrowsingWithCopilot": false,
+   "M365LinksAutoOpenCopilotEnabled": false,
+   "ShareBrowsingHistoryWithCopilotSearchAllowed": false,
+   "NewTabPageBingChatEnabled": false,
+   "ComposeInlineEnabled": false,
+   "EdgeHistoryAISearchEnabled": false,
+   "AIGenThemesEnabled": false,
+   "TabServicesEnabled": false,
+   "GenAILocalFoundationalModelSettings": 1,
+   "BuiltInAIAPIsEnabled": false,
+   "TextPredictionEnabled": false,
+   "EdgeAutofillMlEnabled": false,
+   "VisualSearchEnabled": false,
+   "SearchInSidebarEnabled": 2
+  },
+  "legacyPolicies": {
+   "CopilotCDPPageContext": false,
+   "DiscoverPageContextEnabled": false,
+   "EdgeDiscoverEnabled": false,
+   "EdgeEnhanceImagesEnabled": false
+  },
+  "windowsKey": "SOFTWARE\\Policies\\Microsoft\\Edge",
+  "macDomain": "com.microsoft.Edge",
+  "linuxDir": "/etc/opt/edge/policies/managed",
+  "macApp": "Microsoft Edge",
+  "caveat": "Microsoft documents most Copilot policies for work or school (Entra) profiles. Coverage on personal Microsoft account profiles is incomplete; the extension covers what policy cannot."
+ },
+ "brave": {
+  "name": "Brave",
+  "policies": {
+   "GeminiSettings": 1,
+   "GeminiActOnWebSettings": 1,
+   "GeminiSparkSettings": 1,
+   "AIModeSettings": 1,
+   "ThirdPartyAiChatSettings": 1,
+   "SearchContentSharingSettings": 1,
+   "SmartTabSharingSettings": 1,
+   "HelpMeWriteSettings": 2,
+   "HistorySearchSettings": 2,
+   "TabCompareSettings": 2,
+   "CreateThemesSettings": 2,
+   "DevToolsGenAiSettings": 2,
+   "AutofillPredictionSettings": 2,
+   "AutomatedPasswordChangeSettings": 2,
+   "VoiceTypingSettings": 2,
+   "TryOnYouSettings": 2,
+   "ChromeSuggestionsSettings": 1,
+   "GenAILocalFoundationalModelSettings": 1,
+   "BuiltInAIAPIsEnabled": false,
+   "BraveAIChatEnabled": false,
+   "BraveLocalAIEnabled": false
+  },
+  "legacyPolicies": {
+   "LensOverlaySettings": 1,
+   "LensRegionSearchEnabled": false,
+   "LensDesktopNTPSearchEnabled": false,
+   "TabOrganizerSettings": 2
+  },
+  "windowsKey": "SOFTWARE\\Policies\\BraveSoftware\\Brave",
+  "macDomain": "com.brave.Browser",
+  "linuxDir": "/etc/brave/policies/managed",
+  "macApp": "Brave Browser"
+ },
+ "firefox": {
+  "name": "Firefox",
+  "policiesJson": {
+   "policies": {
+    "AIControls": {
+     "Default": {
+      "Value": "blocked",
+      "Locked": true
+     },
+     "Translations": {
+      "Value": "blocked",
+      "Locked": true
+     },
+     "PDFAltText": {
+      "Value": "blocked",
+      "Locked": true
+     },
+     "SmartTabGroups": {
+      "Value": "blocked",
+      "Locked": true
+     },
+     "LinkPreviewKeyPoints": {
+      "Value": "blocked",
+      "Locked": true
+     },
+     "SidebarChatbot": {
+      "Value": "blocked",
+      "Locked": true
+     },
+     "SmartWindow": {
+      "Value": "blocked",
+      "Locked": true
+     },
+     "SpeechRecognition": {
+      "Value": "blocked",
+      "Locked": true
+     }
+    },
+    "GenerativeAI": {
+     "Enabled": false,
+     "Chatbot": false,
+     "LinkPreviews": false,
+     "TabGroups": false,
+     "Locked": true
+    },
+    "Preferences": {
+     "browser.ml.enable": {
+      "Value": false,
+      "Status": "locked"
+     },
+     "browser.ml.chat.sidebar": {
+      "Value": false,
+      "Status": "locked"
+     },
+     "browser.ml.chat.shortcuts": {
+      "Value": false,
+      "Status": "locked"
+     },
+     "browser.ml.pageAssist.enabled": {
+      "Value": false,
+      "Status": "locked"
+     },
+     "browser.tabs.groups.smart.enabled": {
+      "Value": false,
+      "Status": "locked"
+     },
+     "extensions.ml.enabled": {
+      "Value": false,
+      "Status": "locked"
+     },
+     "pdfjs.enableAltTextModelDownload": {
+      "Value": false,
+      "Status": "locked"
+     },
+     "pdfjs.enableGuessAltText": {
+      "Value": false,
+      "Status": "locked"
+     },
+     "browser.search.visualSearch.featureGate": {
+      "Value": false,
+      "Status": "locked"
+     }
+    }
+   }
+  },
+  "windowsKey": "SOFTWARE\\Policies\\Mozilla\\Firefox",
+  "macDomain": "org.mozilla.firefox",
+  "linuxFile": "/etc/firefox/policies/policies.json",
+  "macApp": "Firefox",
+  "caveat": "AIControls needs Firefox 149.0.2 or ESR 153; GenerativeAI covers Firefox 144+ and ESR 140.4+. Both are shipped so older ESR builds are covered. AIControls Default=blocked also blocks Translations; set Translations to available to keep it."
+ }
+}

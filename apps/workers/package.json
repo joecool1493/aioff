@@ -1,0 +1,10 @@
+{
+  "name": "@aioff/workers",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": { "typecheck": "tsc -p tsconfig.json" },
+  "dependencies": { "@aioff/core": "workspace:*" },
+  "devDependencies": { "@cloudflare/workers-types": "^4.20250900.0" }
+}

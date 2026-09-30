@@ -1,0 +1,47 @@
+{
+  "id": "microsoft-com",
+  "name": "Microsoft.com",
+  "category": "microsoft",
+  "match": [
+    "*://www.microsoft.com/*",
+    "*://azure.microsoft.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "microsoft-com-assistants",
+      "kind": "hide",
+      "selectors": [
+        ".copilot-container",
+        ".uca-assistant-drawer-button",
+        ".uca-assistant-drawer-panel",
+        "#uca-proactive-chat",
+        "#ai-overview-container",
+        "#msChatContainer"
+      ],
+      "textAnchors": [
+        "Ask Microsoft"
+      ],
+      "anchorTarget": "control",
+      "description": "microsoft.com store assistant, Ask Microsoft drawer, AI Overview in site search",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://www.microsoft.com/en-us/",
+        "expect": [
+          "microsoft-com-assistants"
+        ]
+      }
+    ]
+  }
+}

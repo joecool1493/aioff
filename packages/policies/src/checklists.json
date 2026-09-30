@@ -1,0 +1,1171 @@
+{
+ "items": [
+  {
+   "app": "Apple Intelligence (master)",
+   "platform": "macOS 15-26",
+   "steps": [
+    "Open System Settings",
+    "Click Apple Intelligence & Siri",
+    "Turn off the Apple Intelligence switch"
+   ],
+   "url": "x-apple.systempreferences:com.apple.Siri-Settings.extension",
+   "whoCanChange": "user",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.apple.com/guide/mac-help/mchl46361784/26/mac/26",
+   "notes": "VERIFIED. Deep link is the one Apple's own help pages use."
+  },
+  {
+   "app": "Siri AI / Apple Intelligence",
+   "platform": "macOS 27",
+   "steps": [
+    "Open System Settings",
+    "Click Siri",
+    "Click Turn Off Siri and confirm (or Turn On Siri > Use Siri Classic)",
+    "Turn off per-feature switches: Notifications > Summarize Notifications; Mail > Settings > Viewing > Summarize Message Previews; Mail > Settings > Composing > Personalize Smart Replies; Messages > Settings > Summarize Messages"
+   ],
+   "url": null,
+   "whoCanChange": "user",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://support.apple.com/guide/mac-help/mchlb2e44f94/mac",
+   "notes": "VERIFIED. Apple documents no single master switch in macOS 27."
+  },
+  {
+   "app": "Writing Tools / Image Creation / ChatGPT via Screen Time",
+   "platform": "macOS 15-27",
+   "steps": [
+    "Open System Settings > Screen Time",
+    "Click Content & Privacy and turn it on",
+    "Click Intelligence & Siri",
+    "Turn off Writing Tools, Image Creation, Intelligence Extensions"
+   ],
+   "url": "x-apple.systempreferences:com.apple.Screen-Time-Settings.extension?path=content-and-privacy",
+   "whoCanChange": "user",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.apple.com/guide/mac-help/mchlb2e44f94/26/mac/26",
+   "notes": "VERIFIED."
+  },
+  {
+   "app": "ChatGPT extension",
+   "platform": "macOS 15-26",
+   "steps": [
+    "System Settings > Apple Intelligence & Siri > ChatGPT",
+    "Turn off Use ChatGPT",
+    "Turn off Setup Prompts"
+   ],
+   "url": "x-apple.systempreferences:com.apple.Siri-Settings.extension",
+   "whoCanChange": "user",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.apple.com/guide/mac-help/mchlfc5cf131/26/mac/26",
+   "notes": "VERIFIED. macOS 27: System Settings > Siri > ChatGPT, or Extensions > ChatGPT > Use Extension off."
+  },
+  {
+   "app": "AI Off restrictions profile (.mobileconfig)",
+   "platform": "macOS 15+",
+   "steps": [
+    "Save or open the .mobileconfig",
+    "Open System Settings > General > Device Management",
+    "Double-click the profile under Downloaded",
+    "Click Install and authenticate"
+   ],
+   "url": "x-apple.systempreferences:com.apple.Profiles-Settings.extension",
+   "whoCanChange": "user (admin password may be required)",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.apple.com/guide/mac-help/mh35561/mac",
+   "notes": "VERIFIED. Cannot be installed silently; profiles install verb removed. Keys deprecated in 26.4."
+  },
+  {
+   "app": "Microsoft Copilot app",
+   "platform": "Windows 11",
+   "steps": [
+    "Settings > Apps > Installed apps",
+    "Find Copilot > three dots > Uninstall",
+    "Right-click any remaining Copilot taskbar pin > Unpin",
+    "Settings > Personalization > Text input > Customize Copilot key on keyboard > Search"
+   ],
+   "url": "ms-settings:personalization-textinput-copilot-hardwarekey",
+   "whoCanChange": "user",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://learn.microsoft.com/en-us/windows/client-management/manage-windows-copilot",
+   "notes": "VERIFIED. App can be reinstalled by the user or re-provisioned by updates; unified Copilot app now also arrives via Edge Update."
+  },
+  {
+   "app": "Recall",
+   "platform": "Windows 11 (Copilot+ PC)",
+   "steps": [
+    "Settings > Privacy & security > Recall & snapshots",
+    "Turn off Save snapshots and delete existing snapshots",
+    "Optional (admin): Disable-WindowsOptionalFeature -Online -FeatureName \"Recall\" -Remove"
+   ],
+   "url": "ms-settings:privacy",
+   "whoCanChange": "user; admin for removal",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://learn.microsoft.com/en-us/windows/client-management/manage-recall",
+   "notes": "VERIFIED (generic ms-settings:privacy link only; a Recall-specific URI is not documented)."
+  },
+  {
+   "app": "Click to Do",
+   "platform": "Windows 11 (Copilot+ PC)",
+   "steps": [
+    "Settings > Privacy & security > Click to Do",
+    "Turn it Off",
+    "Optional: Settings > Apps > Actions to disable individual actions"
+   ],
+   "url": null,
+   "whoCanChange": "user",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://learn.microsoft.com/en-us/windows/client-management/manage-click-to-do",
+   "notes": "VERIFIED."
+  },
+  {
+   "app": "Microsoft Edge Copilot (personal profile)",
+   "platform": "Windows/macOS",
+   "steps": [
+    "Open edge://settings/appearance/copilotAndSidebar",
+    "Select Copilot",
+    "Turn off Show Copilot button on the toolbar",
+    "Turn off page-content access for Copilot in Edge settings"
+   ],
+   "url": "edge://settings/appearance/copilotAndSidebar",
+   "whoCanChange": "user",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://learn.microsoft.com/en-us/deployedge/microsoft-edge-browser-policies/microsoft365copilotchaticonenabled",
+   "notes": "Toggle existence VERIFIED in policy text; exact settings path from Microsoft Q&A (UNVERIFIED). Copilot can be hidden, not removed."
+  },
+  {
+   "app": "Apple Intelligence (master)",
+   "platform": "iOS 18-26",
+   "steps": [
+    "Open Settings",
+    "Tap Apple Intelligence & Siri",
+    "Turn off the Apple Intelligence switch"
+   ],
+   "url": null,
+   "whoCanChange": "user",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.apple.com/guide/iphone/iphc28624b81/26/ios/26"
+  },
+  {
+   "app": "Siri AI / Apple Intelligence",
+   "platform": "iOS 27",
+   "steps": [
+    "Open Settings",
+    "Tap Siri",
+    "Scroll down, tap Turn Off Siri, confirm",
+    "Optional: Turn on Siri > Siri Classic to use Siri without AI",
+    "Then turn off the per-feature switches (summaries, priority notifications, smart replies)"
+   ],
+   "url": null,
+   "whoCanChange": "user",
+   "canDisable": "partial: no master Apple Intelligence switch documented in iOS 27",
+   "lastVerified": "2026-09-20",
+   "source": "https://support.apple.com/guide/iphone/turn-restrict-access-apple-intelligence-iph3fed3f2c3/ios"
+  },
+  {
+   "app": "Writing Tools",
+   "platform": "iOS 18-26",
+   "steps": [
+    "Settings > Screen Time",
+    "Content & Privacy Restrictions: turn on",
+    "Intelligence & Siri > Writing Tools > Don't Allow"
+   ],
+   "url": null,
+   "whoCanChange": "user or parent (Screen Time passcode)",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.apple.com/guide/iphone/iph3fed3f2c3/26/ios/26"
+  },
+  {
+   "app": "Image Playground / Genmoji / Image Wand",
+   "platform": "iOS 18-26",
+   "steps": [
+    "Settings > Screen Time > Content & Privacy Restrictions (on)",
+    "Intelligence & Siri > Image Creation > Don't Allow"
+   ],
+   "url": null,
+   "whoCanChange": "user or parent",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.apple.com/guide/iphone/iph3fed3f2c3/26/ios/26"
+  },
+  {
+   "app": "Siri restrictions (Screen Time)",
+   "platform": "iOS 27",
+   "steps": [
+    "Settings > Screen Time > Content & Privacy Restrictions",
+    "Tap Siri",
+    "Choose Don't Allow Siri or Siri (Classic Version)",
+    "Or Block individual Siri AI capabilities such as Image Creation"
+   ],
+   "url": null,
+   "whoCanChange": "user or parent",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.apple.com/guide/iphone/block-features-or-content-with-screen-time-iph3ff83f3b1/27/ios/27"
+  },
+  {
+   "app": "ChatGPT extension",
+   "platform": "iOS 18-26",
+   "steps": [
+    "Settings > Apple Intelligence & Siri > ChatGPT",
+    "Turn off Use ChatGPT",
+    "Turn off Setup Prompts",
+    "Optional: Screen Time > Intelligence & Siri > Intelligence Extensions > Don't Allow"
+   ],
+   "url": null,
+   "whoCanChange": "user",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.apple.com/guide/iphone/iph00fd3c8c2/26/ios/26"
+  },
+  {
+   "app": "ChatGPT extension",
+   "platform": "iOS 27",
+   "steps": [
+    "Settings > Siri > ChatGPT > turn off Use ChatGPT",
+    "If using Siri AI: Settings > Siri > Extensions > ChatGPT > turn off Use Extension"
+   ],
+   "url": null,
+   "whoCanChange": "user",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.apple.com/guide/iphone/use-chatgpt-with-apple-intelligence-iph00fd3c8c2/ios"
+  },
+  {
+   "app": "Siri Suggestions",
+   "platform": "iOS 18-26",
+   "steps": [
+    "Settings > Siri (or Apple Intelligence & Siri)",
+    "Turn off Show in App, Show on Home Screen, Suggest App, Suggestion Notifications",
+    "Tap Apps > each app > turn settings off"
+   ],
+   "url": null,
+   "whoCanChange": "user",
+   "canDisable": "yes, per app and surface",
+   "lastVerified": "2026-09-20",
+   "source": "https://support.apple.com/guide/iphone/iph6f94af287/26/ios/26"
+  },
+  {
+   "app": "Siri Suggestions",
+   "platform": "iOS 27",
+   "steps": [
+    "Settings > Siri > Suggestions: turn off all switches",
+    "Settings > Siri > App Access > each app > turn off Learn from this App"
+   ],
+   "url": null,
+   "whoCanChange": "user",
+   "canDisable": "yes, per app and surface",
+   "lastVerified": "2026-09-20",
+   "source": "https://support.apple.com/guide/iphone/change-siri-settings-iphc28624b81abc/27/ios/27"
+  },
+  {
+   "app": "Visual Intelligence",
+   "platform": "iOS 26-27",
+   "steps": [
+    "No dedicated off switch documented",
+    "iOS 27: Settings > Siri > turn off Highlight to Search and Automatic Visual Look Up",
+    "iOS 18-26: turning off Apple Intelligence removes it"
+   ],
+   "url": null,
+   "whoCanChange": "user",
+   "canDisable": false,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.apple.com/guide/iphone/iph12eb1545e/26/ios/26"
+  },
+  {
+   "app": "Notification summaries and priority",
+   "platform": "iOS 18-27",
+   "steps": [
+    "Settings > Notifications > Summarize Notifications > off",
+    "Settings > Notifications > Prioritize Notifications > off"
+   ],
+   "url": null,
+   "whoCanChange": "user",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.apple.com/guide/iphone/iph1fbe7d2b9/26/ios/26"
+  },
+  {
+   "app": "Mail summaries and categories",
+   "platform": "iOS 18-27",
+   "steps": [
+    "Settings > Apps > Mail > turn off Summarize Message Previews",
+    "iOS 27: also turn off Personalize Smart Replies",
+    "Mail app > inbox > More button > List View to turn off categories"
+   ],
+   "url": null,
+   "whoCanChange": "user",
+   "canDisable": "previews and categories yes; manual Summarize button remains",
+   "lastVerified": "2026-09-20",
+   "source": "https://support.apple.com/guide/iphone/iph9ae667055/26/ios/26"
+  },
+  {
+   "app": "Messages summaries",
+   "platform": "iOS 27",
+   "steps": [
+    "Settings > Apps > Messages > turn off Summarize Messages"
+   ],
+   "url": null,
+   "whoCanChange": "user",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.apple.com/guide/iphone/turn-restrict-access-apple-intelligence-iph3fed3f2c3/ios"
+  },
+  {
+   "app": "Safari summaries",
+   "platform": "iOS 18-27",
+   "steps": [
+    "No dedicated toggle; feature only runs when you tap Summarize",
+    "iOS 18-26: turn off Apple Intelligence to remove"
+   ],
+   "url": null,
+   "whoCanChange": "user",
+   "canDisable": false,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.apple.com/guide/iphone/iph60293c790/26/ios/26"
+  },
+  {
+   "app": "Photos Clean Up",
+   "platform": "iOS 18-27",
+   "steps": [
+    "No dedicated toggle; manual editing tool only",
+    "iOS 18-26: turn off Apple Intelligence to remove"
+   ],
+   "url": null,
+   "whoCanChange": "user",
+   "canDisable": false,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.apple.com/en-us/121429"
+  },
+  {
+   "app": "Apple Intelligence Report",
+   "platform": "iOS 18-27",
+   "steps": [
+    "Settings > Privacy & Security > Apple Intelligence Report",
+    "Choose 15 minutes, 7 days, or Off",
+    "Tap Export Activity to save Apple_Intelligence_Report.json"
+   ],
+   "url": null,
+   "whoCanChange": "user",
+   "canDisable": "audit log only; does not disable AI",
+   "lastVerified": "2026-09-20",
+   "source": "https://support.apple.com/guide/iphone/apple-intelligence-and-privacy-iphe3f499e0e/ios"
+  },
+  {
+   "app": "Encrypted DNS profile",
+   "platform": "iOS",
+   "steps": [
+    "Download the .mobileconfig",
+    "Open Settings, tap Profile Downloaded",
+    "Tap Install and follow prompts (within 8 minutes; Stolen Device Protection may need to be off)"
+   ],
+   "url": null,
+   "whoCanChange": "user",
+   "canDisable": "n/a; payload deprecated in iOS 27 but still manual-install capable",
+   "lastVerified": "2026-09-20",
+   "source": "https://support.apple.com/en-us/102400"
+  },
+  {
+   "app": "Gemini default assistant",
+   "platform": "Android",
+   "steps": [
+    "Settings > Apps > Default apps > Digital assistant app",
+    "Tap Default digital assistant app",
+    "Select None or another app",
+    "Settings > System > Gestures > Press & hold power button > choose Power menu"
+   ],
+   "url": "intent:android.settings.MANAGE_DEFAULT_APPS_SETTINGS",
+   "whoCanChange": "user",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.google.com/gemini/answer/16938321"
+  },
+  {
+   "app": "Gemini Apps Activity",
+   "platform": "Android/Web",
+   "steps": [
+    "Open myactivity.google.com/product/gemini or Gemini app > profile > Gemini Apps Activity",
+    "Tap On > Turn off and delete activity"
+   ],
+   "url": "https://myactivity.google.com/product/gemini",
+   "whoCanChange": "user",
+   "canDisable": "partial: chats still retained up to 72 hours",
+   "lastVerified": "2026-09-20",
+   "source": "https://support.google.com/gemini/answer/13278892"
+  },
+  {
+   "app": "Gemini Connected Apps",
+   "platform": "Android",
+   "steps": [
+    "Gemini app > Menu > profile picture > Connected Apps (or Personal Intelligence > Connected Apps)",
+    "Turn off each app"
+   ],
+   "url": null,
+   "whoCanChange": "user",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.google.com/gemini/answer/13695044"
+  },
+  {
+   "app": "Circle to Search",
+   "platform": "Pixel",
+   "steps": [
+    "Settings > System",
+    "Turn off Circle to Search (or search Settings for Circle to Search)"
+   ],
+   "url": "intent:android.settings.APP_SEARCH_SETTINGS",
+   "whoCanChange": "user",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.google.com/pixelphone/answer/14542478"
+  },
+  {
+   "app": "Circle to Search",
+   "platform": "Samsung",
+   "steps": [
+    "Settings > Display > Navigation bar",
+    "Turn off Circle to Search"
+   ],
+   "url": "intent:android.settings.DISPLAY_SETTINGS",
+   "whoCanChange": "user",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://www.samsung.com/us/support/answer/ANS10000939/"
+  },
+  {
+   "app": "Galaxy AI",
+   "platform": "Samsung",
+   "steps": [
+    "Settings > Galaxy AI (or Advanced features > Galaxy AI)",
+    "Open each sub-menu and turn off its switches",
+    "Turn ON Process data only on device",
+    "Restart the phone"
+   ],
+   "url": null,
+   "whoCanChange": "user",
+   "canDisable": "per feature only; no single off switch",
+   "lastVerified": "2026-09-20",
+   "source": "https://www.samsung.com/us/support/answer/ANS10000753/"
+  },
+  {
+   "app": "Gboard Writing tools",
+   "platform": "Android",
+   "steps": [
+    "No documented global off switch",
+    "Pixel 11: Writing tools > Menu > turn off Personalized suggestions",
+    "Proofread (unverified): Gboard Settings > Text correction > Spelling and Grammar > Proofread"
+   ],
+   "url": "intent:android.settings.INPUT_METHOD_SETTINGS",
+   "whoCanChange": "user",
+   "canDisable": false,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.google.com/gboard/answer/16515540"
+  },
+  {
+   "app": "Google Messages Gemini",
+   "platform": "Android",
+   "steps": [
+    "Messages > profile picture > Messages settings",
+    "Gemini in Messages > turn off Show Gemini button"
+   ],
+   "url": null,
+   "whoCanChange": "user",
+   "canDisable": "hides button; Magic Compose has no documented toggle",
+   "lastVerified": "2026-09-20",
+   "source": "https://support.google.com/messages/answer/14599070"
+  },
+  {
+   "app": "Pixel Screenshots",
+   "platform": "Pixel",
+   "steps": [
+    "Open Pixel Screenshots > Settings",
+    "Turn off Search your screenshots with AI",
+    "Tap Delete all AI summaries and metadata"
+   ],
+   "url": null,
+   "whoCanChange": "user",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.google.com/pixelphone/answer/15312581"
+  },
+  {
+   "app": "Magic Cue",
+   "platform": "Pixel 10+",
+   "steps": [
+    "Settings > Magic Cue",
+    "Turn off all suggestion types and data sources",
+    "Per app: Settings > Apps > app > Screen Access > Proactive Assistance off"
+   ],
+   "url": null,
+   "whoCanChange": "user (admins can also restrict per Google's Pixel enterprise help page)",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.google.com/pixelphone/answer/16508057"
+  },
+  {
+   "app": "Call Notes",
+   "platform": "Pixel 9+",
+   "steps": [
+    "Phone app > More > Settings > Call Notes",
+    "Turn off Call Notes"
+   ],
+   "url": null,
+   "whoCanChange": "user",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.google.com/phoneapp/answer/15257579"
+  },
+  {
+   "app": "AICore / Gemini Nano",
+   "platform": "Android 14+",
+   "steps": [
+    "No off switch documented by Google",
+    "View only: Settings > Google profile > All Services > Privacy & Security > System services"
+   ],
+   "url": null,
+   "whoCanChange": "nobody (per docs)",
+   "canDisable": false,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.google.com/android/answer/17065362"
+  },
+  {
+   "app": "Chrome Gemini",
+   "platform": "Android",
+   "steps": [
+    "No off switch documented for Chrome on Android",
+    "Avoid the Ask Gemini button; not available in Incognito"
+   ],
+   "url": null,
+   "whoCanChange": "n/a",
+   "canDisable": false,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.google.com/chrome/answer/16283624?co=GENIE.Platform%3DAndroid"
+  },
+  {
+   "app": "Google Photos Gemini",
+   "platform": "Android",
+   "steps": [
+    "Photos > profile picture > Photos settings > Preferences",
+    "Gemini features in Photos",
+    "Turn off Use Gemini in Photos (or just Search with Ask Photos)"
+   ],
+   "url": null,
+   "whoCanChange": "user",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.google.com/photos/answer/15318661"
+  },
+  {
+   "app": "Private DNS",
+   "platform": "Android (Pixel)",
+   "steps": [
+    "Settings > Network & internet > Private DNS",
+    "Choose Private DNS provider hostname, enter hostname, Save"
+   ],
+   "url": "intent:android.settings.WIRELESS_SETTINGS",
+   "whoCanChange": "user",
+   "canDisable": "n/a",
+   "lastVerified": "2026-09-20",
+   "source": "https://support.google.com/pixelphone/answer/2819583"
+  },
+  {
+   "app": "Private DNS",
+   "platform": "Samsung",
+   "steps": [
+    "Settings > Connections > More connection settings > Private DNS",
+    "Enter provider hostname, Save"
+   ],
+   "url": "intent:android.settings.WIRELESS_SETTINGS",
+   "whoCanChange": "user",
+   "canDisable": "n/a",
+   "lastVerified": "UNVERIFIED (community source only)",
+   "source": "https://eu.community.samsung.com/t5/other-smartphones/private-dns/td-p/2593291"
+  },
+  {
+   "app": "Slack (AI features)",
+   "platform": "desktop/web",
+   "steps": [
+    "Pro/Business+/Enterprise Select: click Admin in the sidebar",
+    "Select Workspace settings, then Roles & permissions",
+    "Click Feature access and select AI",
+    "Next to each AI feature click Edit and choose No one",
+    "Click Save",
+    "Enterprise Grid/Enterprise+: Home > organization name > Tools & settings > Organization settings > Roles & permissions > Feature access > AI > Edit > choose who > Save"
+   ],
+   "url": null,
+   "whoCanChange": "Workspace/Org Owners and Admins on paid plans; individuals cannot",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://slack.com/help/articles/28244420881555-Manage-access-to-AI-features-in-Slack",
+   "notes": "VERIFIED. Per-feature: conversation summaries, huddle notes, search answers, file summaries, translations, workflow automation, AI workflow steps, canvas generation, Slackbot, enterprise search, message explanations."
+  },
+  {
+   "app": "Slack (global model training opt-out)",
+   "platform": "web",
+   "steps": [
+    "An Org Owner, Workspace Owner or Primary Owner emails feedback@slack.com",
+    "Subject line: Slack Global model opt-out request",
+    "Include the Workspace/Org URL",
+    "Wait for Slack to confirm the opt-out"
+   ],
+   "url": "mailto:feedback@slack.com",
+   "whoCanChange": "Org/Workspace Owner or Primary Owner",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://slack.com/trust/data-management/privacy-principles",
+   "notes": "VERIFIED. Data opt-out only, covers non-generative ML models; no features turn off. Slack states it will not train generative AI on Customer Data without affirmative opt-in."
+  },
+  {
+   "app": "Notion AI (whole workspace)",
+   "platform": "web/desktop",
+   "steps": [
+    "Open Settings",
+    "Find the Notion AI toggle and turn Notion AI off for the workspace"
+   ],
+   "url": null,
+   "whoCanChange": "Workspace owner on Enterprise plan with a verified domain",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://www.notion.com/help/notion-mail-security-practices",
+   "notes": "VERIFIED. Turns off Notion AI in Notion and Notion Mail for everyone. Not available on non-Enterprise plans; individuals cannot disable AI."
+  },
+  {
+   "app": "Notion AI (partial controls)",
+   "platform": "web/desktop",
+   "steps": [
+    "Settings > Notion AI > AI Web Search > toggle off Enable web search for workspace",
+    "Settings > Notion AI > toggle off Workspace availability (AI Meeting Notes)",
+    "Any user: Settings > Notion AI > toggle on Hide meetings tab"
+   ],
+   "url": null,
+   "whoCanChange": "Workspace owner (web search, meeting notes); any user (hide tab)",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://www.notion.com/help/notion-ai-faqs",
+   "notes": "VERIFIED. Also https://www.notion.com/help/ai-meeting-notes and https://www.notion.com/help/notion-ai-security-practices. No training opt-out needed: Notion and its subprocessors do not train on Customer Data by default."
+  },
+  {
+   "app": "Zoom AI (account master toggle)",
+   "platform": "web",
+   "steps": [
+    "Sign in to the Zoom web portal as an admin",
+    "Click profile picture > Admin Center",
+    "Click Settings",
+    "Click Zoom AI",
+    "Turn off Allow Zoom AI on this account",
+    "Click Disable to verify, then Save"
+   ],
+   "url": "https://zoom.us/account/setting",
+   "whoCanChange": "Account owner/admin (Zoom says select Workplace Pro and Business accounts)",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0076668",
+   "notes": "VERIFIED steps. Tab is now labeled Zoom AI, not AI Companion. No group or user version of this toggle. URL is not a verified deep link."
+  },
+  {
+   "app": "Zoom AI (per feature, e.g. Meeting summary)",
+   "platform": "web",
+   "steps": [
+    "Sign in to the Zoom web portal",
+    "Click profile picture > My account",
+    "Click Settings",
+    "Click Zoom AI",
+    "Under Meeting, toggle off Meeting summary with AI",
+    "Click Disable if prompted; grayed out means locked by an admin"
+   ],
+   "url": "https://zoom.us/profile/setting",
+   "whoCanChange": "Individual user unless locked; admins at account level (Admin Center > Settings > Zoom AI) and group level (Admin Center > Users > Groups > group > Edit product settings > Zoom AI)",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0057960",
+   "notes": "VERIFIED. Repeat for each AI feature (Smart Recording, meeting questions, etc.). Zoom states it does not train on customer content. KB0083743 now returns an empty page."
+  },
+  {
+   "app": "Adobe (content analysis opt-out)",
+   "platform": "web",
+   "steps": [
+    "Sign in at https://account.adobe.com/privacy",
+    "In Content analysis for product improvement, click the toggle Off"
+   ],
+   "url": "https://account.adobe.com/privacy",
+   "whoCanChange": "Individuals with a personal account; business/school/minor accounts are auto opted out with no toggle",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://helpx.adobe.com/account/individual/terms-policies-and-regulations/content-analysis-faq.html",
+   "notes": "VERIFIED (updated Jun 4, 2026). Data opt-out only. Does not apply when signed out or to Photoshop Improvement Program, feedback, betas, Stock submissions. Adobe says it does not train generative AI on your content unless submitted to Adobe Stock."
+  },
+  {
+   "app": "Adobe Acrobat (generative AI / AI Assistant)",
+   "platform": "desktop",
+   "steps": [
+    "Close all open documents",
+    "Windows: Menu > Preferences > Generative AI. macOS (per the Adobe doc): View > Preferences > Generative AI",
+    "Deselect Enable generative AI features",
+    "Select OK"
+   ],
+   "url": null,
+   "whoCanChange": "Individual user; enterprise admins can disable the AI Assistant service in the Admin Console product profile",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://helpx.adobe.com/acrobat/desktop/use-acrobat-ai/set-up-acrobat-generative-ai/turn-off-ai.html",
+   "notes": "VERIFIED (updated Apr 28, 2026). Admin path VERIFIED at https://helpx.adobe.com/acrobat/desktop/use-acrobat-ai/set-up-acrobat-generative-ai/acrobat-studio-enterprise.html. Registry HKLM\\SOFTWARE\\Policies\\Adobe\\Adobe Acrobat\\DC\\FeatureLockDown DWORD bEnableGentech=0 is UNVERIFIED: Adobe links to FeatureLockDown.html#GenerativeAI but the key is not on the page as served; community sources only."
+  },
+  {
+   "app": "Adobe Creative Cloud (Firefly generative AI)",
+   "platform": "web (Admin Console)",
+   "steps": [
+    "Admin Console > Products tab > select product",
+    "Click View Details next to the product profile",
+    "Turn off Adobe Firefly (also disables Firefly GenText Features)"
+   ],
+   "url": "https://adminconsole.adobe.com",
+   "whoCanChange": "IT admin of an organization; no individual off switch found in Adobe docs",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://helpx.adobe.com/business/education/generative-ai-and-adobe-express/adobe-firefly-for-k12.html",
+   "notes": "VERIFIED for admin/K12 (the search summary said the same toggle applies to enterprise profiles). Individuals cannot turn off generative features in Photoshop etc.; they can only not use them."
+  },
+  {
+   "app": "Canva (AI training / improvement)",
+   "platform": "web/desktop/mobile",
+   "steps": [
+    "From the homepage click your Profile icon",
+    "Choose Your account, then Privacy controls",
+    "Toggle off each permission about improving AI-powered features",
+    "A lock icon means your team or account type controls it"
+   ],
+   "url": "https://www.canva.com/settings/privacy-preferences",
+   "whoCanChange": "Individual users on personal plans; disabled (not used) for Teams/Business/Enterprise/Education",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://www.canva.com/help/manage-privacy-settings/",
+   "notes": "VERIFIED. Data opt-out only. Trust Center: https://www.canva.com/trust/privacy/. Navigation rolling out; profile photo may be under More."
+  },
+  {
+   "app": "Canva (Magic and AI features)",
+   "platform": "web/desktop/mobile",
+   "steps": [
+    "On the homepage select your Profile icon",
+    "Select Settings",
+    "Under Controls and permissions select Permissions",
+    "Go to Magic and AI",
+    "Set who can access each feature (16 items from Magic Write through Image to Video, including Canva AI)"
+   ],
+   "url": null,
+   "whoCanChange": "Owners/admins on Canva Teams, Business, Enterprise, Education; Free/Pro individuals have no off switch",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://www.canva.com/help/magic-features-admin-controls/",
+   "notes": "VERIFIED. Applies to new designs; Magic features already used in existing designs remain."
+  },
+  {
+   "app": "Grammarly (generative AI)",
+   "platform": "web",
+   "steps": [
+    "Open https://account.grammarly.com/customize/features",
+    "Turn off the generative AI settings",
+    "Admins: https://account.grammarly.com/admin/feature_access > set AI assistant, Strategic suggestions, Paragraph-level rewrites to Off > Turn off"
+   ],
+   "url": "https://account.grammarly.com/customize/features",
+   "whoCanChange": "Any user for own account; admin for a team",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://support.grammarly.com/hc/en-us/articles/26993719119501",
+   "notes": "VERIFIED. Core (non-generative) AI for grammar, spelling, clarity and tone cannot be turned off separately from the product. Team source: https://support.grammarly.com/hc/en-us/articles/18192682302605-Turn-off-generative-AI-for-my-team"
+  },
+  {
+   "app": "Grammarly (Product Improvement and Training)",
+   "platform": "web",
+   "steps": [
+    "Free/Premium: open https://account.grammarly.com/security/privacy",
+    "Pro single-user and multi-user website accounts: open https://account.grammarly.com/admin/data_settings",
+    "Click the Product Improvement and Training toggle to Off"
+   ],
+   "url": "https://account.grammarly.com/security/privacy",
+   "whoCanChange": "Individual (Free, Premium, single-user Pro); admin only on multi-user accounts",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.grammarly.com/hc/en-us/articles/25555503115277-Product-Improvement-and-Training-Control",
+   "notes": "VERIFIED. Data opt-out. On by default for self-serve plans; off by default for sales-purchased and Education. Aggregated de-identified stats may still be collected."
+  },
+  {
+   "app": "Spotify (DJ, AI Playlist, Prompted Playlists)",
+   "platform": "mobile/desktop",
+   "steps": [
+    "No off switch exists",
+    "Do not tap the DJ card; play something else to exit DJ",
+    "Do not use AI Playlist or Prompted Playlist prompts"
+   ],
+   "url": null,
+   "whoCanChange": "Nobody",
+   "canDisable": false,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.spotify.com/us/article/dj/",
+   "notes": "VERIFIED as absent: DJ and Prompted Playlists articles describe no disable control; only setting is DJ > three dots > DJ language. Spotify Community thread 'Can't hide or disable Ai DJ' says the same (search snippet, not fetched). Also https://support.spotify.com/us/article/prompted-playlists/"
+  },
+  {
+   "app": "Dropbox Dash",
+   "platform": "web/desktop",
+   "steps": [
+    "Log in to dropbox.com",
+    "Open the Dash connectors page > Connected tab > three dots > Disconnect for each app",
+    "Account settings > Apps tab > Dropbox Dash > Disconnect",
+    "Remove the Dash browser extension",
+    "Desktop app: Preferences > General > Reset and Quit, then uninstall",
+    "Inside Dash Chat: uncheck Web search to stop third-party web search"
+   ],
+   "url": "https://www.dropbox.com/account/connected_apps",
+   "whoCanChange": "Individual user or team admin",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://help.dropbox.com/installs/delete-dropbox-dash",
+   "notes": "VERIFIED steps; URL is an unverified deep link. Web search toggle: https://help.dropbox.com/view-edit/dropbox-ai-how-to. Dropbox says it does not build generative models on your data. No team-wide AI off switch found in Dash admin docs."
+  },
+  {
+   "app": "Dropbox (Third-party AI toggle)",
+   "platform": "web",
+   "steps": [
+    "Click avatar > Settings",
+    "Open the Third-party AI tab",
+    "Toggle off"
+   ],
+   "url": "https://www.dropbox.com/account/ai",
+   "whoCanChange": "Individual; team admin for team accounts",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://help.dropbox.com/security/privacy-policy-faq",
+   "notes": "UNVERIFIED. Toggle documented only in 2023 press and community posts; not found in any current Dropbox help article; login-gated URL could not be checked. Show with a 'may no longer exist' caveat."
+  },
+  {
+   "app": "Evernote",
+   "platform": "web/desktop/mobile",
+   "steps": [
+    "Desktop/web: Settings > Preferences > AI features",
+    "Mobile: Settings > AI features",
+    "Toggle off AI Assistant",
+    "Toggle off Semantic Search",
+    "Toggle off AI Meeting Notes (AI Transcription)"
+   ],
+   "url": null,
+   "whoCanChange": "Individual user",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://help.evernote.com/hc/en-us/articles/45353174499475-Evernote-s-AI-Features-FAQ",
+   "notes": "VERIFIED. All features on by default. Evernote says content is not used to train Evernote or third-party models; AI Assistant and meeting summaries go to OpenAI and are deleted after the response."
+  },
+  {
+   "app": "Todoist (Todoist Assist)",
+   "platform": "web/desktop/mobile",
+   "steps": [
+    "Email Assist: click avatar > Settings > General > Advanced > toggle Email Assist off",
+    "Mobile: open project > three dots > Email tasks to this project > toggle Email Assist off",
+    "Task Assist extension: avatar > Settings > Integrations > Task Assist > Remove > Remove",
+    "Ramble and Filter Assist: no toggle, just do not use them"
+   ],
+   "url": null,
+   "whoCanChange": "Individual user; no team admin controls documented",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://www.todoist.com/help/articles/introduction-to-todoist-assist-KgPP22q5O",
+   "notes": "VERIFIED. Todoist docs: 'There's currently no option to turn off or disable Ramble.' Email Assist is the only switchable Assist feature. Task Assist is off unless installed; OpenAI may use Task Assist queries to improve models; Ramble and Assist input is not used for training. Other sources: https://www.todoist.com/help/articles/forward-emails-to-todoist-JPJ1V339 ; https://www.todoist.com/help/articles/dictate-to-add-tasks-with-ramble-P1Raq7vVF ; https://www.todoist.com/help/articles/use-the-task-assist-extension-with-todoist-ZgldtcPeT"
+  },
+  {
+   "app": "Duolingo",
+   "platform": "iOS/Android/Web",
+   "steps": [
+    "No account-wide AI off switch exists",
+    "Avoid the Max tier (Roleplay, Video Call with Lily), or skip those activities",
+    "Open app Settings and find the privacy toggles",
+    "Turn off sharing audio for product improvement",
+    "Turn off the Tracking toggle (FullStory and Session Replay)",
+    "Opt out of personalized ads"
+   ],
+   "url": "https://www.duolingo.com/settings/privacy",
+   "whoCanChange": "user",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://www.duolingo.com/privacy ; https://www.duolingo.com/help/what-is-duolingo-max",
+   "notes": "VERIFIED from the privacy policy: AI is used to generate lessons, and AI-feature text and audio may be shared with OpenAI and Google and used to train Duolingo's own models, with no documented opt-out. The exact audio toggle label and the settings URL are UNVERIFIED. The data opt-out is separate from turning features off."
+  },
+  {
+   "app": "1Password",
+   "platform": "Browser extension / 1Password.com admin",
+   "steps": [
+    "Agentic Autofill is opt-in and needs your approval for every credential request",
+    "User: select the 1Password icon under the Browserbase Director input field",
+    "Toggle off '1Password Autofill'",
+    "Optionally select 'Disconnect'",
+    "1Password for Claude: Claude desktop > Customize > Connectors > Disconnect next to 1Password",
+    "Business admin: 1Password.com > Policies > Manage under 'Sharing and permissions' > turn off 'Allow AI Agents to autofill for users'"
+   ],
+   "url": null,
+   "whoCanChange": "user; Business admin for the policy",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://www.1password.dev/agentic-autofill ; https://support.1password.com/1password-claude/",
+   "notes": "VERIFIED. The pages checked mention no AI processing of vault data. Credentials never enter the model's context."
+  },
+  {
+   "app": "Microsoft 365 (Word/Excel/PowerPoint/OneNote)",
+   "platform": "Windows",
+   "steps": [
+    "Open the app",
+    "File > Options > Copilot",
+    "Clear the 'Enable Copilot' checkbox",
+    "Select OK and restart the app",
+    "Repeat in every app and on every device"
+   ],
+   "url": null,
+   "whoCanChange": "user with a personal Microsoft account; not available when signed in with a work or school account",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://support.microsoft.com/en-us/office/turn-off-copilot-in-microsoft-365-apps-bc7e530b-152d-4123-8e78-edc06f8b85f1",
+   "notes": "VERIFIED. Minimum versions: Word 2412, Excel and PowerPoint 2501, OneNote 2502. The setting is per app and per device and affects everyone using that device. Alternative: under 'Connected experiences', clear 'Turn on experiences that analyze your content', which also disables other features."
+  },
+  {
+   "app": "Microsoft 365 (Word/Excel/PowerPoint)",
+   "platform": "macOS",
+   "steps": [
+    "Open the app",
+    "App menu > Preferences > Authoring and Proofing Tools > Copilot",
+    "Clear 'Enable Copilot'",
+    "Close and restart the app"
+   ],
+   "url": null,
+   "whoCanChange": "user with a personal Microsoft account",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://support.microsoft.com/en-us/office/turn-off-copilot-in-microsoft-365-apps-bc7e530b-152d-4123-8e78-edc06f8b85f1",
+   "notes": "VERIFIED. Needs version 16.93 or later (Excel and PowerPoint 16.93.2)."
+  },
+  {
+   "app": "Microsoft 365 Outlook",
+   "platform": "Web/Windows (new Outlook)/Mac/iOS/Android",
+   "steps": [
+    "Web or new Outlook for Windows: Settings > Copilot",
+    "Turn off 'Turn on Copilot'",
+    "Mac, iOS, Android: Quick Settings > Copilot > turn the toggle off"
+   ],
+   "url": null,
+   "whoCanChange": "user",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.microsoft.com/en-us/office/turn-off-copilot-in-microsoft-365-apps-bc7e530b-152d-4123-8e78-edc06f8b85f1",
+   "notes": "VERIFIED. The choice applies to Outlook on all your devices."
+  },
+  {
+   "app": "Microsoft 365 (Word/Excel/PowerPoint)",
+   "platform": "Web/iOS/Android",
+   "steps": [
+    "No toggle exists: Microsoft states Copilot cannot be turned off in these apps on these platforms"
+   ],
+   "url": null,
+   "whoCanChange": "n/a",
+   "canDisable": false,
+   "lastVerified": "2026-09-20",
+   "source": "https://support.microsoft.com/en-us/office/turn-off-copilot-in-microsoft-365-apps-bc7e530b-152d-4123-8e78-edc06f8b85f1",
+   "notes": "VERIFIED. Microsoft also says Copilot cannot be turned off in Designer, Notepad or Paint. Classic plans (Personal Classic, Family Classic) are UNVERIFIED: current Microsoft support pages no longer describe the switch. The snippet-only path is account.microsoft.com/services > Manage > Cancel subscription > choose Classic."
+  },
+  {
+   "app": "Microsoft Copilot (consumer data controls)",
+   "platform": "copilot.com / Windows / macOS / mobile",
+   "steps": [
+    "copilot.com: profile icon > profile name > Privacy",
+    "Turn off 'Training on conversation activity'",
+    "Turn off 'Training on voice conversations'",
+    "Windows and macOS apps: profile icon > Settings > Privacy > same toggles",
+    "Mobile: menu > profile icon > Account > Privacy > same toggles",
+    "Optional: Memory > 'Personalization and memory' off"
+   ],
+   "url": "https://copilot.microsoft.com",
+   "whoCanChange": "user",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://support.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-privacy-controls",
+   "notes": "VERIFIED. This is a data and training opt-out only. Microsoft 365 home apps: prompts and file contents are not used to train foundation models (https://support.microsoft.com/en-us/privacy/copilot-in-microsoft-365-apps-for-home-your-data-and-privacy)."
+  },
+  {
+   "app": "Gmail (personal Google account)",
+   "platform": "Web",
+   "steps": [
+    "Open Gmail",
+    "Settings (gear) > See all settings",
+    "General tab",
+    "Uncheck 'Turn on smart features in Gmail, Chat, and Meet'",
+    "Scroll to 'Google Workspace smart features' > 'Manage Workspace smart feature settings'",
+    "Turn off 'Smart features in Google Workspace' (this removes Gemini summaries, drafts and search)",
+    "Turn off 'Smart features in other Google products'",
+    "Save"
+   ],
+   "url": "https://mail.google.com/mail/u/0/#settings/general",
+   "whoCanChange": "user",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://support.google.com/mail/answer/15604322",
+   "notes": "VERIFIED. Turning these off disables Smart Compose, Smart Reply, inbox categories, summary cards, Gmail events in Calendar, Gemini features, Maps reservations and Wallet passes. Off by default in the EEA, UK, Switzerland and Japan. Android: Menu > Settings > your account > General > 'Smart features' and 'Google Workspace smart features'."
+  },
+  {
+   "app": "Google Workspace (admin)",
+   "platform": "Admin console",
+   "steps": [
+    "Go to admin.google.com",
+    "Menu > Generative AI > Gemini for Workspace",
+    "Open the 'Feature access' panel",
+    "Optionally select an org unit or group",
+    "Click Edit next to each service (Gmail, Docs, Drive, Meet and so on)",
+    "Select Off",
+    "Save"
+   ],
+   "url": "https://admin.google.com",
+   "whoCanChange": "workspace admin with the Gemini Settings privilege",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://knowledge.workspace.google.com/admin/gemini/manage-access-to-gemini-features-in-workspace-services",
+   "notes": "VERIFIED. Default is on. Even if Gemini is off for one app, users can still reach that app's data from Gemini in other apps. A separate 'Workspace Intelligence' panel exists under the same menu."
+  },
+  {
+   "app": "Meta AI (Facebook/Instagram/Messenger)",
+   "platform": "iOS/Android/Web",
+   "steps": [
+    "No master off switch is documented",
+    "Mute: open the Meta AI chat > info (i) icon > bell/Mute > 'Until I change it' (UNVERIFIED, third-party guides only)",
+    "Delete the Meta AI chat from your inbox",
+    "Facebook Page admins: switch into the Page > Settings & privacy > Settings > Posts > turn off 'Allow comment summaries on your posts'",
+    "EU/UK only: Privacy Center > 'How Meta uses information for generative AI models' > objection form"
+   ],
+   "url": "https://www.facebook.com/privacy/genai",
+   "whoCanChange": "user; Page admin for comment summaries; EU/UK users for the objection",
+   "canDisable": false,
+   "lastVerified": "2026-09-20",
+   "source": "https://www.facebook.com/help/1546353492610426 ; https://www.facebook.com/help/994963392422769 ; https://help.instagram.com/2050445508681504 ; https://about.fb.com/news/2025/04/making-ai-work-harder-for-europeans/ ; https://www.meta.com/help/quest/126192406164229/",
+   "notes": "Meta AI cannot be turned off on Facebook, Instagram or Messenger. The comment-summaries toggle and the EU objection right are VERIFIED. The mute steps and the objection form URL are UNVERIFIED (the form is region-gated and not visible from the US). Meta states it uses AI interactions to improve its AI, and messages mentioning @Meta AI are not end-to-end encrypted."
+  },
+  {
+   "app": "WhatsApp",
+   "platform": "iOS/Android",
+   "steps": [
+    "Meta AI cannot be removed from the app",
+    "Per chat: open the chat > menu > View contact (or Group info) > Advanced chat privacy > turn on",
+    "Repeat for every chat (groups: group admins only)",
+    "Settings > Chats > Private Processing > turn off 'Private Processing features'",
+    "Same screen: turn 'Web search' off"
+   ],
+   "url": null,
+   "whoCanChange": "user; group admins for groups",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://faq.whatsapp.com/715385484388016 ; https://faq.whatsapp.com/757041863725594 ; https://faq.whatsapp.com/1493496052558860 ; https://faq.whatsapp.com/2257017191175152 ; https://faq.whatsapp.com/2089630958184255",
+   "notes": "VERIFIED. Advanced chat privacy stops people in that chat from asking Meta AI for answers, images or summaries, and also blocks auto-saving media and chat export. Private Processing features (summaries, writing help) are off by default; web search is on by default. Meta AI only reads messages that are sent to it or that mention @Meta AI. Prompts may be used to improve its AI."
+  },
+  {
+   "app": "LinkedIn",
+   "platform": "Web/iOS/Android",
+   "steps": [
+    "Open the direct URL (or Me > Settings & Privacy > Data privacy)",
+    "Select 'Data for Generative AI Improvement'",
+    "Turn the toggle off"
+   ],
+   "url": "https://www.linkedin.com/mypreferences/d/settings/data-for-ai-improvement",
+   "whoCanChange": "user",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://www.linkedin.com/help/linkedin/answer/a5538339 ; https://www.linkedin.com/help/linkedin/answer/a6278444",
+   "notes": "VERIFIED: the setting name, the URL and default-on. The in-app click path is UNVERIFIED. This is a training opt-out only. It is not retroactive, feedback you submit may still be used, and other AI models need the LinkedIn Data Processing Objection Form. AI features stay on."
+  },
+  {
+   "app": "X (Grok)",
+   "platform": "Web/iOS/Android",
+   "steps": [
+    "Settings and privacy > Privacy & Safety",
+    "Data sharing and personalization",
+    "Grok & Third-party Collaborators",
+    "Deselect 'Allow your public data as well as your interactions, inputs, and results with Grok and xAI to be used for training and fine-tuning'",
+    "Deselect 'Allow X to personalize your experience with Grok'",
+    "Select 'Delete Conversation History' and confirm",
+    "Optional: Privacy & Safety > Audience and tagging > 'Protect your posts'"
+   ],
+   "url": "https://x.com/settings/grok_settings",
+   "whoCanChange": "user",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://help.x.com/en/using-x/about-grok",
+   "notes": "The path and labels are VERIFIED. The direct URL comes from the brief and was not shown in the text extracted from the help page. Grok cannot be removed from the UI. The opt-out does not stop deployed Grok-powered features from learning, and thumbs feedback can still be used for training. Deleted history is removed within 30 days."
+  },
+  {
+   "app": "Discord",
+   "platform": "Desktop/Mobile",
+   "steps": [
+    "User Settings > Data & Privacy",
+    "Turn off 'Use Data to Improve Discord'",
+    "Summaries (where present): click the In-Channel Conversation Summaries icon in the channel header to hide",
+    "Server admins: channel settings (cog) > turn off 'Enable Channel Summaries', or Server Settings > Overview for the whole server"
+   ],
+   "url": null,
+   "whoCanChange": "user; server owner or admin with Manage Channel",
+   "canDisable": "partial",
+   "lastVerified": "2026-09-20",
+   "source": "https://support.discord.com/hc/en-us/articles/21864805694999-Data-Used-to-Improve-Discord ; https://support.discord.com/hc/en-us/articles/12926016807575",
+   "notes": "VERIFIED. Summaries are an experiment limited to a few servers, and members can only hide the UI. The data toggle is account-wide; signals are still sent but not used for improvement. Clyde's removal in December 2023 is UNVERIFIED (community posts only)."
+  },
+  {
+   "app": "GitHub Copilot",
+   "platform": "github.com (individual)",
+   "steps": [
+    "Click your profile picture > Copilot settings",
+    "Under 'Visibility', set 'Show Copilot' to Disabled",
+    "Set 'Allow GitHub to use my data for AI model training' to Disabled",
+    "Optional: set 'Suggestions matching public code' to Block",
+    "Optional: set 'Copilot access to Bing' to Disabled",
+    "Optional: Cloud agent > Repository access > 'No repositories'"
+   ],
+   "url": "https://github.com/settings/copilot",
+   "whoCanChange": "user on Free, Pro, Pro+ or Max; hidden for Business and Enterprise seats",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://docs.github.com/en/copilot/how-tos/manage-your-account/disable-copilot-free ; https://docs.github.com/en/copilot/how-tos/manage-your-account/manage-policies",
+   "notes": "VERIFIED. The docs say 'Show Copilot' Disabled disables all features of Copilot on GitHub for Copilot Free. The training toggle took effect 2026-04-24. Business and Enterprise data is excluded under the data protection agreement."
+  },
+  {
+   "app": "GitHub Copilot (organization)",
+   "platform": "github.com",
+   "steps": [
+    "Profile picture > Organizations > select your org",
+    "Settings",
+    "Copilot (under 'Code, planning, and automation')",
+    "Policies",
+    "Choose an enforcement option for each policy"
+   ],
+   "url": "https://github.com/organizations/ORG/settings/copilot/policies",
+   "whoCanChange": "org or enterprise owner",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-organization/manage-policies ; https://docs.github.com/en/copilot/concepts/policies",
+   "notes": "The path is VERIFIED; the URL pattern is UNVERIFIED. An enterprise can enable a policy, disable it, or let organizations decide, and enterprise policy can override the org."
+  },
+  {
+   "app": "VS Code",
+   "platform": "Desktop",
+   "steps": [
+    "Open Settings (Cmd+, or Ctrl+,)",
+    "Search for 'chat.disableAIFeatures'",
+    "Check it at user level, or at workspace level for one project",
+    "Alternative: Chat menu in the title bar > 'Learn How to Hide AI Features'"
+   ],
+   "url": "vscode://settings/chat.disableAIFeatures",
+   "whoCanChange": "user",
+   "canDisable": true,
+   "lastVerified": "2026-09-20",
+   "source": "https://code.visualstudio.com/docs/agents/agent-troubleshooting/faq",
+   "notes": "VERIFIED. It hides chat and inline suggestions and disables the Copilot extensions. It syncs across devices and persists through updates. The deep link is UNVERIFIED."
+  }
+ ]
+}

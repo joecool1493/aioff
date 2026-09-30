@@ -1,0 +1,51 @@
+{
+  "id": "search-kagi",
+  "name": "Kagi",
+  "category": "search",
+  "match": [
+    "*://kagi.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "k-quick-answer",
+      "kind": "hide",
+      "selectors": [
+        "button.quick-answer-trigger-link",
+        ".qa-container-box._0_quick_answer_box",
+        ".summarize-link",
+        "._0_result_page_summary",
+        ".__sri_more_menu ._0_summarize_page",
+        ".__sri_more_menu ._0_discuss_document"
+      ],
+      "textAnchors": [
+        "Quick Answer"
+      ],
+      "description": "Quick Answer button and box, per-result summarize",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": "Stevos-AI-Blocklist (MIT); EasyList AI list (fact)"
+      }
+    },
+    {
+      "id": "k-apps",
+      "kind": "hide",
+      "selectors": [
+        "[href=\"/assistant\"]",
+        "[href=\"/summarizer\"]",
+        "[href=\"/fastgpt\"]"
+      ],
+      "description": "AI app links in menu",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": "Stevos-AI-Blocklist (MIT)"
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [],
+    "requiresLogin": true
+  }
+}

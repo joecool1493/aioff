@@ -1,0 +1,7 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "The companion window may call the app's own commands, open links, and register the physical-switch hotkey.",
+  "windows": ["main"],
+  "permissions": ["core:default", "opener:default", "global-shortcut:allow-register", "global-shortcut:allow-unregister"]
+}

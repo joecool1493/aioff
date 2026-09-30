@@ -1,0 +1,196 @@
+/* AI Off shared styles. Tokens first, then components. Light and dark. */
+:root {
+  --aioff-bg: #f4f1ea;
+  --aioff-surface: #fffdf8;
+  --aioff-ink: #1b1a17;
+  --aioff-ink-soft: #5d5a52;
+  --aioff-line: #d9d4c7;
+  --aioff-plate: #ece7da;
+  --aioff-plate-edge: #cfc8b6;
+  --aioff-lever: #fbf9f3;
+  --aioff-lever-shade: #d6d0c0;
+  --aioff-accent: #d8442b;
+  --aioff-ok: #2f7d4f;
+  --aioff-radius: 10px;
+  --aioff-font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --aioff-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --aioff-bg: #151412;
+    --aioff-surface: #1e1d1a;
+    --aioff-ink: #f1eee6;
+    --aioff-ink-soft: #a5a196;
+    --aioff-line: #35332e;
+    --aioff-plate: #2a2925;
+    --aioff-plate-edge: #111;
+    --aioff-lever: #4a4842;
+    --aioff-lever-shade: #2c2b27;
+    --aioff-accent: #ff6a4d;
+    --aioff-ok: #63c08a;
+  }
+}
+:root[data-theme="dark"] {
+  --aioff-bg: #151412;
+  --aioff-surface: #1e1d1a;
+  --aioff-ink: #f1eee6;
+  --aioff-ink-soft: #a5a196;
+  --aioff-line: #35332e;
+  --aioff-plate: #2a2925;
+  --aioff-plate-edge: #111;
+  --aioff-lever: #4a4842;
+  --aioff-lever-shade: #2c2b27;
+  --aioff-accent: #ff6a4d;
+  --aioff-ok: #63c08a;
+}
+
+/* ---------- Switch ---------- */
+.aioff-switch {
+  --w: 132px;
+  --h: 212px;
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  display: inline-block;
+  font-family: var(--aioff-font);
+  -webkit-tap-highlight-color: transparent;
+}
+.aioff-switch--md { --w: 96px; --h: 154px; }
+.aioff-switch.is-locked { cursor: not-allowed; }
+.aioff-switch:focus-visible .aioff-switch__plate { outline: 3px solid var(--aioff-accent); outline-offset: 4px; }
+
+.aioff-switch__plate {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: var(--w);
+  height: var(--h);
+  padding: calc(var(--h) * 0.085) 0;
+  box-sizing: border-box;
+  border-radius: calc(var(--w) * 0.12);
+  background: linear-gradient(160deg, var(--aioff-plate), color-mix(in srgb, var(--aioff-plate) 86%, #000));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.12),
+    0 1px 0 var(--aioff-plate-edge),
+    0 10px 24px rgba(0, 0, 0, 0.18);
+}
+.aioff-switch__label {
+  font-size: calc(var(--w) * 0.105);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--aioff-ink-soft);
+  opacity: 0.45;
+  transition: opacity 0.12s, color 0.12s;
+}
+.aioff-switch.is-on .aioff-switch__label--on { opacity: 1; color: var(--aioff-ink); }
+.aioff-switch.is-off .aioff-switch__label--off { opacity: 1; color: var(--aioff-accent); }
+
+.aioff-switch__slot {
+  position: relative;
+  width: calc(var(--w) * 0.4);
+  height: calc(var(--h) * 0.5);
+  border-radius: calc(var(--w) * 0.07);
+  background: #0e0e0d;
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.7), 0 1px 0 rgba(255, 255, 255, 0.35);
+  overflow: hidden;
+}
+.aioff-switch__lever {
+  position: absolute;
+  left: 8%;
+  width: 84%;
+  height: 58%;
+  top: 4%;
+  border-radius: calc(var(--w) * 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, var(--aioff-lever) 0%, var(--aioff-lever) 55%, var(--aioff-lever-shade) 100%);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  transition: top 0.09s cubic-bezier(0.3, 1.6, 0.6, 1), background 0.09s;
+}
+.aioff-switch.is-off .aioff-switch__lever {
+  top: 38%;
+  background: linear-gradient(0deg, var(--aioff-lever) 0%, var(--aioff-lever) 55%, var(--aioff-lever-shade) 100%);
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5), inset 0 -1px 0 rgba(255, 255, 255, 0.6);
+}
+.aioff-switch__lever-text {
+  font-size: calc(var(--w) * 0.13);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--aioff-ink);
+  transition: opacity 0.12s;
+}
+.aioff-switch.is-off .aioff-switch__lever-text { opacity: 0.35; text-decoration: line-through; text-decoration-thickness: 2px; }
+.aioff-switch__screw {
+  position: absolute;
+  left: 50%;
+  width: calc(var(--w) * 0.06);
+  height: calc(var(--w) * 0.06);
+  margin-left: calc(var(--w) * -0.03);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fff8, #0003), var(--aioff-plate-edge);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .aioff-switch__lever { transition: none; }
+}
+
+/* ---------- Dial ---------- */
+.aioff-dial { font-family: var(--aioff-font); color: var(--aioff-ink); }
+.aioff-dial.is-disabled { opacity: 0.5; }
+.aioff-dial__track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  padding: 4px;
+  border-radius: var(--aioff-radius);
+  background: var(--aioff-plate);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+.aioff-dial__stop {
+  appearance: none;
+  border: 0;
+  border-radius: 7px;
+  padding: 7px 2px 6px;
+  background: transparent;
+  color: var(--aioff-ink-soft);
+  font: inherit;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+.aioff-dial__stop:disabled { cursor: not-allowed; }
+.aioff-dial__stop:focus-visible { outline: 2px solid var(--aioff-accent); outline-offset: 1px; }
+.aioff-dial__stop.is-included { color: var(--aioff-ink); }
+.aioff-dial__stop.is-current {
+  background: var(--aioff-surface);
+  color: var(--aioff-ink);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
+}
+.aioff-dial__num { font-size: 15px; font-weight: 800; line-height: 1.1; }
+.aioff-dial__stop.is-current .aioff-dial__num { color: var(--aioff-accent); }
+.aioff-dial__short { font-size: 10.5px; letter-spacing: 0.02em; }
+.aioff-dial__detail { margin: 8px 2px 0; font-size: 12px; line-height: 1.45; color: var(--aioff-ink-soft); min-height: 4.4em; }
+.aioff-dial__detail strong { color: var(--aioff-ink); }
+
+/* ---------- Counter ---------- */
+.aioff-counter { font-family: var(--aioff-font); font-size: 13px; color: var(--aioff-ink-soft); margin: 0; }
+.aioff-counter strong { color: var(--aioff-ink); font-variant-numeric: tabular-nums; }
+
+/* ---------- Rule explainer ---------- */
+.aioff-rule { font-family: var(--aioff-font); border-bottom: 1px solid var(--aioff-line); padding: 6px 0; font-size: 13px; color: var(--aioff-ink); }
+.aioff-rule summary { display: flex; gap: 8px; align-items: center; cursor: pointer; list-style: none; }
+.aioff-rule summary::-webkit-details-marker { display: none; }
+.aioff-rule__desc { flex: 1; }
+.aioff-rule__level { font-size: 11px; color: var(--aioff-ink-soft); border: 1px solid var(--aioff-line); border-radius: 4px; padding: 0 4px; }
+.aioff-rule dl { margin: 6px 0 4px 26px; display: grid; grid-template-columns: max-content 1fr; gap: 3px 10px; font-size: 12px; color: var(--aioff-ink-soft); }
+.aioff-rule dd { margin: 0; display: flex; flex-wrap: wrap; gap: 4px; min-width: 0; }
+.aioff-rule code { font-family: var(--aioff-mono); font-size: 11px; background: var(--aioff-plate); padding: 1px 4px; border-radius: 3px; overflow-wrap: anywhere; }

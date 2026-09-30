@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "types": [
+      "@cloudflare/workers-types"
+    ],
+    "lib": [
+      "ES2023"
+    ],
+    "resolveJsonModule": true
+  },
+  "include": [
+    "license/src",
+    "edu-config/src",
+    "sync/src"
+  ]
+}

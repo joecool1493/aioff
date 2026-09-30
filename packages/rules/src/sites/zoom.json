@@ -1,0 +1,57 @@
+{
+  "id": "zoom",
+  "name": "Zoom",
+  "category": "productivity",
+  "match": [
+    "*://*.zoom.us/*",
+    "*://www.zoom.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "zoom-recording-ai",
+      "kind": "hide",
+      "selectors": [
+        ".summary-wrapper",
+        ".summary-container",
+        ".next-step-wrapper",
+        "#tab-summary",
+        "#pane-summary",
+        ".vjs-highlights-bar"
+      ],
+      "textAnchors": [
+        "Meeting summary",
+        "Smart Chapters",
+        "Next steps"
+      ],
+      "description": "Zoom cloud recording pages: AI Companion summary, smart chapters, next steps",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist-Extra.txt"
+        ]
+      }
+    },
+    {
+      "id": "zoom-virtual-agent",
+      "kind": "hide",
+      "selectors": [
+        ".livesdk__invitation"
+      ],
+      "description": "Zoom Virtual Agent launcher on zoom.com and zoom.us",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "requiresLogin": true,
+    "entries": []
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "id": "instagram",
+  "name": "Instagram",
+  "category": "social",
+  "match": [
+    "*://www.instagram.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "ig-meta-ai-links",
+      "kind": "hide",
+      "selectors": [
+        "a[href^=\"https://www.meta.ai/\"]",
+        "a[href*=\"aistudio.instagram.com\"]"
+      ],
+      "textAnchors": [
+        "Meta AI",
+        "AI Studio"
+      ],
+      "description": "Meta AI and AI Studio links in the sidebar More menu and footer. Footer href confirmed (meta.ai/?utm_source=foa_web_footer); aistudio href is unconfirmed",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "researcher memory of site DOM, not confirmed in any list on 2026-09-20"
+        ]
+      }
+    },
+    {
+      "id": "ig-meta-ai-search-dm",
+      "kind": "hide",
+      "selectors": [],
+      "textAnchors": [
+        "Ask Meta AI",
+        "Meta AI",
+        "Ask Meta AI or Search"
+      ],
+      "anchorTarget": "control",
+      "description": "Meta AI in search and DM list. Text anchors only",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "low",
+        "source": [
+          "researcher memory of site DOM, not confirmed in any list on 2026-09-20"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "requiresLogin": true,
+    "entries": []
+  }
+}

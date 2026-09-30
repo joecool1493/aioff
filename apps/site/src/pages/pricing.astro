@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+import { CHECKOUT_URLS, EMAIL_DELIVERY_CONFIGURED, HOSTED_CONFIG_AVAILABLE, PAID_LIVE, SCHOOLS_QUOTE } from '../config';
+---
+<Base title="AI Off pricing" description="The browser extension is free forever. See planned Pro, Family, and Schools prices, release status, device limits, and refund terms.">
+  <h1>The browser part is free</h1>
+  {!PAID_LIVE && <div class="notice"><p>Paid plans are not available yet. These are planned prices. Desktop releases and encrypted sync are not available yet.</p></div>}
+  <div class="notice"><p>The DNS profile is not available yet, pending a partner. Do not buy a plan for it.</p></div>
+
+  <div class="grid plans" style="margin-top:32px">
+    <div class="card">
+      <h3>Free</h3>
+      <div class="count">$0 forever</div>
+      <p style="margin-top:16px">All four browser levels, signed updates, personal rules, element picker, open network lists. No account.</p>
+      <p><a href="/download/">Browser downloads</a></p>
+    </div>
+    <div class="card pro">
+      <h3>Pro</h3>
+      <div class="count">$19 a year or $39 once</div>
+      <p style="margin-top:16px">Desktop companion, recorded changes, checks after updates, optional encrypted sync. Up to 5 devices.</p>
+      {PAID_LIVE && (CHECKOUT_URLS.pro || CHECKOUT_URLS.lifetime) ? (
+        <div class="btns">
+          {CHECKOUT_URLS.pro && <a class="btn" href={CHECKOUT_URLS.pro}>Get Pro, $19 a year</a>}
+          {CHECKOUT_URLS.lifetime && <a class="btn secondary" href={CHECKOUT_URLS.lifetime}>Get Pro, $39 once</a>}
+        </div>
+      ) : (
+        <p class="status">Pro purchases are not available yet.</p>
+      )}
+      <p><a href="/computer/">Companion availability</a></p>
+    </div>
+    <div class="card">
+      <h3>Family</h3>
+      <div class="count">$29 a year</div>
+      <p style="margin-top:16px">Pro for up to 10 devices. One household key. Separate encrypted sync per person.</p>
+      {PAID_LIVE && CHECKOUT_URLS.family ? <p><a class="btn" href={CHECKOUT_URLS.family}>Get Family, $29 a year</a></p> : <p class="status">Family purchases are not available yet.</p>}
+    </div>
+    <div class="card">
+      <h3>Schools</h3>
+      <div class="count">$1 per student per year. $500 annual minimum.</div>
+      <p style="margin-top:16px">Managed policies, locked controls, exceptions. No student reporting in v1. Free for one teacher on one organizational unit.</p>
+      <p class="status">{HOSTED_CONFIG_AVAILABLE ? 'Optional hosted configuration available.' : 'Hosted configuration: not available yet.'}</p>
+      <p><a class="btn" href={SCHOOLS_QUOTE}>Request a quote</a></p>
+      <p><a href="/schools/">Device limits</a></p>
+    </div>
+  </div>
+
+  <h2>Payment and keys</h2>
+  <p>Annual plans bill yearly. Prices are in dollars (USD); required tax appears at checkout.</p>
+  <p>License keys are checked locally. Optional sync sends the key to confirm access; it contains no name or email. Device limits use the honor system; AI Off has no device-counting service.</p>
+  <p>Reply to the receipt within 30 days for a refund. No questions required.</p>
+  <p>The $39 option covers Pro for AI Off's lifetime, not the buyer's lifetime or forever. Code and rules are MIT licensed.</p>
+  <p class="status">{PAID_LIVE && EMAIL_DELIVERY_CONFIGURED ? 'The key appears after checkout and arrives by email. Keep the key and receipt. No account is required.' : 'Paid orders are closed.'}</p>
+</Base>

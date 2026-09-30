@@ -1,0 +1,215 @@
+{
+  "id": "x",
+  "name": "X (Twitter)",
+  "category": "social",
+  "match": [
+    "*://x.com/*",
+    "*://twitter.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "x-grok-nav",
+      "kind": "hide",
+      "selectors": [
+        "nav > a[href=\"/i/grok\"]",
+        "header nav a[href$=\"/i/grok\"]",
+        "#layers nav a[href=\"/i/grok\"]",
+        "div[aria-labelledby=\"modal-header\"] a[href$=\"/i/grok\"]",
+        "[role=\"menu\"] a[href=\"/i/grok\"]"
+      ],
+      "description": "Grok item in the primary nav (desktop and mobile), More dialog, and menus",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/insin/control-panel-for-twitter/blob/master/script.js",
+          "https://github.com/typefully/minimal-twitter/blob/main/content-scripts/src/selectors.js"
+        ]
+      }
+    },
+    {
+      "id": "x-grok-drawer",
+      "kind": "hide",
+      "selectors": [
+        "[data-testid=\"GrokDrawer\"]"
+      ],
+      "description": "Floating Grok chat drawer at the bottom right",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/insin/control-panel-for-twitter/blob/master/script.js",
+          "https://github.com/typefully/minimal-twitter/blob/main/content-scripts/src/selectors.js"
+        ]
+      }
+    },
+    {
+      "id": "x-grok-post-button",
+      "kind": "hide",
+      "selectors": [
+        "[data-testid=\"tweet\"] button[aria-label~=\"Grok\"]",
+        "button[aria-label=\"Grok actions\"]",
+        "[data-testid=\"tweet\"] a[href=\"/i/grok\"]",
+        "[data-testid=\"tweet\"] [data-testid^=\"followups_\"]",
+        "[data-testid=\"tweet\"] [data-testid^=\"followups_\"] + nav"
+      ],
+      "textAnchors": [
+        "Explain this post",
+        "Grok actions"
+      ],
+      "anchorTarget": "control",
+      "description": "Grok button on posts (Explain this post), Ask Grok link, and Grok suggested follow-up prompts in posts",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/insin/control-panel-for-twitter/blob/master/script.js"
+        ]
+      }
+    },
+    {
+      "id": "x-grok-composer",
+      "kind": "hide",
+      "selectors": [
+        "[data-testid=\"grokImgGen\"]"
+      ],
+      "textAnchors": [
+        "Enhance your post with Grok"
+      ],
+      "description": "Grok image generation button in the composer",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/insin/control-panel-for-twitter/blob/master/script.js"
+        ]
+      }
+    },
+    {
+      "id": "x-grok-profile-summary",
+      "kind": "hide",
+      "selectors": [
+        "button[aria-label=\"Profile Summary\"]",
+        "[data-testid=\"HoverCard\"] > div > div > div:last-child:has(> button)",
+        "button:has(path[d^=\"M12.745 20.54l10.97-8.19\"])"
+      ],
+      "textAnchors": [
+        "Profile Summary"
+      ],
+      "description": "Grok Profile Summary button on profiles and hover cards",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/insin/control-panel-for-twitter/blob/master/script.js",
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/typefully/minimal-twitter/blob/main/content-scripts/src/selectors.js"
+        ]
+      }
+    },
+    {
+      "id": "x-grok-search-summary",
+      "kind": "hide",
+      "selectors": [
+        "[data-testid=\"primaryColumn\"] > div > div:has(> [data-testid=\"followups_search\"])"
+      ],
+      "description": "Grok summary at the top of search results. CPFT scopes this to the search page with a body class it adds itself",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/insin/control-panel-for-twitter/blob/master/script.js"
+        ]
+      }
+    },
+    {
+      "id": "x-grok-ask-button",
+      "kind": "hide",
+      "selectors": [
+        "div:has(> [data-testid=\"grok_post_atgrok_button\"])",
+        "button[aria-label=\"Grok\"]"
+      ],
+      "textAnchors": [
+        "Ask Grok"
+      ],
+      "anchorTarget": "control",
+      "description": "Ask Grok button below Grok posts; logged-out header Grok button",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "x-grok-image-edit",
+      "kind": "hide",
+      "selectors": [
+        "[role=\"menuitem\"][href*=\"grok.com/imagine\"]",
+        "a[href^=\"https://grok.com/imagine\"]"
+      ],
+      "description": "Edit image with Grok in image menus and hover overlay",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/insin/control-panel-for-twitter/blob/master/script.js"
+        ]
+      }
+    },
+    {
+      "id": "x-grok-promos",
+      "kind": "hide",
+      "selectors": [
+        "[data-testid=\"cellInnerDiv\"]:has([data-testid=\"inlinePrompt-primaryAction\"] > [href^=\"https://grok.com/\"])",
+        "[data-testid=\"cellInnerDiv\"]:has([data-testid=\"inlinePrompt-primaryAction\"] > [href^=\"https://x.ai/\"])",
+        "[data-testid=\"sidebarColumn\"] div:has(> aside[role=\"complementary\"] > a[href^=\"https://grok.com/imagine\"])",
+        "footer span:has(> [href=\"https://grok.com/\"])"
+      ],
+      "description": "Grok promos in the timeline, right sidebar, and footer",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/insin/control-panel-for-twitter/blob/master/script.js"
+        ]
+      }
+    },
+    {
+      "id": "x-grok-posts-level3",
+      "kind": "hide",
+      "selectors": [
+        "[data-testid=\"cellInnerDiv\"]:has([data-testid=\"tweet\"]:not([tabindex=\"-1\"]) [href=\"/grok\"])",
+        "[data-testid=\"cellInnerDiv\"]:has(a[href^=\"/i/grok/share/\"])"
+      ],
+      "description": "Optional Level 3: posts by or mentioning @grok, and shared Grok conversations",
+      "since": "2026-09-20",
+      "level": 3,
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/insin/control-panel-for-twitter/blob/master/script.js"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://x.com/explore",
+        "expect": [
+          "x-grok-image-edit"
+        ]
+      }
+    ]
+  }
+}

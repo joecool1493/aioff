@@ -1,0 +1,6 @@
+{
+  "kind": "control",
+  "url": "https://mail.google.com/mail/u/0/#inbox",
+  "note": "Inbox with Gemini features absent.",
+  "expect": []
+}

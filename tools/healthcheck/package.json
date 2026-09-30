@@ -1,0 +1,23 @@
+{
+  "name": "@aioff/healthcheck",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "description": "Nightly Playwright runner: loads live sites and asserts that AI Off rules still match. Also captures fixtures.",
+  "scripts": {
+    "start": "tsx src/run.ts",
+    "capture": "tsx src/run.ts --capture",
+    "report-issues": "tsx src/issues.ts",
+    "typecheck": "tsc -p tsconfig.json",
+    "e2e": "tsx src/e2e.ts",
+    "screenshots": "tsx src/screenshots.ts",
+    "proof": "tsx src/proof.ts",
+    "blocked": "tsx src/blocked.ts"
+  },
+  "dependencies": {
+    "@aioff/core": "workspace:*",
+    "@aioff/rules": "workspace:*",
+    "playwright": "^1.63.0"
+  }
+}

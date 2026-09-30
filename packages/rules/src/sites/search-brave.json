@@ -1,0 +1,92 @@
+{
+  "id": "search-brave",
+  "name": "Brave Search",
+  "category": "search",
+  "match": [
+    "*://search.brave.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "brave-force-web",
+      "kind": "urlRewrite",
+      "when": {
+        "paramMissing": [
+          "summary"
+        ],
+        "pathPrefix": "/search?"
+      },
+      "set": {
+        "summary": "0"
+      },
+      "description": "Ask Brave Search not to produce an AI answer (summary=0)",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": "Verified live: #llm-snippet removed. Ask button and tab remain."
+      }
+    },
+    {
+      "id": "brave-cookie-summarizer",
+      "kind": "setCookie",
+      "cookie": {
+        "name": "summarizer",
+        "value": "0",
+        "domain": "search.brave.com",
+        "maxAgeDays": 365
+      },
+      "description": "Set the site's own preference: Answer with AI = off (setting name verified on live settings page; value from Stevo list)",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": "Answer with AI = off (setting name verified on live settings page; value from Stevo list)"
+      }
+    },
+    {
+      "id": "br-answer",
+      "kind": "hide",
+      "selectors": [
+        "#llm-snippet",
+        "div.ai-digest"
+      ],
+      "description": "AI answer block",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": "Stevos-AI-Blocklist (MIT); EasyList AI list (fact); #llm-snippet reproduced live"
+      }
+    },
+    {
+      "id": "br-ask",
+      "kind": "hide",
+      "selectors": [
+        "#submit-llm-button",
+        ".tab-item:has(> a[href^=\"/ask\"])"
+      ],
+      "description": "Ask button in search bar and Ask tab",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": "Stevos-AI-Blocklist (MIT); reproduced live"
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://search.brave.com/search?q=why+is+the+sky+blue",
+        "expect": [
+          "br-answer",
+          "br-ask"
+        ]
+      },
+      {
+        "url": "https://search.brave.com/search?q=Why+are+we+here",
+        "expect": [
+          "br-answer",
+          "br-ask"
+        ]
+      }
+    ]
+  }
+}

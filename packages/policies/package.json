@@ -1,0 +1,11 @@
+{
+  "name": "@aioff/policies",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "description": "Catalog of browser policies, OS tweaks, and app checklists that turn AI off, plus generators for every delivery format (registry, plist, mobileconfig, JSON, Google Admin, Intune, Jamf).",
+  "exports": { ".": "./src/index.ts" },
+  "bin": { "aioff-policy": "./scripts/cli.ts" },
+  "scripts": { "build": "tsx scripts/build.ts", "cli": "tsx scripts/cli.ts", "typecheck": "tsc -p tsconfig.json" }
+}

@@ -1,0 +1,32 @@
+{
+  "id": "spotify",
+  "name": "Spotify",
+  "category": "productivity",
+  "match": [
+    "*://open.spotify.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "spotify-ai",
+      "kind": "hide",
+      "selectors": [],
+      "textAnchors": [
+        "AI playlist",
+        "Create an AI playlist"
+      ],
+      "description": "Spotify web AI DJ and AI playlist entry points",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "low",
+        "source": [
+          "researcher memory of site DOM, not confirmed in any list on 2026-09-20"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "requiresLogin": true,
+    "entries": []
+  }
+}

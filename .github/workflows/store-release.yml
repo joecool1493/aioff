@@ -1,0 +1,29 @@
+name: store-release
+# Tag v* to package every browser build and the AMO source zip. Store upload steps are
+# commented until the store accounts and API credentials exist (see START-HERE.md).
+on:
+  push: { tags: ['v*'] }
+permissions: { contents: write }
+jobs:
+  package:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test
+      - run: pnpm rules:build
+      - run: pnpm --filter @aioff/extension zip
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: apps/extension/.output/*.zip
+          generate_release_notes: true
+      # - name: Chrome Web Store upload
+      #   run: npx chrome-webstore-upload-cli upload --source apps/extension/.output/*-chrome.zip --auto-publish
+      #   env: { EXTENSION_ID: ..., CLIENT_ID: ..., CLIENT_SECRET: ..., REFRESH_TOKEN: ... }
+      # - name: Firefox AMO upload (needs the sources zip; reviewers build on Ubuntu 24.04 with Node 24)
+      #   run: npx web-ext sign --channel listed --source-dir apps/extension/.output/firefox-mv3 --upload-source-code apps/extension/.output/*-sources.zip
+      #   env: { WEB_EXT_API_KEY: ..., WEB_EXT_API_SECRET: ... }

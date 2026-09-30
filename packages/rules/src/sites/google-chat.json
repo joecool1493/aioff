@@ -1,0 +1,53 @@
+{
+  "id": "google-chat",
+  "name": "Google Chat",
+  "category": "google",
+  "match": [
+    "*://chat.google.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "gchat-ask-gemini",
+      "kind": "hide",
+      "selectors": [
+        ".rHn5Xc.e5IPTd"
+      ],
+      "textAnchors": [
+        "Ask Gemini"
+      ],
+      "anchorTarget": "control",
+      "description": "Ask Gemini in the Chat top bar",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "gchat-summarize-promo",
+      "kind": "hide",
+      "selectors": [
+        ".SDFSsb.oMuP2d:has([role=\"dialog\"][data-promotype=\"19\"])"
+      ],
+      "textAnchors": [
+        "Summarize with Gemini"
+      ],
+      "anchorTarget": "control",
+      "description": "Summarize with Gemini promo dialog",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "requiresLogin": true,
+    "entries": []
+  }
+}

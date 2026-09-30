@@ -1,0 +1,6 @@
+{
+  "kind": "synthetic",
+  "url": "https://mail.google.com/mail/u/0/#inbox",
+  "note": "Hand-written from the observed DOM structure. Replace with a real capture from a logged-in session: pnpm healthcheck -- --capture --headed",
+  "expect": ["gmail-gemini-topbar","gmail-summarize-email","gmail-help-me-write","gmail-gemini-promos"]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "target",
+  "name": "Target",
+  "category": "commerce",
+  "match": [
+    "*://www.target.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "target-ai",
+      "kind": "hide",
+      "selectors": [
+        "div:has(> [data-test=\"review-summary-title\"])",
+        ".sc-35985976-1"
+      ],
+      "textAnchors": [
+        "AI Shopping Assistant",
+        "Review summary"
+      ],
+      "description": "Target AI review summary and shopping assistant (styled-components class is fragile). Source also hides Q and A authored by AI Shopping Assistant via text",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://www.target.com/"
+      }
+    ]
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "id": "office-editors",
+  "name": "Microsoft 365 web apps",
+  "category": "microsoft",
+  "match": [
+    "*://*.officeapps.live.com/*",
+    "*://*.cloud.microsoft/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "office-copilot-fab",
+      "kind": "hide",
+      "selectors": [
+        "#CopilotDABContainer"
+      ],
+      "description": "Floating Copilot button at the bottom right of an open document",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "office-copilot-ribbon",
+      "kind": "hide",
+      "selectors": [
+        "#CopilotChat-group",
+        "#Copilot-group",
+        "#ChatPPT-group",
+        "div:has(> div > #CopilotChat-group)",
+        "div:has(> div > #Copilot-group)",
+        "div:has(> div > #ChatPPT-group)"
+      ],
+      "description": "Copilot ribbon group in Word and OneNote (CopilotChat-group), Excel (Copilot-group), PowerPoint (ChatPPT-group)",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "office-start-copilot-section",
+      "kind": "hide",
+      "selectors": [
+        "[aria-label=\"Explore Copilot section.\"]",
+        "[role=\"region\"][aria-label=\"Try Copilot\"]",
+        "[aria-label=\"Create with Copilot\"]"
+      ],
+      "textAnchors": [
+        "Explore Copilot",
+        "Create with Copilot"
+      ],
+      "description": "Copilot sections on the word, excel, powerpoint .cloud.microsoft start pages",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "m365-app-launcher-copilot",
+      "kind": "hide",
+      "selectors": [
+        "#O365_AppTile_Microsoft365Tile"
+      ],
+      "description": "Microsoft 365 Copilot tile in the app launcher (source hides the parent)",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "requiresLogin": true,
+    "entries": []
+  }
+}

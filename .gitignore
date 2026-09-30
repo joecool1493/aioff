@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.output/
+.wxt/
+.astro/
+*.log
+.DS_Store
+# Signing keys never enter the repo. See packages/rules/README.md.
+*.private.pem
+*.private.key
+keys/
+apps/companion/src-tauri/target/
+apps/companion/src-tauri/gen/
+healthcheck-report/
+.output-*/
+docs/proof/*.webm
+docs/proof/video/

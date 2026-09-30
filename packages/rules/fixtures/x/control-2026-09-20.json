@@ -1,0 +1,6 @@
+{
+  "kind": "control",
+  "url": "https://x.com/home",
+  "note": "Timeline without Grok surfaces.",
+  "expect": []
+}

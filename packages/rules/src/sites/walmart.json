@@ -1,0 +1,58 @@
+{
+  "id": "walmart",
+  "name": "Walmart",
+  "category": "commerce",
+  "match": [
+    "*://www.walmart.com/*",
+    "*://business.walmart.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "walmart-sparky",
+      "kind": "hide",
+      "selectors": [
+        ".unified-chat-component",
+        ".sparky-fab-wrapper"
+      ],
+      "textAnchors": [
+        "Ask Sparky"
+      ],
+      "description": "Walmart Sparky floating chat (walmart.com and business.walmart.com)",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    },
+    {
+      "id": "walmart-ai-summaries",
+      "kind": "hide",
+      "selectors": [
+        "#top-highlights-module",
+        "[data-testid=\"bulleted-summary\"]"
+      ],
+      "textAnchors": [
+        "AI-generated"
+      ],
+      "description": "Walmart AI key item features and review summary",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://www.walmart.com/"
+      }
+    ]
+  }
+}

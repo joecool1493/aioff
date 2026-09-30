@@ -1,0 +1,54 @@
+{
+  "id": "quora",
+  "name": "Quora",
+  "category": "knowledge",
+  "match": [
+    "*://www.quora.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "quora-poe-assistant-answer",
+      "kind": "hide",
+      "selectors": [
+        ".q-box[class*=\"dom_annotate_question_answer_item_\"]:has(.q-image[src*=\"poe.multibot_app_icon\"])"
+      ],
+      "description": "AI answer from the Poe Assistant bot at the top of a question page. Source matches the full icon URL; src*= form is a generalization",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "quora-ai-interviewer",
+      "kind": "hide",
+      "selectors": [
+        "a[href=\"https://www.quora.com/ai_interviewer\"]"
+      ],
+      "textAnchors": [
+        "AI Interviewer"
+      ],
+      "description": "AI Interviewer link in the left sidebar",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://www.quora.com/What-is-photosynthesis",
+        "expect": [
+          "quora-poe-assistant-answer"
+        ]
+      }
+    ]
+  }
+}

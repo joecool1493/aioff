@@ -1,0 +1,44 @@
+{
+  "id": "homedepot",
+  "name": "Home Depot",
+  "category": "commerce",
+  "match": [
+    "*://www.homedepot.com/*",
+    "*://www.homedepot.ca/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "homedepot-magic-apron",
+      "kind": "hide",
+      "selectors": [
+        "#magic-apron-loader",
+        "#product-section-magic-apron-qa-bot",
+        "#magic-apron-review-summary",
+        "magic-apron-bot-wrapper-component"
+      ],
+      "textAnchors": [
+        "Magic Apron"
+      ],
+      "description": "Home Depot Magic Apron assistant and review summary",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://www.homedepot.com/",
+        "expect": [
+          "homedepot-magic-apron"
+        ]
+      }
+    ]
+  }
+}

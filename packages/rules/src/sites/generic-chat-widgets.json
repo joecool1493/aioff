@@ -1,0 +1,762 @@
+{
+  "id": "generic-chat-widgets",
+  "name": "AI chat widgets (any site)",
+  "category": "generic",
+  "match": [
+    "*://*/*"
+  ],
+  "level": 1,
+  "generic": true,
+  "rules": [
+    {
+      "id": "widget-intercom",
+      "kind": "hide",
+      "selectors": [
+        "#intercom-container",
+        ".intercom-lightweight-app",
+        ".intercom-lightweight-app-launcher",
+        ".intercom-launcher",
+        ".intercom-launcher-frame",
+        ".intercom-messenger-frame",
+        "iframe#intercom-frame"
+      ],
+      "description": "Intercom (Fin): support chat widget that now fronts an AI bot. Off by default so you never lose a support channel by surprise.",
+      "since": "2026-09-20",
+      "defaultEnabled": false,
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://widget.intercom.io/widget/abcd1234",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_chatapps_third-party.txt"
+        ]
+      }
+    },
+    {
+      "id": "widget-drift",
+      "kind": "hide",
+      "selectors": [
+        "#drift-frame-controller",
+        "#drift-frame-chat",
+        "[id^=\"drift-frame-\"]",
+        ".drift-frame-controller",
+        "iframe.drift-frame-chat",
+        ".drift-conductor-item",
+        ".drift-facade"
+      ],
+      "description": "Drift: support chat widget that now fronts an AI bot. Off by default so you never lose a support channel by surprise.",
+      "since": "2026-09-20",
+      "defaultEnabled": false,
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://js.driftt.com/include/",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_chatapps_third-party.txt"
+        ]
+      }
+    },
+    {
+      "id": "widget-zendesk",
+      "kind": "hide",
+      "selectors": [
+        "iframe#launcher",
+        "iframe#webWidget",
+        "iframe[title=\"Button to launch messaging window\"]",
+        "iframe[title=\"Messaging window\"]",
+        "iframe[title=\"Message from company\"]"
+      ],
+      "description": "Zendesk Web Widget classic and Messaging: support chat widget that now fronts an AI bot. Off by default so you never lose a support channel by surprise.",
+      "since": "2026-09-20",
+      "defaultEnabled": false,
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_chatapps_third-party.txt",
+          "https://github.com/AdguardTeam/AdguardFilters/blob/master/AnnoyancesFilter/Widgets/sections/widgets.txt",
+          "https://static.zdassets.com/ekr/snippet.js"
+        ]
+      }
+    },
+    {
+      "id": "widget-tidio",
+      "kind": "hide",
+      "selectors": [
+        "#tidio-chat",
+        "#tidio-chat-iframe",
+        "#tidio-chat-code"
+      ],
+      "description": "Tidio (Lyro): support chat widget that now fronts an AI bot. Off by default so you never lose a support channel by surprise.",
+      "since": "2026-09-20",
+      "defaultEnabled": false,
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/AdguardTeam/AdguardFilters/blob/master/AnnoyancesFilter/Widgets/sections/widgets.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_chatapps_third-party.txt"
+        ]
+      }
+    },
+    {
+      "id": "widget-crisp",
+      "kind": "hide",
+      "selectors": [
+        ".crisp-client",
+        "#crisp-chatbox",
+        "#crisp-loader"
+      ],
+      "description": "Crisp: support chat widget that now fronts an AI bot. Off by default so you never lose a support channel by surprise.",
+      "since": "2026-09-20",
+      "defaultEnabled": false,
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://client.crisp.chat/l.js",
+          "https://github.com/AdguardTeam/AdguardFilters/blob/master/AnnoyancesFilter/Widgets/sections/widgets.txt"
+        ]
+      }
+    },
+    {
+      "id": "widget-chatbot-com",
+      "kind": "hide",
+      "selectors": [
+        "#chatbot-chat",
+        "iframe#chatbot-chat-frame",
+        "iframe[title=\"ChatBot chat widget\"]"
+      ],
+      "description": "ChatBot.com: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://cdn.chatbot.com/widget/plugin.js",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_chatapps_third-party.txt"
+        ]
+      }
+    },
+    {
+      "id": "widget-livechat",
+      "kind": "hide",
+      "selectors": [
+        "#chat-widget-container",
+        "iframe#chat-widget",
+        "iframe#chat-widget-minimized",
+        "#chat-widget-lightbox",
+        "#livechat-eye-catcher",
+        "iframe[title=\"LiveChat chat widget\"]"
+      ],
+      "description": "LiveChat: support chat widget that now fronts an AI bot. Off by default so you never lose a support channel by surprise.",
+      "since": "2026-09-20",
+      "defaultEnabled": false,
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://cdn.livechatinc.com/tracking.js",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_chatapps_third-party.txt"
+        ]
+      }
+    },
+    {
+      "id": "widget-hubspot",
+      "kind": "hide",
+      "selectors": [
+        "#hubspot-messages-iframe-container",
+        "#hubspot-conversations-iframe",
+        "#hubspot-conversations-inline-parent",
+        ".hs-shadow-container"
+      ],
+      "description": "HubSpot chat (Breeze): support chat widget that now fronts an AI bot. Off by default so you never lose a support channel by surprise.",
+      "since": "2026-09-20",
+      "defaultEnabled": false,
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://js.usemessages.com/conversations-embed.js",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_chatapps_third-party.txt"
+        ]
+      }
+    },
+    {
+      "id": "widget-ada",
+      "kind": "hide",
+      "selectors": [
+        "#ada-entry",
+        "iframe#ada-chat-frame",
+        "#ada-button-frame",
+        "[id^=\"ada-\"][id$=\"-frame\"]"
+      ],
+      "description": "Ada: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://static.ada.support/embed2.js"
+        ]
+      }
+    },
+    {
+      "id": "widget-kommunicate",
+      "kind": "hide",
+      "selectors": [
+        "iframe#kommunicate-widget-iframe",
+        ".kommunicate-custom-iframe"
+      ],
+      "description": "Kommunicate: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://widget.kommunicate.io/v2/kommunicate.app",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_chatapps_third-party.txt"
+        ]
+      }
+    },
+    {
+      "id": "widget-chatbase",
+      "kind": "hide",
+      "selectors": [
+        "#chatbase-bubble-button",
+        "#chatbase-bubble-window",
+        "#chatbase-message-bubbles",
+        "#chatbase-bubble-label"
+      ],
+      "description": "Chatbase: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://www.chatbase.co/embed.min.js",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_chatapps_third-party.txt"
+        ]
+      }
+    },
+    {
+      "id": "widget-botpress",
+      "kind": "hide",
+      "selectors": [
+        "#bp-web-widget",
+        "iframe#bp-widget",
+        "iframe.bp-widget-web",
+        "iframe.bpFab",
+        "iframe.bpWebchat",
+        ".bpFabWrapper",
+        "iframe[title=\"Botpress\"]"
+      ],
+      "description": "Botpress webchat v1, v2, v3: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://cdn.botpress.cloud/webchat/v3.2/inject.js"
+        ]
+      }
+    },
+    {
+      "id": "widget-voiceflow",
+      "kind": "hide",
+      "selectors": [
+        "#voiceflow-chat",
+        "#voiceflow-chat-frame"
+      ],
+      "description": "Voiceflow: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://cdn.voiceflow.com/widget-next/bundle.mjs"
+        ]
+      }
+    },
+    {
+      "id": "widget-customgpt",
+      "kind": "hide",
+      "selectors": [
+        "#cgptcb-body",
+        "#cgptcb-chat-box-container",
+        "#cgptcb-chat-box-toggle",
+        "#cgptcb-chat-circle",
+        "#cgptcb-chat-box-iframe",
+        "#cgptcb-overlay"
+      ],
+      "description": "CustomGPT: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://cdn.customgpt.ai/js/chat.js"
+        ]
+      }
+    },
+    {
+      "id": "widget-sitegpt",
+      "kind": "hide",
+      "selectors": [
+        "#sitegpt-chat-icon",
+        "#sitegpt-chat-frame"
+      ],
+      "description": "SiteGPT: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/kidGodzilla/sitegpt-tools"
+        ]
+      }
+    },
+    {
+      "id": "widget-docsbot",
+      "kind": "hide",
+      "selectors": [
+        "#docsbotai-root",
+        "#docsbot-widget-embed"
+      ],
+      "description": "DocsBot: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://widget.docsbot.ai/chat.js"
+        ]
+      }
+    },
+    {
+      "id": "widget-kapa",
+      "kind": "hide",
+      "selectors": [
+        "#kapa-widget-container",
+        "#kapa-widget-root",
+        "#kapa-widget-portal",
+        ".kapa-ai-class"
+      ],
+      "description": "Kapa.ai: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://widget.kapa.ai/kapa-widget.bundle.js",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt",
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "widget-inkeep",
+      "kind": "hide",
+      "selectors": [
+        "[id^=\"inkeep-shadow\"]",
+        "#inkeep-widget-root",
+        "inkeep-portal",
+        ".ikp-chat-button__container",
+        "#aiSearchResults__Item-__ask_ai__",
+        ".ikp-ai-search-input-group > [data-part=\"view_toggle\"]"
+      ],
+      "description": "Inkeep: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://cdn.jsdelivr.net/npm/@inkeep/cxkit-js@latest/dist/embed.js",
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "widget-mendable",
+      "kind": "hide",
+      "selectors": [
+        "#ms-floating-button",
+        "#ms-floating-button-s",
+        "#ms-sidebar",
+        "#ms-chat-bubble",
+        "#ms-search-bar"
+      ],
+      "description": "Mendable: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://unpkg.com/@mendable/search/dist/umd/mendable-bundle.min.js"
+        ]
+      }
+    },
+    {
+      "id": "widget-algolia-askai",
+      "kind": "hide",
+      "selectors": [
+        ".DocSearch-AskAiScreen",
+        ".DocSearch-AskAi-Section",
+        ".DocSearch-AskAi-Return",
+        ".DocSearch-Sidepanel",
+        ".DocSearch-SidepanelButton",
+        ".DocSearch-HitsFooter:has(> .DocSearch-AskAI)"
+      ],
+      "description": "Algolia DocSearch v4 Ask AI: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://cdn.jsdelivr.net/npm/@docsearch/css@4/dist/style.css",
+          "https://github.com/algolia/docsearch",
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "widget-mintlify",
+      "kind": "hide",
+      "selectors": [
+        "button#assistant-entry",
+        "button#assistant-entry-mobile",
+        "#chat-assistant-sheet",
+        ".chat-assistant-floating-input",
+        "[data-assistant-bar]",
+        "div:has(> #ask-ai-code-block-button)"
+      ],
+      "description": "Mintlify assistant: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://www.mintlify.com/docs",
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "widget-gitbook",
+      "kind": "hide",
+      "selectors": [
+        "[data-testid=\"ai-chat-button\"]",
+        "[data-testid=\"ai-chat\"]",
+        "button[aria-label=\"GitBook Assistant\"]",
+        "button[aria-label=\"Ask GitBook Assistant\"]"
+      ],
+      "description": "GitBook Assistant: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://gitbook.com/docs",
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "widget-salesforce-messaging",
+      "kind": "hide",
+      "selectors": [
+        "#embedded-messaging",
+        "iframe#embeddedMessagingFrame",
+        "#embeddedMessagingSiteContextFrame",
+        ".embeddedServiceHelpButton",
+        ".embeddedServiceSidebar"
+      ],
+      "description": "Salesforce Embedded Messaging / Agentforce: support chat widget that now fronts an AI bot. Off by default so you never lose a support channel by surprise.",
+      "since": "2026-09-20",
+      "defaultEnabled": false,
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_chatapps_third-party.txt",
+          "https://github.com/AdguardTeam/AdguardFilters/blob/master/AnnoyancesFilter/Widgets/sections/widgets.txt",
+          "https://service.force.com/embeddedservice/5.0/esw.min.js"
+        ]
+      }
+    },
+    {
+      "id": "widget-tawk",
+      "kind": "hide",
+      "selectors": [
+        ".tawk-min-container",
+        "iframe[title=\"chat widget\"]"
+      ],
+      "description": "Tawk.to: support chat widget that now fronts an AI bot. Off by default so you never lose a support channel by surprise.",
+      "since": "2026-09-20",
+      "defaultEnabled": false,
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_chatapps_third-party.txt",
+          "https://github.com/AdguardTeam/AdguardFilters/blob/master/AnnoyancesFilter/Widgets/sections/widgets.txt"
+        ]
+      }
+    },
+    {
+      "id": "widget-freshchat",
+      "kind": "hide",
+      "selectors": [
+        "#fc_frame",
+        "#fc_push_frame",
+        ".fc-widget-normal"
+      ],
+      "description": "Freshchat (Freddy): support chat widget that now fronts an AI bot. Off by default so you never lose a support channel by surprise.",
+      "since": "2026-09-20",
+      "defaultEnabled": false,
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://wchat.freshchat.com/js/widget.js",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_chatapps_third-party.txt"
+        ]
+      }
+    },
+    {
+      "id": "widget-gorgias",
+      "kind": "hide",
+      "selectors": [
+        "#gorgias-chat-container"
+      ],
+      "description": "Gorgias: support chat widget that now fronts an AI bot. Off by default so you never lose a support channel by surprise.",
+      "since": "2026-09-20",
+      "defaultEnabled": false,
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://config.gorgias.chat/gorgias-chat-bundle.js",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_chatapps_third-party.txt"
+        ]
+      }
+    },
+    {
+      "id": "widget-gist-ai",
+      "kind": "hide",
+      "selectors": [
+        "#gist-answers-widget"
+      ],
+      "description": "Gist.ai answers: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    },
+    {
+      "id": "widget-molin",
+      "kind": "hide",
+      "selectors": [
+        "#molin-chat-custom-button",
+        "molin-shop-ai"
+      ],
+      "description": "Molin shop AI: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt",
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "widget-dify",
+      "kind": "hide",
+      "selectors": [
+        "#dify-chatbot-bubble-button",
+        "#dify-chatbot-bubble-window"
+      ],
+      "description": "Dify chatbot embed: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://udify.app/embed.min.js"
+        ]
+      }
+    },
+    {
+      "id": "widget-flowise",
+      "kind": "hide",
+      "selectors": [
+        "flowise-chatbot",
+        "flowise-fullchatbot"
+      ],
+      "description": "Flowise embed: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+        ]
+      }
+    },
+    {
+      "id": "widget-typebot",
+      "kind": "hide",
+      "selectors": [
+        "typebot-bubble",
+        "typebot-popup"
+      ],
+      "description": "Typebot bubble: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://cdn.jsdelivr.net/npm/@typebot.io/js@0.3/dist/web.js"
+        ]
+      }
+    },
+    {
+      "id": "widget-chatwoot",
+      "kind": "hide",
+      "selectors": [
+        ".woot-widget-holder",
+        ".woot--bubble-holder",
+        ".woot-widget-bubble",
+        "#cw-widget-holder",
+        "#cw-bubble-holder",
+        "iframe#chatwoot_live_chat_widget"
+      ],
+      "description": "Chatwoot: support chat widget that now fronts an AI bot. Off by default so you never lose a support channel by surprise.",
+      "since": "2026-09-20",
+      "defaultEnabled": false,
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://app.chatwoot.com/packs/js/sdk.js"
+        ]
+      }
+    },
+    {
+      "id": "widget-rasa",
+      "kind": "hide",
+      "selectors": [
+        "#rasaWebchatPro",
+        ".rw-widget-container",
+        ".rw-launcher",
+        "#rasa-chat-widget-container",
+        "rasa-chatbot-widget"
+      ],
+      "description": "Rasa webchat: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_chatapps_third-party.txt",
+          "https://unpkg.com/@rasahq/rasa-chat"
+        ]
+      }
+    },
+    {
+      "id": "widget-botframework",
+      "kind": "hide",
+      "selectors": [
+        "iframe[src*=\"copilotstudio.microsoft.com\"]",
+        "iframe[src*=\"powerva.microsoft.com\"]"
+      ],
+      "description": "Microsoft Copilot Studio / Bot Framework Web Chat: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-connect-bot-to-web-channels"
+        ]
+      }
+    },
+    {
+      "id": "widget-dialogflow",
+      "kind": "hide",
+      "selectors": [
+        "df-messenger",
+        "df-messenger-chat-bubble"
+      ],
+      "description": "Google Dialogflow Messenger: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_chatapps_third-party.txt",
+          "https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js"
+        ]
+      }
+    },
+    {
+      "id": "widget-amazon-connect",
+      "kind": "hide",
+      "selectors": [
+        "iframe#amazon-connect-chat-widget-iframe",
+        "#amazon-connect-chat-widget"
+      ],
+      "description": "Amazon Connect chat widget: support chat widget that now fronts an AI bot. Off by default so you never lose a support channel by surprise.",
+      "since": "2026-09-20",
+      "defaultEnabled": false,
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://docs.aws.amazon.com/connect/latest/adminguide/customize-widget-launch.html"
+        ]
+      }
+    },
+    {
+      "id": "widget-shopify-inbox",
+      "kind": "hide",
+      "selectors": [
+        "#shopify-chat",
+        "#shopify-chat-dummy",
+        "iframe#dummy-chat-button-iframe",
+        "inbox-online-store-chat"
+      ],
+      "description": "Shopify Inbox: support chat widget that now fronts an AI bot. Off by default so you never lose a support channel by surprise.",
+      "since": "2026-09-20",
+      "defaultEnabled": false,
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/AdguardTeam/AdguardFilters/blob/master/AnnoyancesFilter/Widgets/sections/widgets.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_chatapps_third-party.txt"
+        ]
+      }
+    },
+    {
+      "id": "widget-jotform-agent",
+      "kind": "hide",
+      "selectors": [
+        "[id^=\"JotformAgent-\"]"
+      ],
+      "description": "Jotform AI agent: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://cdn.jotfor.ms/agent/embedjs/"
+        ]
+      }
+    },
+    {
+      "id": "widget-landbot",
+      "kind": "hide",
+      "selectors": [
+        ".LandbotLivechat",
+        ".LandbotPopup"
+      ],
+      "description": "Landbot: AI chat widget",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_chatapps_third-party.txt"
+        ]
+      }
+    },
+    {
+      "id": "widget-wix-chat",
+      "kind": "hide",
+      "selectors": [
+        "iframe[title=\"Wix Chat\"]"
+      ],
+      "description": "Wix Chat: support chat widget that now fronts an AI bot. Off by default so you never lose a support channel by surprise.",
+      "since": "2026-09-20",
+      "defaultEnabled": false,
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_chatapps_third-party.txt",
+          "https://github.com/AdguardTeam/AdguardFilters/blob/master/AnnoyancesFilter/Widgets/sections/widgets.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": []
+  }
+}

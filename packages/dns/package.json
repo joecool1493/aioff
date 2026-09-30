@@ -1,0 +1,17 @@
+{
+  "name": "@aioff/dns",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "description": "AI Off network blocklists: one verified domain source, exported to hosts, AdGuard, Pi-hole, dnsmasq, unbound, RPZ, blocky, NextDNS, Control D, and school web filter formats.",
+  "exports": {
+    ".": "./src/index.ts",
+    "./domains": "./src/domains.json",
+    "./dist/*": "./dist/*"
+  },
+  "scripts": {
+    "build": "tsx scripts/build.ts",
+    "typecheck": "tsc -p tsconfig.json"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "kind": "synthetic",
+  "url": "https://www.google.com/search?q=why+is+the+sky+blue",
+  "note": "Hand-written from the observed DOM structure. Replace with a real capture from a logged-in session: pnpm healthcheck -- --capture --headed",
+  "expect": ["g-aio-main","g-aimode-tab","g-paa-ai","g-ai-followup-chips"]
+}

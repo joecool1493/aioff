@@ -1,0 +1,79 @@
+{
+  "id": "notion",
+  "name": "Notion",
+  "category": "productivity",
+  "match": [
+    "*://www.notion.so/*",
+    "*://app.notion.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "notion-ai-sidebar",
+      "kind": "hide",
+      "selectors": [
+        "a[data-testid=\"sidebar-ai-button\"]",
+        "[data-testid=\"sidebar-ai-button\"]",
+        ".notion-sidebar [href=\"/ai\"] > div"
+      ],
+      "textAnchors": [
+        "Notion AI",
+        "Ask AI"
+      ],
+      "description": "Notion AI entry in the left sidebar",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://keycorrect.com/blog/disable-ai-in-notion",
+          "https://github.com/irwinai/notion-proxy/blob/main/notion_proxy.py",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    },
+    {
+      "id": "notion-ai-corner-button",
+      "kind": "hide",
+      "selectors": [
+        ".notion-assistant-corner-origin-container",
+        ".notion-ai-button"
+      ],
+      "textAnchors": [
+        "Ask AI"
+      ],
+      "anchorTarget": "control",
+      "description": "Floating Notion AI face button in the bottom right corner",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt",
+          "https://keycorrect.com/blog/disable-ai-in-notion"
+        ]
+      }
+    },
+    {
+      "id": "notion-ai-inline",
+      "kind": "hide",
+      "selectors": [],
+      "textAnchors": [
+        "Ask AI",
+        "Press 'space' for AI",
+        "Improve writing"
+      ],
+      "anchorTarget": "control",
+      "description": "AI items in slash and selection menus. Text anchors only, unverified",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "low",
+        "source": [
+          "researcher memory of site DOM, not confirmed in any list on 2026-09-20"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "requiresLogin": true,
+    "entries": []
+  }
+}

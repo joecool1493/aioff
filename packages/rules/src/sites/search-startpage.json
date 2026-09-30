@@ -1,0 +1,31 @@
+{
+  "id": "search-startpage",
+  "name": "Startpage",
+  "category": "search",
+  "match": [
+    "*://www.startpage.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "sp-vanish",
+      "kind": "hide",
+      "selectors": [
+        ".products-section > [href^=\"https://vanish.startpage.com/\"]"
+      ],
+      "description": "Promo link to Vanish private AI product",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": "Stevos-AI-Blocklist (MIT)"
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://www.startpage.com/sp/search?query=why+is+the+sky+blue"
+      }
+    ]
+  }
+}

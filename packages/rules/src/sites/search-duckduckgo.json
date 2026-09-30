@@ -1,0 +1,122 @@
+{
+  "id": "search-duckduckgo",
+  "name": "DuckDuckGo",
+  "category": "search",
+  "match": [
+    "*://duckduckgo.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "duckduckgo-cookie-be",
+      "kind": "setCookie",
+      "cookie": {
+        "name": "be",
+        "value": "0",
+        "domain": "duckduckgo.com",
+        "maxAgeDays": 365
+      },
+      "description": "Set the site's own preference: Search Assist = Never",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": "Search Assist = Never"
+      }
+    },
+    {
+      "id": "duckduckgo-cookie-bg",
+      "kind": "setCookie",
+      "cookie": {
+        "name": "bg",
+        "value": "-1",
+        "domain": "duckduckgo.com",
+        "maxAgeDays": 365
+      },
+      "description": "Set the site's own preference: Duck.ai = Off",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": "Duck.ai = Off"
+      }
+    },
+    {
+      "id": "duckduckgo-cookie-bj",
+      "kind": "setCookie",
+      "cookie": {
+        "name": "bj",
+        "value": "1",
+        "domain": "duckduckgo.com",
+        "maxAgeDays": 365
+      },
+      "description": "Set the site's own preference: Hide AI generated images = On",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": "Hide AI generated images = On"
+      },
+      "level": 3
+    },
+    {
+      "id": "d-assist",
+      "kind": "hide",
+      "selectors": [
+        "[data-react-module-id=\"wikinlp\"]",
+        "li:has([data-testid=\"duckassist-answer-content\"])",
+        "[data-layout=\"wikinlp\"]"
+      ],
+      "description": "Search Assist AI answer (top or sidebar)",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": "Stevos-AI-Blocklist (MIT); EasyList AI list (fact); first two reproduced live"
+      }
+    },
+    {
+      "id": "d-duckbar-ai",
+      "kind": "hide",
+      "selectors": [
+        "#react-duckbar li:has(a[href*=\"ia=chat\"])",
+        "#react-duckbar li:has(a[href*=\"&assist=\"])"
+      ],
+      "description": "Duck.ai and Search Assist tabs in the duckbar",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": "Stevos-AI-Blocklist (MIT); reproduced live"
+      }
+    },
+    {
+      "id": "d-home-ai",
+      "kind": "hide",
+      "selectors": [
+        "[data-testid=\"aichat-button\"]",
+        "[data-ssg-id=\"ask-duck-ai-submit\"]",
+        "button[title=\"Ask Duck.ai\"]",
+        "[class^=\"ai-searchbox_modeSelectorWrapper__\"]",
+        "[class^=\"header_aiChatButton__\"]",
+        "[class^=\"search-input_duckAiSubmitWrapper__\"]",
+        "[class^=\"sideMenu_sectionLink__\"][href^=\"https://duck.ai/\"]",
+        ".nav-menu__item:has(> a[href=\"https://duck.ai\"])"
+      ],
+      "textAnchors": [
+        "Ask Duck.ai"
+      ],
+      "description": "Homepage, header and menu Duck.ai entry points",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": "Stevos-AI-Blocklist (MIT); EasyList AI list (fact)"
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://duckduckgo.com/?q=what+is+photosynthesis&ia=web"
+      },
+      {
+        "url": "https://duckduckgo.com/?q=what+is+a+snow+emergency&ia=web"
+      }
+    ]
+  }
+}

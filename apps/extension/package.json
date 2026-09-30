@@ -1,0 +1,33 @@
+{
+  "name": "@aioff/extension",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "description": "AI Off browser extension. Removes AI features and AI content from the web. Contains no AI.",
+  "scripts": {
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox --mv3",
+    "build": "wxt build",
+    "build:firefox": "wxt build -b firefox --mv3",
+    "build:edge": "wxt build -b edge",
+    "build:safari": "wxt build -b safari --mv3",
+    "build:all": "wxt build && wxt build -b firefox --mv3 && wxt build -b edge && wxt build -b safari --mv3",
+    "zip": "wxt zip && wxt zip -b firefox --mv3",
+    "typecheck": "wxt prepare && tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@aioff/core": "workspace:*",
+    "@aioff/picker": "workspace:*",
+    "@aioff/rules": "workspace:*",
+    "@aioff/ui": "workspace:*",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@wxt-dev/module-react": "^1.2.2",
+    "wxt": "^0.21.4"
+  }
+}

@@ -1,0 +1,1774 @@
+{
+ "_comment": "Source of truth for AI Off network tiers. Every domain was DNS-verified on 2026-09-20.",
+ "products": [
+  {
+   "domain": "chatgpt.com",
+   "company": "OpenAI",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "chat.openai.com",
+   "company": "OpenAI",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "openai.com",
+   "company": "OpenAI",
+   "category": "company",
+   "blackout": true
+  },
+  {
+   "domain": "api.openai.com",
+   "company": "OpenAI",
+   "category": "api",
+   "note": "api: breaks third-party apps and developer tooling",
+   "blackout": true
+  },
+  {
+   "domain": "platform.openai.com",
+   "company": "OpenAI",
+   "category": "api",
+   "note": "api: breaks third-party apps and developer tooling",
+   "blackout": true
+  },
+  {
+   "domain": "oaistatic.com",
+   "company": "OpenAI",
+   "category": "cdn",
+   "blackout": true
+  },
+  {
+   "domain": "oaiusercontent.com",
+   "company": "OpenAI",
+   "category": "cdn",
+   "blackout": true
+  },
+  {
+   "domain": "sora.com",
+   "company": "OpenAI",
+   "category": "video",
+   "blackout": true
+  },
+  {
+   "domain": "sora.chatgpt.com",
+   "company": "OpenAI",
+   "category": "video",
+   "blackout": true
+  },
+  {
+   "domain": "auth.openai.com",
+   "company": "OpenAI",
+   "category": "auth",
+   "blackout": true
+  },
+  {
+   "domain": "cdn.openai.com",
+   "company": "OpenAI",
+   "category": "cdn",
+   "blackout": true
+  },
+  {
+   "domain": "claude.ai",
+   "company": "Anthropic",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "anthropic.com",
+   "company": "Anthropic",
+   "category": "company",
+   "blackout": true
+  },
+  {
+   "domain": "api.anthropic.com",
+   "company": "Anthropic",
+   "category": "api",
+   "note": "api: breaks third-party apps and developer tooling",
+   "blackout": true
+  },
+  {
+   "domain": "console.anthropic.com",
+   "company": "Anthropic",
+   "category": "api",
+   "note": "api: breaks third-party apps and developer tooling",
+   "blackout": true
+  },
+  {
+   "domain": "claude.com",
+   "company": "Anthropic",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "claudeusercontent.com",
+   "company": "Anthropic",
+   "category": "cdn",
+   "blackout": true
+  },
+  {
+   "domain": "gemini.google.com",
+   "company": "Google",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "aistudio.google.com",
+   "company": "Google",
+   "category": "api",
+   "blackout": true
+  },
+  {
+   "domain": "notebooklm.google.com",
+   "company": "Google",
+   "category": "assistant",
+   "blackout": true
+  },
+  {
+   "domain": "notebooklm.google",
+   "company": "Google",
+   "category": "assistant",
+   "blackout": true
+  },
+  {
+   "domain": "labs.google",
+   "company": "Google",
+   "category": "generator",
+   "blackout": true
+  },
+  {
+   "domain": "generativelanguage.googleapis.com",
+   "company": "Google",
+   "category": "api",
+   "note": "api: breaks third-party apps and developer tooling",
+   "blackout": true
+  },
+  {
+   "domain": "bard.google.com",
+   "company": "Google",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "deepmind.google",
+   "company": "Google",
+   "category": "company",
+   "blackout": true
+  },
+  {
+   "domain": "deepmind.com",
+   "company": "Google",
+   "category": "company",
+   "blackout": true
+  },
+  {
+   "domain": "jules.google",
+   "company": "Google",
+   "category": "code",
+   "blackout": true
+  },
+  {
+   "domain": "copilot.microsoft.com",
+   "company": "Microsoft",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "copilot.cloud.microsoft",
+   "company": "Microsoft",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "copilot.com",
+   "company": "Microsoft",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "copilotstudio.microsoft.com",
+   "company": "Microsoft",
+   "category": "agent-builder",
+   "blackout": true
+  },
+  {
+   "domain": "designer.microsoft.com",
+   "company": "Microsoft",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "meta.ai",
+   "company": "Meta",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "www.meta.ai",
+   "company": "Meta",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "ai.meta.com",
+   "company": "Meta",
+   "category": "company",
+   "blackout": true
+  },
+  {
+   "domain": "llama.com",
+   "company": "Meta",
+   "category": "model",
+   "blackout": true
+  },
+  {
+   "domain": "grok.com",
+   "company": "xAI",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "x.ai",
+   "company": "xAI",
+   "category": "company",
+   "blackout": true
+  },
+  {
+   "domain": "api.x.ai",
+   "company": "xAI",
+   "category": "api",
+   "note": "api: breaks third-party apps and developer tooling",
+   "blackout": true
+  },
+  {
+   "domain": "perplexity.ai",
+   "company": "Perplexity",
+   "category": "search",
+   "blackout": true
+  },
+  {
+   "domain": "www.perplexity.ai",
+   "company": "Perplexity",
+   "category": "search",
+   "blackout": true
+  },
+  {
+   "domain": "pplx.ai",
+   "company": "Perplexity",
+   "category": "search",
+   "blackout": true
+  },
+  {
+   "domain": "poe.com",
+   "company": "Quora",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "character.ai",
+   "company": "Character.AI",
+   "category": "companion",
+   "blackout": true
+  },
+  {
+   "domain": "c.ai",
+   "company": "Character.AI",
+   "category": "companion",
+   "blackout": true
+  },
+  {
+   "domain": "pi.ai",
+   "company": "Inflection",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "inflection.ai",
+   "company": "Inflection",
+   "category": "company",
+   "blackout": true
+  },
+  {
+   "domain": "mistral.ai",
+   "company": "Mistral",
+   "category": "company",
+   "blackout": true
+  },
+  {
+   "domain": "chat.mistral.ai",
+   "company": "Mistral",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "deepseek.com",
+   "company": "DeepSeek",
+   "category": "company",
+   "blackout": true
+  },
+  {
+   "domain": "chat.deepseek.com",
+   "company": "DeepSeek",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "api.deepseek.com",
+   "company": "DeepSeek",
+   "category": "api",
+   "note": "api: breaks third-party apps and developer tooling",
+   "blackout": true
+  },
+  {
+   "domain": "qwen.ai",
+   "company": "Alibaba",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "chat.qwen.ai",
+   "company": "Alibaba",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "tongyi.com",
+   "company": "Alibaba",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "kimi.com",
+   "company": "Moonshot",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "kimi.ai",
+   "company": "Moonshot",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "moonshot.cn",
+   "company": "Moonshot",
+   "category": "company",
+   "blackout": true
+  },
+  {
+   "domain": "moonshot.ai",
+   "company": "Moonshot",
+   "category": "company",
+   "blackout": true
+  },
+  {
+   "domain": "doubao.com",
+   "company": "ByteDance",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "yuanbao.tencent.com",
+   "company": "Tencent",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "chatglm.cn",
+   "company": "Zhipu",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "z.ai",
+   "company": "Zhipu",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "minimax.io",
+   "company": "MiniMax",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "hailuoai.video",
+   "company": "MiniMax",
+   "category": "video",
+   "blackout": true
+  },
+  {
+   "domain": "hailuoai.com",
+   "company": "MiniMax",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "ernie.baidu.com",
+   "company": "Baidu",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "yiyan.baidu.com",
+   "company": "Baidu",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "you.com",
+   "company": "You.com",
+   "category": "search",
+   "blackout": true
+  },
+  {
+   "domain": "phind.com",
+   "company": "Phind",
+   "category": "search",
+   "blackout": true
+  },
+  {
+   "domain": "huggingface.co",
+   "company": "Hugging Face",
+   "category": "models",
+   "note": "mixed",
+   "blackout": false
+  },
+  {
+   "domain": "hf.co",
+   "company": "Hugging Face",
+   "category": "models",
+   "note": "mixed",
+   "blackout": false
+  },
+  {
+   "domain": "hf.space",
+   "company": "Hugging Face",
+   "category": "models",
+   "note": "mixed",
+   "blackout": false
+  },
+  {
+   "domain": "cohere.com",
+   "company": "Cohere",
+   "category": "company",
+   "blackout": true
+  },
+  {
+   "domain": "coral.cohere.com",
+   "company": "Cohere",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "ai21.com",
+   "company": "AI21",
+   "category": "company",
+   "blackout": true
+  },
+  {
+   "domain": "together.ai",
+   "company": "Together",
+   "category": "api",
+   "note": "api: breaks third-party apps and developer tooling",
+   "blackout": true
+  },
+  {
+   "domain": "groq.com",
+   "company": "Groq",
+   "category": "api",
+   "note": "api: breaks third-party apps and developer tooling",
+   "blackout": true
+  },
+  {
+   "domain": "openrouter.ai",
+   "company": "OpenRouter",
+   "category": "api",
+   "note": "api: breaks third-party apps and developer tooling",
+   "blackout": true
+  },
+  {
+   "domain": "replicate.com",
+   "company": "Replicate",
+   "category": "api",
+   "note": "api: breaks third-party apps and developer tooling",
+   "blackout": true
+  },
+  {
+   "domain": "fal.ai",
+   "company": "fal",
+   "category": "api",
+   "note": "api: breaks third-party apps and developer tooling",
+   "blackout": true
+  },
+  {
+   "domain": "fireworks.ai",
+   "company": "Fireworks",
+   "category": "api",
+   "note": "api: breaks third-party apps and developer tooling",
+   "blackout": true
+  },
+  {
+   "domain": "cerebras.ai",
+   "company": "Cerebras",
+   "category": "api",
+   "note": "api: breaks third-party apps and developer tooling",
+   "blackout": true
+  },
+  {
+   "domain": "ollama.com",
+   "company": "Ollama",
+   "category": "local-models",
+   "note": "mixed",
+   "blackout": false
+  },
+  {
+   "domain": "lmstudio.ai",
+   "company": "LM Studio",
+   "category": "local-models",
+   "note": "mixed",
+   "blackout": false
+  },
+  {
+   "domain": "lmarena.ai",
+   "company": "LMArena",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "duck.ai",
+   "company": "DuckDuckGo",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "venice.ai",
+   "company": "Venice",
+   "category": "chat",
+   "blackout": true
+  },
+  {
+   "domain": "midjourney.com",
+   "company": "Midjourney",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "leonardo.ai",
+   "company": "Leonardo",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "ideogram.ai",
+   "company": "Ideogram",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "stability.ai",
+   "company": "Stability",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "dreamstudio.ai",
+   "company": "Stability",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "clipdrop.co",
+   "company": "Jasper",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "krea.ai",
+   "company": "Krea",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "civitai.com",
+   "company": "Civitai",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "playground.com",
+   "company": "Playground",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "playgroundai.com",
+   "company": "Playground",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "nightcafe.studio",
+   "company": "NightCafe",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "creator.nightcafe.studio",
+   "company": "NightCafe",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "craiyon.com",
+   "company": "Craiyon",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "lexica.art",
+   "company": "Lexica",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "openart.ai",
+   "company": "OpenArt",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "tensor.art",
+   "company": "Tensor.Art",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "seaart.ai",
+   "company": "SeaArt",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "pixai.art",
+   "company": "PixAI",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "novelai.net",
+   "company": "NovelAI",
+   "category": "image-text",
+   "blackout": true
+  },
+  {
+   "domain": "getimg.ai",
+   "company": "getimg",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "dezgo.com",
+   "company": "Dezgo",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "mage.space",
+   "company": "Mage",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "starryai.com",
+   "company": "starryai",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "deepai.org",
+   "company": "DeepAI",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "recraft.ai",
+   "company": "Recraft",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "freepik.com",
+   "company": "Freepik",
+   "category": "image",
+   "note": "mixed",
+   "blackout": true
+  },
+  {
+   "domain": "bfl.ai",
+   "company": "Black Forest Labs",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "blackforestlabs.ai",
+   "company": "Black Forest Labs",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "reve.com",
+   "company": "Reve",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "firefly.adobe.com",
+   "company": "Adobe",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "photoroom.com",
+   "company": "Photoroom",
+   "category": "image",
+   "note": "mixed",
+   "blackout": true
+  },
+  {
+   "domain": "remove.bg",
+   "company": "Kaleido",
+   "category": "image",
+   "note": "mixed",
+   "blackout": true
+  },
+  {
+   "domain": "runwayml.com",
+   "company": "Runway",
+   "category": "video",
+   "blackout": true
+  },
+  {
+   "domain": "app.runwayml.com",
+   "company": "Runway",
+   "category": "video",
+   "blackout": true
+  },
+  {
+   "domain": "pika.art",
+   "company": "Pika",
+   "category": "video",
+   "blackout": true
+  },
+  {
+   "domain": "lumalabs.ai",
+   "company": "Luma",
+   "category": "video",
+   "blackout": true
+  },
+  {
+   "domain": "klingai.com",
+   "company": "Kuaishou",
+   "category": "video",
+   "blackout": true
+  },
+  {
+   "domain": "higgsfield.ai",
+   "company": "Higgsfield",
+   "category": "video",
+   "blackout": true
+  },
+  {
+   "domain": "heygen.com",
+   "company": "HeyGen",
+   "category": "video",
+   "blackout": true
+  },
+  {
+   "domain": "synthesia.io",
+   "company": "Synthesia",
+   "category": "video",
+   "blackout": true
+  },
+  {
+   "domain": "d-id.com",
+   "company": "D-ID",
+   "category": "video",
+   "blackout": true
+  },
+  {
+   "domain": "invideo.io",
+   "company": "InVideo",
+   "category": "video",
+   "note": "mixed",
+   "blackout": true
+  },
+  {
+   "domain": "pictory.ai",
+   "company": "Pictory",
+   "category": "video",
+   "blackout": true
+  },
+  {
+   "domain": "fliki.ai",
+   "company": "Fliki",
+   "category": "video",
+   "blackout": true
+  },
+  {
+   "domain": "kaiber.ai",
+   "company": "Kaiber",
+   "category": "video",
+   "blackout": true
+  },
+  {
+   "domain": "viggle.ai",
+   "company": "Viggle",
+   "category": "video",
+   "blackout": true
+  },
+  {
+   "domain": "pixverse.ai",
+   "company": "PixVerse",
+   "category": "video",
+   "blackout": true
+  },
+  {
+   "domain": "vidu.com",
+   "company": "Shengshu",
+   "category": "video",
+   "blackout": true
+  },
+  {
+   "domain": "hedra.com",
+   "company": "Hedra",
+   "category": "video",
+   "blackout": true
+  },
+  {
+   "domain": "captions.ai",
+   "company": "Captions",
+   "category": "video",
+   "blackout": true
+  },
+  {
+   "domain": "opus.pro",
+   "company": "OpusClip",
+   "category": "video",
+   "note": "mixed",
+   "blackout": true
+  },
+  {
+   "domain": "descript.com",
+   "company": "Descript",
+   "category": "video-audio",
+   "note": "mixed",
+   "blackout": false
+  },
+  {
+   "domain": "suno.com",
+   "company": "Suno",
+   "category": "music",
+   "blackout": true
+  },
+  {
+   "domain": "suno.ai",
+   "company": "Suno",
+   "category": "music",
+   "blackout": true
+  },
+  {
+   "domain": "udio.com",
+   "company": "Udio",
+   "category": "music",
+   "blackout": true
+  },
+  {
+   "domain": "elevenlabs.io",
+   "company": "ElevenLabs",
+   "category": "voice",
+   "blackout": true
+  },
+  {
+   "domain": "murf.ai",
+   "company": "Murf",
+   "category": "voice",
+   "blackout": true
+  },
+  {
+   "domain": "resemble.ai",
+   "company": "Resemble",
+   "category": "voice",
+   "blackout": true
+  },
+  {
+   "domain": "speechify.com",
+   "company": "Speechify",
+   "category": "voice",
+   "note": "mixed",
+   "blackout": true
+  },
+  {
+   "domain": "wellsaidlabs.com",
+   "company": "WellSaid",
+   "category": "voice",
+   "blackout": true
+  },
+  {
+   "domain": "lovo.ai",
+   "company": "LOVO",
+   "category": "voice",
+   "blackout": true
+  },
+  {
+   "domain": "aiva.ai",
+   "company": "AIVA",
+   "category": "music",
+   "blackout": true
+  },
+  {
+   "domain": "soundraw.io",
+   "company": "Soundraw",
+   "category": "music",
+   "blackout": true
+  },
+  {
+   "domain": "mubert.com",
+   "company": "Mubert",
+   "category": "music",
+   "blackout": true
+  },
+  {
+   "domain": "boomy.com",
+   "company": "Boomy",
+   "category": "music",
+   "blackout": true
+  },
+  {
+   "domain": "jasper.ai",
+   "company": "Jasper",
+   "category": "writing",
+   "blackout": true
+  },
+  {
+   "domain": "copy.ai",
+   "company": "Copy.ai",
+   "category": "writing",
+   "blackout": true
+  },
+  {
+   "domain": "writesonic.com",
+   "company": "Writesonic",
+   "category": "writing",
+   "blackout": true
+  },
+  {
+   "domain": "quillbot.com",
+   "company": "QuillBot",
+   "category": "writing",
+   "note": "mixed",
+   "blackout": true
+  },
+  {
+   "domain": "rytr.me",
+   "company": "Rytr",
+   "category": "writing",
+   "blackout": true
+  },
+  {
+   "domain": "wordtune.com",
+   "company": "AI21",
+   "category": "writing",
+   "note": "mixed",
+   "blackout": true
+  },
+  {
+   "domain": "sudowrite.com",
+   "company": "Sudowrite",
+   "category": "writing",
+   "blackout": true
+  },
+  {
+   "domain": "anyword.com",
+   "company": "Anyword",
+   "category": "writing",
+   "blackout": true
+  },
+  {
+   "domain": "hyperwriteai.com",
+   "company": "HyperWrite",
+   "category": "writing",
+   "blackout": true
+  },
+  {
+   "domain": "frase.io",
+   "company": "Frase",
+   "category": "writing",
+   "note": "mixed",
+   "blackout": true
+  },
+  {
+   "domain": "surferseo.com",
+   "company": "Surfer",
+   "category": "writing",
+   "note": "mixed",
+   "blackout": true
+  },
+  {
+   "domain": "scalenut.com",
+   "company": "Scalenut",
+   "category": "writing",
+   "blackout": true
+  },
+  {
+   "domain": "simplified.com",
+   "company": "Simplified",
+   "category": "writing",
+   "note": "mixed",
+   "blackout": true
+  },
+  {
+   "domain": "textcortex.com",
+   "company": "TextCortex",
+   "category": "writing",
+   "blackout": true
+  },
+  {
+   "domain": "hix.ai",
+   "company": "HIX",
+   "category": "writing",
+   "blackout": true
+  },
+  {
+   "domain": "undetectable.ai",
+   "company": "Undetectable",
+   "category": "writing",
+   "blackout": true
+  },
+  {
+   "domain": "stealthwriter.ai",
+   "company": "StealthWriter",
+   "category": "writing",
+   "blackout": true
+  },
+  {
+   "domain": "humanizeai.pro",
+   "company": "Humanize AI",
+   "category": "writing",
+   "blackout": true
+  },
+  {
+   "domain": "chatpdf.com",
+   "company": "ChatPDF",
+   "category": "assistant",
+   "blackout": true
+  },
+  {
+   "domain": "tldv.io",
+   "company": "tl;dv",
+   "category": "meeting",
+   "note": "mixed",
+   "blackout": true
+  },
+  {
+   "domain": "otter.ai",
+   "company": "Otter",
+   "category": "meeting",
+   "note": "mixed",
+   "blackout": true
+  },
+  {
+   "domain": "fireflies.ai",
+   "company": "Fireflies",
+   "category": "meeting",
+   "note": "mixed",
+   "blackout": true
+  },
+  {
+   "domain": "gamma.app",
+   "company": "Gamma",
+   "category": "slides",
+   "note": "mixed",
+   "blackout": true
+  },
+  {
+   "domain": "beautiful.ai",
+   "company": "Beautiful.ai",
+   "category": "slides",
+   "note": "mixed",
+   "blackout": true
+  },
+  {
+   "domain": "replika.com",
+   "company": "Luka",
+   "category": "companion",
+   "blackout": true
+  },
+  {
+   "domain": "janitorai.com",
+   "company": "JanitorAI",
+   "category": "companion",
+   "blackout": true
+  },
+  {
+   "domain": "chai-research.com",
+   "company": "Chai",
+   "category": "companion",
+   "blackout": true
+  },
+  {
+   "domain": "crushon.ai",
+   "company": "CrushOn",
+   "category": "companion",
+   "blackout": true
+  },
+  {
+   "domain": "spicychat.ai",
+   "company": "SpicyChat",
+   "category": "companion",
+   "blackout": true
+  },
+  {
+   "domain": "candy.ai",
+   "company": "Candy",
+   "category": "companion",
+   "blackout": true
+  },
+  {
+   "domain": "nomi.ai",
+   "company": "Nomi",
+   "category": "companion",
+   "blackout": true
+  },
+  {
+   "domain": "kindroid.ai",
+   "company": "Kindroid",
+   "category": "companion",
+   "blackout": true
+  },
+  {
+   "domain": "talkie-ai.com",
+   "company": "Talkie",
+   "category": "companion",
+   "blackout": true
+  },
+  {
+   "domain": "polybuzz.ai",
+   "company": "PolyBuzz",
+   "category": "companion",
+   "blackout": true
+  },
+  {
+   "domain": "cursor.com",
+   "company": "Anysphere",
+   "category": "code",
+   "blackout": true
+  },
+  {
+   "domain": "cursor.sh",
+   "company": "Anysphere",
+   "category": "code",
+   "blackout": true
+  },
+  {
+   "domain": "windsurf.com",
+   "company": "Windsurf",
+   "category": "code",
+   "blackout": true
+  },
+  {
+   "domain": "codeium.com",
+   "company": "Windsurf",
+   "category": "code",
+   "blackout": true
+  },
+  {
+   "domain": "v0.dev",
+   "company": "Vercel",
+   "category": "code",
+   "blackout": true
+  },
+  {
+   "domain": "v0.app",
+   "company": "Vercel",
+   "category": "code",
+   "blackout": true
+  },
+  {
+   "domain": "lovable.dev",
+   "company": "Lovable",
+   "category": "code",
+   "blackout": true
+  },
+  {
+   "domain": "bolt.new",
+   "company": "StackBlitz",
+   "category": "code",
+   "blackout": true
+  },
+  {
+   "domain": "tabnine.com",
+   "company": "Tabnine",
+   "category": "code",
+   "blackout": true
+  },
+  {
+   "domain": "sourcegraph.com",
+   "company": "Sourcegraph",
+   "category": "code",
+   "note": "mixed",
+   "blackout": true
+  },
+  {
+   "domain": "devin.ai",
+   "company": "Cognition",
+   "category": "code",
+   "blackout": true
+  },
+  {
+   "domain": "cognition.ai",
+   "company": "Cognition",
+   "category": "code",
+   "blackout": true
+  },
+  {
+   "domain": "manus.im",
+   "company": "Manus",
+   "category": "agent",
+   "blackout": true
+  },
+  {
+   "domain": "genspark.ai",
+   "company": "Genspark",
+   "category": "agent",
+   "blackout": true
+  },
+  {
+   "domain": "flowith.io",
+   "company": "Flowith",
+   "category": "agent",
+   "blackout": true
+  },
+  {
+   "domain": "langchain.com",
+   "company": "LangChain",
+   "category": "dev",
+   "note": "mixed",
+   "blackout": false
+  },
+  {
+   "domain": "dify.ai",
+   "company": "Dify",
+   "category": "agent-builder",
+   "blackout": true
+  },
+  {
+   "domain": "coze.com",
+   "company": "ByteDance",
+   "category": "agent-builder",
+   "blackout": true
+  },
+  {
+   "domain": "botpress.com",
+   "company": "Botpress",
+   "category": "agent-builder",
+   "blackout": true
+  },
+  {
+   "domain": "chatbase.co",
+   "company": "Chatbase",
+   "category": "agent-builder",
+   "blackout": true
+  },
+  {
+   "domain": "liner.com",
+   "company": "Liner",
+   "category": "search",
+   "blackout": true
+  },
+  {
+   "domain": "consensus.app",
+   "company": "Consensus",
+   "category": "search",
+   "blackout": true
+  },
+  {
+   "domain": "elicit.com",
+   "company": "Elicit",
+   "category": "search",
+   "blackout": true
+  },
+  {
+   "domain": "scite.ai",
+   "company": "Scite",
+   "category": "search",
+   "blackout": true
+  },
+  {
+   "domain": "komo.ai",
+   "company": "Komo",
+   "category": "search",
+   "blackout": true
+  },
+  {
+   "domain": "andisearch.com",
+   "company": "Andi",
+   "category": "search",
+   "blackout": true
+  },
+  {
+   "domain": "gptzero.me",
+   "company": "GPTZero",
+   "category": "detector",
+   "note": "mixed",
+   "blackout": false
+  },
+  {
+   "domain": "zerogpt.com",
+   "company": "ZeroGPT",
+   "category": "detector",
+   "note": "mixed",
+   "blackout": false
+  },
+  {
+   "domain": "theresanaiforthat.com",
+   "company": "TAAFT",
+   "category": "directory",
+   "blackout": false
+  },
+  {
+   "domain": "futurepedia.io",
+   "company": "Futurepedia",
+   "category": "directory",
+   "blackout": false
+  },
+  {
+   "domain": "toolify.ai",
+   "company": "Toolify",
+   "category": "directory",
+   "blackout": false
+  },
+  {
+   "domain": "thispersondoesnotexist.com",
+   "company": "TPDNE",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "photoai.com",
+   "company": "Photo AI",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "headshotpro.com",
+   "company": "HeadshotPro",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "remini.ai",
+   "company": "Remini",
+   "category": "image",
+   "note": "mixed",
+   "blackout": true
+  },
+  {
+   "domain": "lensa.app",
+   "company": "Prisma",
+   "category": "image",
+   "note": "mixed",
+   "blackout": true
+  },
+  {
+   "domain": "pixlr.com",
+   "company": "Pixlr",
+   "category": "image",
+   "note": "mixed",
+   "blackout": true
+  },
+  {
+   "domain": "artbreeder.com",
+   "company": "Artbreeder",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "wombo.art",
+   "company": "WOMBO",
+   "category": "image",
+   "blackout": true
+  },
+  {
+   "domain": "dream.ai",
+   "company": "WOMBO",
+   "category": "image",
+   "blackout": true
+  }
+ ],
+ "adsTracking": [
+  {
+   "domain": "api.ads.openai.com",
+   "company": "OpenAI",
+   "category": "ads"
+  },
+  {
+   "domain": "bzr.openai.com",
+   "company": "OpenAI",
+   "category": "analytics"
+  },
+  {
+   "domain": "bzrcdn.openai.com",
+   "company": "OpenAI",
+   "category": "analytics"
+  },
+  {
+   "domain": "a-api.anthropic.com",
+   "company": "Anthropic",
+   "category": "analytics"
+  },
+  {
+   "domain": "a-cdn.anthropic.com",
+   "company": "Anthropic",
+   "category": "analytics"
+  },
+  {
+   "domain": "analytics.grok.com",
+   "company": "xAI",
+   "category": "analytics"
+  },
+  {
+   "domain": "events.character.ai",
+   "company": "Character.AI",
+   "category": "analytics"
+  },
+  {
+   "domain": "metrics.cursor.sh",
+   "company": "Anysphere",
+   "category": "telemetry"
+  },
+  {
+   "domain": "telemetry-logs.kimi.com",
+   "company": "Moonshot",
+   "category": "telemetry"
+  },
+  {
+   "domain": "aplus.qwen.ai",
+   "company": "Alibaba",
+   "category": "analytics"
+  },
+  {
+   "domain": "ut.qwen.ai",
+   "company": "Alibaba",
+   "category": "analytics"
+  },
+  {
+   "domain": "ss.qwen.ai",
+   "company": "Alibaba",
+   "category": "analytics"
+  },
+  {
+   "domain": "collector.quillbot.com",
+   "company": "QuillBot",
+   "category": "analytics"
+  },
+  {
+   "domain": "metrics.quillbot.com",
+   "company": "QuillBot",
+   "category": "analytics"
+  },
+  {
+   "domain": "gtm.quillbot.com",
+   "company": "QuillBot",
+   "category": "tag-manager"
+  },
+  {
+   "domain": "track-mail.quillbot.com",
+   "company": "QuillBot",
+   "category": "email-tracking"
+  },
+  {
+   "domain": "advertising.civitai.com",
+   "company": "Civitai",
+   "category": "ads"
+  },
+  {
+   "domain": "metrics-prod.suno.com",
+   "company": "Suno",
+   "category": "analytics"
+  },
+  {
+   "domain": "t.jasper.ai",
+   "company": "Jasper",
+   "category": "analytics"
+  },
+  {
+   "domain": "gtm.you.com",
+   "company": "You.com",
+   "category": "tag-manager"
+  }
+ ],
+ "neverBlock": [
+  {
+   "domain": "google.com",
+   "reason": "search, accounts, maps; AI Mode and Overviews live on subpaths"
+  },
+  {
+   "domain": "www.google.com",
+   "reason": "same"
+  },
+  {
+   "domain": "accounts.google.com",
+   "reason": "identity"
+  },
+  {
+   "domain": "googleapis.com",
+   "reason": "shared API apex for all Google services; only exact AI hosts may be listed"
+  },
+  {
+   "domain": "gstatic.com",
+   "reason": "shared static CDN"
+  },
+  {
+   "domain": "googleusercontent.com",
+   "reason": "shared user content"
+  },
+  {
+   "domain": "youtube.com",
+   "reason": "video; AI handled in-page"
+  },
+  {
+   "domain": "bing.com",
+   "reason": "search; Copilot on subpaths"
+  },
+  {
+   "domain": "microsoft.com",
+   "reason": "OS, Office, downloads; only copilot.microsoft.com style exact hosts allowed"
+  },
+  {
+   "domain": "cloud.microsoft",
+   "reason": "Microsoft 365 apex; only copilot.cloud.microsoft allowed"
+  },
+  {
+   "domain": "office.com",
+   "reason": "M365"
+  },
+  {
+   "domain": "live.com",
+   "reason": "mail, identity"
+  },
+  {
+   "domain": "microsoftonline.com",
+   "reason": "identity"
+  },
+  {
+   "domain": "windows.net",
+   "reason": "Azure storage"
+  },
+  {
+   "domain": "azure.com",
+   "reason": "cloud"
+  },
+  {
+   "domain": "github.com",
+   "reason": "code hosting; Copilot on subpaths"
+  },
+  {
+   "domain": "githubusercontent.com",
+   "reason": "raw content; AI Off lists are served from here"
+  },
+  {
+   "domain": "x.com",
+   "reason": "social; Grok on subpaths"
+  },
+  {
+   "domain": "twitter.com",
+   "reason": "social"
+  },
+  {
+   "domain": "twimg.com",
+   "reason": "CDN"
+  },
+  {
+   "domain": "facebook.com",
+   "reason": "social; Meta AI embedded"
+  },
+  {
+   "domain": "instagram.com",
+   "reason": "social"
+  },
+  {
+   "domain": "whatsapp.com",
+   "reason": "messaging"
+  },
+  {
+   "domain": "whatsapp.net",
+   "reason": "messaging"
+  },
+  {
+   "domain": "messenger.com",
+   "reason": "messaging"
+  },
+  {
+   "domain": "meta.com",
+   "reason": "company, Quest"
+  },
+  {
+   "domain": "fbcdn.net",
+   "reason": "CDN"
+  },
+  {
+   "domain": "apple.com",
+   "reason": "OS services"
+  },
+  {
+   "domain": "icloud.com",
+   "reason": "sync"
+  },
+  {
+   "domain": "amazon.com",
+   "reason": "retail; Rufus embedded"
+  },
+  {
+   "domain": "amazonaws.com",
+   "reason": "cloud hosting"
+  },
+  {
+   "domain": "cloudfront.net",
+   "reason": "CDN"
+  },
+  {
+   "domain": "cloudflare.com",
+   "reason": "CDN, DNS"
+  },
+  {
+   "domain": "workers.dev",
+   "reason": "hosting"
+  },
+  {
+   "domain": "pages.dev",
+   "reason": "hosting"
+  },
+  {
+   "domain": "vercel.app",
+   "reason": "hosting for unrelated sites"
+  },
+  {
+   "domain": "vercel.com",
+   "reason": "hosting"
+  },
+  {
+   "domain": "netlify.app",
+   "reason": "hosting"
+  },
+  {
+   "domain": "adobe.com",
+   "reason": "Creative Cloud; only firefly.adobe.com allowed"
+  },
+  {
+   "domain": "canva.com",
+   "reason": "design; AI on subpaths"
+  },
+  {
+   "domain": "notion.so",
+   "reason": "docs; AI embedded"
+  },
+  {
+   "domain": "grammarly.com",
+   "reason": "writing aid; debatable, keep out of default tiers"
+  },
+  {
+   "domain": "duckduckgo.com",
+   "reason": "search; only duck.ai allowed"
+  },
+  {
+   "domain": "brave.com",
+   "reason": "browser, search"
+  },
+  {
+   "domain": "quora.com",
+   "reason": "Q&A; only poe.com allowed"
+  },
+  {
+   "domain": "reddit.com",
+   "reason": "social"
+  },
+  {
+   "domain": "linkedin.com",
+   "reason": "social"
+  },
+  {
+   "domain": "tiktok.com",
+   "reason": "social"
+  },
+  {
+   "domain": "pinterest.com",
+   "reason": "social; slop handled cosmetically"
+  },
+  {
+   "domain": "stackblitz.com",
+   "reason": "IDE; only bolt.new allowed"
+  },
+  {
+   "domain": "replit.com",
+   "reason": "IDE and app hosting; mixed"
+  },
+  {
+   "domain": "baidu.com",
+   "reason": "search; only ernie/yiyan hosts allowed"
+  },
+  {
+   "domain": "tencent.com",
+   "reason": "only yuanbao.tencent.com allowed"
+  },
+  {
+   "domain": "alibaba.com",
+   "reason": "commerce"
+  },
+  {
+   "domain": "zoom.us",
+   "reason": "meetings"
+  },
+  {
+   "domain": "slack.com",
+   "reason": "chat"
+  },
+  {
+   "domain": "figma.com",
+   "reason": "design"
+  },
+  {
+   "domain": "wikipedia.org",
+   "reason": "reference"
+  },
+  {
+   "domain": "sentry.io",
+   "reason": "shared telemetry vendor"
+  },
+  {
+   "domain": "statsig.com",
+   "reason": "shared vendor"
+  },
+  {
+   "domain": "segment.io",
+   "reason": "shared vendor"
+  },
+  {
+   "domain": "intercom.io",
+   "reason": "shared vendor"
+  },
+  {
+   "domain": "datadoghq.com",
+   "reason": "shared vendor"
+  },
+  {
+   "domain": "jsdelivr.net",
+   "reason": "CDN serving AI Off lists"
+  },
+  {
+   "domain": "unpkg.com",
+   "reason": "CDN"
+  }
+ ]
+}

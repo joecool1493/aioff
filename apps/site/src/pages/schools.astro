@@ -1,0 +1,114 @@
+---
+import Base from '../layouts/Base.astro';
+import { AMO_SLUG, HOSTED_CONFIG_AVAILABLE, SCHOOLS_QUOTE } from '../config';
+---
+<Base title="AI Off for schools" description="Hide supported AI features inside allowed school tools. Build managed browser policies. No AI writing detection or student reporting in v1.">
+  <h1>Allowed tools. Fewer AI prompts.</h1>
+  <p class="intro">Keep existing filters. AI Off hides supported features inside allowed pages. Managed browsers lock controls.</p>
+  <p>No anti-cheating, grading, AI detection, or exam lockdown. Personal devices are outside school control. Hiding features does not disable services.</p>
+  <p>Chromebooks: force-install through Google Admin; browser control only.</p>
+  <p>Windows/Mac: Intune, Jamf, or Group Policy manage browsers; OS restrictions are separate.</p>
+  <p>Supervised iPad: partial. Locks depend on MDM and Apple restrictions.</p>
+
+  <h2 id="policy-builder">Build your policy</h2>
+  <p>Entries stay local.</p>
+  <form id="builder" class="card stack" onsubmit="return false" data-amo-slug={AMO_SLUG}>
+    <label>School or district name<span class="soft small">Shown in AI Off.</span><input name="orgName" placeholder="School or district name" autocomplete="organization" /></label>
+    <label>Filtering level
+      <select name="level">
+        <option value="1">1: Hide features</option>
+        <option value="2" selected>2: Also mute AI talk</option>
+        <option value="3">3: Also hide labeled and listed content</option>
+        <option value="4">4: Blackout, including chatbots</option>
+      </select>
+    </label>
+    <label>Allowed exceptions<span class="soft small">One excluded site per line.</span><textarea name="allowSites" rows="2"></textarea></label>
+    <label>Additional blocked domains<span class="soft small">One domain per line.</span><textarea name="denyExtraDomains" rows="2"></textarea></label>
+    <label class="check"><input type="checkbox" name="locked" checked /><span>Lock student controls<span class="soft small">Locks pause and level controls.</span></span></label>
+    <label class="check"><input type="checkbox" name="examMode" /><span>Apply Blackout and ignore exceptions<span class="soft small">Policy's Exam Mode is not exam lockdown.</span></span></label>
+    <label>Chrome Web Store extension ID<span class="soft small">Published ID required.</span><input name="extId" autocomplete="off" spellcheck="false" /><span class="soft small" id="extid-error" role="alert"></span></label>
+  </form>
+  <div class="notice"><p>Blackout blocks AI tools you may use. It is optional.</p></div>
+
+  <h3>Google Admin</h3>
+  <p>Force-install in the organizational unit, then paste into Policy for extensions. Keep Value.</p>
+  <div class="out"><pre><code id="out-gadmin"></code></pre><button class="btn secondary" type="button" data-copy="out-gadmin">Copy policy</button></div>
+
+  <h3>Windows</h3>
+  <p>Deploy registry policy. Check browser target.</p>
+  <div class="out"><pre><code id="out-winreg"></code></pre><button class="btn secondary" type="button" data-copy="out-winreg" hidden>Copy policy</button></div>
+
+  <h3>macOS</h3>
+  <p>Deploy through Jamf or Intune. Check domain and browser.</p>
+  <div class="out"><pre><code id="out-mac"></code></pre><button class="btn secondary" type="button" data-copy="out-mac" hidden>Copy policy</button></div>
+
+  <h3>Firefox</h3>
+  <p>Merge with existing policies.</p>
+  {!AMO_SLUG && <p class="status">Listing unavailable; configuration only, no force-install.</p>}
+  <div class="out"><pre><code id="out-firefox"></code></pre><button class="btn secondary" type="button" data-copy="out-firefox">Copy policy</button></div>
+
+  <h2>Deployment and quotes</h2>
+  <p>No student data or reporting in v1. <a href="/privacy/">Privacy and requests</a>.</p>
+  <p>$1 per student yearly, $500 minimum. Free: one teacher, one organizational unit.</p>
+  <p class="status">{HOSTED_CONFIG_AVAILABLE ? 'Optional hosted configuration available. Confirm deployment before purchasing.' : 'Hosted configuration: not available yet. Confirm deployment before purchasing.'}</p>
+  <p><a class="btn" href={SCHOOLS_QUOTE}>Request a quote</a></p>
+  <p>Send district, student count, devices, timeline. No student records. SDPC agreement, W-9, accessibility report, purchase-order quotes: on request.</p>
+</Base>
+<style>
+  form label { display: grid; gap: 4px; font-size: 16px; }
+  form label.check { grid-template-columns: auto 1fr; gap: 10px; align-items: start; }
+  form label.check input { margin-top: 6px; }
+  form label.check span > span { display: block; }
+  form input:not([type="checkbox"]), form select, form textarea { font: inherit; padding: 10px 12px; min-height: 48px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); width: 100%; }
+  form textarea { min-height: 72px; }
+  .out { margin-bottom: 8px; }
+  .out pre { max-height: 360px; overflow: auto; user-select: text; }
+  .out .btn { margin-top: 8px; }
+</style>
+<script>
+  import { firefoxSchoolPolicies, googleAdminExtensionPolicy, macExtensionPlists, windowsExtensionReg } from '@aioff/policies';
+
+  const form = document.getElementById('builder') as HTMLFormElement;
+  const err = document.getElementById('extid-error')!;
+  const lines = (s: string) => s.split('\n').map((x) => x.trim().toLowerCase()).filter(Boolean);
+  const NEEDS_ID = 'Enter the published extension ID.';
+  const copyBtn = (id: string) => document.querySelector<HTMLButtonElement>(`button[data-copy="${id}"]`)!;
+  function render() {
+    const f = new FormData(form);
+    const config: Record<string, unknown> = {
+      orgName: String(f.get('orgName') ?? '').trim(),
+      level: Number(f.get('level')),
+      locked: f.get('locked') === 'on',
+      allowSites: lines(String(f.get('allowSites') ?? '')),
+      denyExtraDomains: lines(String(f.get('denyExtraDomains') ?? '')),
+      examMode: { enabled: f.get('examMode') === 'on' },
+      reporting: { mode: 'none' },
+    };
+    if (!config.orgName) delete config.orgName;
+    const id = String(f.get('extId') ?? '').trim();
+    const idOk = /^[a-p]{32}$/.test(id);
+    err.textContent = id && !idOk ? 'Enter a valid Chrome extension ID.' : '';
+    document.getElementById('out-gadmin')!.textContent = googleAdminExtensionPolicy(config);
+    document.getElementById('out-winreg')!.textContent = idOk ? windowsExtensionReg('chrome', id, config) : NEEDS_ID;
+    document.getElementById('out-mac')!.textContent = idOk ? Object.entries(macExtensionPlists('chrome', id, config)).map(([name, body]) => `# ${name}\n${body}`).join('\n') : NEEDS_ID;
+    const amoSlug = form.dataset.amoSlug || null;
+    document.getElementById('out-firefox')!.textContent = firefoxSchoolPolicies('aioff@aioff.app', amoSlug, config);
+    // Copy controls only for actual policy, never for the placeholder sentence.
+    copyBtn('out-winreg').hidden = !idOk;
+    copyBtn('out-mac').hidden = !idOk;
+  }
+  form.addEventListener('input', render);
+  render();
+  for (const btn of Array.from(document.querySelectorAll<HTMLButtonElement>('button[data-copy]'))) {
+    btn.addEventListener('click', async () => {
+      const text = document.getElementById(btn.dataset.copy!)!.textContent ?? '';
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.textContent = 'Copied';
+      } catch {
+        btn.textContent = 'Copy failed. Select and copy manually.';
+      }
+      setTimeout(() => (btn.textContent = 'Copy policy'), 4000);
+    });
+  }
+</script>

@@ -1,0 +1,34 @@
+{
+  "id": "teams",
+  "name": "Microsoft Teams",
+  "category": "microsoft",
+  "match": [
+    "*://teams.microsoft.com/*",
+    "*://teams.cloud.microsoft/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "teams-copilot",
+      "kind": "hide",
+      "selectors": [
+        "[data-testid=\"list-item-metaos-copilot\"]",
+        "[id=\"b5abf2ae-c16b-4310-8f8a-d3bcdb52f162\"]",
+        "[data-tid=\"store-provider-app:co:copilotplugins\"]",
+        "[data-tid=\"store-provider-app:co:aiapps\"]"
+      ],
+      "description": "Teams: Copilot in the app bar (GUID id) and chat list, AI app store categories",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "requiresLogin": true,
+    "entries": []
+  }
+}

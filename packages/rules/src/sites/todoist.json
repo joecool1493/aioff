@@ -1,0 +1,30 @@
+{
+  "id": "todoist",
+  "name": "Todoist",
+  "category": "productivity",
+  "match": [
+    "*://app.todoist.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "todoist-ramble",
+      "kind": "hide",
+      "selectors": [
+        "button[aria-label=\"Dictate tasks with Ramble\"]"
+      ],
+      "description": "Todoist Ramble AI dictation button",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "requiresLogin": true,
+    "entries": []
+  }
+}

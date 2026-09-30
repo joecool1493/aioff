@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import Checklist from '../components/Checklist.astro';
+import { checklist } from '@aioff/policies';
+import { DESKTOP_URLS } from '../config';
+const items = checklist();
+const isMac = (p: string) => /mac/i.test(p);
+const isWin = (p: string) => /windows/i.test(p);
+const isApp = (p: string) => /web|desktop|admin|github|1password|copilot\.com/i.test(p) && !/ios|android|pixel|samsung/i.test(p);
+const computerGroups = [
+  { name: 'Mac', items: items.filter((i) => isMac(i.platform)) },
+  { name: 'Windows', items: items.filter((i) => isWin(i.platform)) },
+  { name: 'Apps and services', items: items.filter((i) => isApp(i.platform) && !isMac(i.platform) && !isWin(i.platform)) },
+];
+const phoneGroups = [
+  { name: 'iPhone and iPad', items: items.filter((i) => /ios|iphone|ipad/i.test(i.platform) && !/android/i.test(i.platform)) },
+  { name: 'Android', items: items.filter((i) => /android|pixel|samsung/i.test(i.platform) && !/ios/i.test(i.platform)) },
+  { name: 'Apps on both', items: items.filter((i) => /ios/i.test(i.platform) && /android/i.test(i.platform)) },
+];
+const anyDesktop = !!(DESKTOP_URLS.mac || DESKTOP_URLS.windows);
+---
+<Base title="Computer and phone settings" description="Check desktop companion availability. Find manual AI settings for Mac, Windows, iPhone, iPad, and Android, with limits and verification labels.">
+  <h1>Settings beyond the page</h1>
+  <p class="intro">AI Off's desktop companion changes supported browser and operating system settings. Phone checklists show changes to make yourself.</p>
+
+  <h2>Desktop companion</h2>
+  {anyDesktop ? (
+    <div class="stack" style="margin-bottom:24px">
+      {DESKTOP_URLS.mac ? <a class="btn" href={DESKTOP_URLS.mac}>Download for Mac</a> : <p class="status">Mac download: not available yet.</p>}
+      {DESKTOP_URLS.windows ? <a class="btn" href={DESKTOP_URLS.windows}>Download for Windows</a> : <p class="status">Windows download: not available yet.</p>}
+    </div>
+  ) : (
+    <div class="notice"><p>Desktop downloads are not available yet. The Mac build is unsigned. Windows has no release. Checklists are available now.</p></div>
+  )}
+  <p>Supported targets include Chromium AI policies, Edge Copilot controls, Firefox AI preferences, Windows Recall and Copilot, and Apple Intelligence profiles. Coverage depends on browser, version, permissions, Windows edition, and sometimes a work profile.</p>
+  <p>Removing the Windows Copilot app needs approval. Approve or remove Mac profiles in System Settings.</p>
+  <p>The companion records changes for reversal and checks saved settings when opened, including after updates. Reapply supported changes if settings return. Reverse manual changes where they were made.</p>
+  <p>Browser policies may show "managed by your organization." That message does not mean AI Off watches browsing. Existing school or employer policies may take priority.</p>
+  <p><a href="/pricing/">Pro pricing and availability</a></p>
+
+  <h2 id="checklist">Computer checklists</h2>
+  <p>Open an item for steps, limits, and verification status. This site does not change settings.</p>
+  <Checklist groups={computerGroups} />
+
+  <h2 id="phone">Phone checklists</h2>
+  <p>Change built-in AI settings yourself. Some features can only be reduced. Others have no switch. Menus vary by device and version.</p>
+  <p>Safari on iPhone and iPad, and Firefox on Android, cover supported web pages only. Extensions do not change other apps or built-in phone AI.</p>
+  <Checklist groups={phoneGroups} />
+  <p style="margin-top:24px"><a href="/download/">Browser availability</a></p>
+  <p><a href="/download/#network">Network lists and limits</a></p>
+</Base>

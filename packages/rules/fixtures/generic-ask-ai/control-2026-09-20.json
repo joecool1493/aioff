@@ -1,0 +1,6 @@
+{
+  "kind": "control",
+  "url": "https://shop.example.com/",
+  "note": "Avoid-phrases from the research list. Nothing here may be hidden.",
+  "expect": []
+}

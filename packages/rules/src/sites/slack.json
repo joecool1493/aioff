@@ -1,0 +1,35 @@
+{
+  "id": "slack",
+  "name": "Slack",
+  "category": "productivity",
+  "match": [
+    "*://app.slack.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "slack-ai-summary-card",
+      "kind": "hide",
+      "selectors": [
+        "[class^=\"autoSummaryCard__\"]"
+      ],
+      "textAnchors": [
+        "AI thread summaries",
+        "Summarize thread",
+        "Summarize channel"
+      ],
+      "description": "AI summary promo card. Source rule is .autoSummaryCard__UEStF with text AI thread summaries; prefix form is a generalization",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "low",
+        "source": [
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "requiresLogin": true,
+    "entries": []
+  }
+}

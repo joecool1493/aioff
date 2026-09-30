@@ -1,0 +1,74 @@
+{
+  "id": "outlook",
+  "name": "Outlook on the web",
+  "category": "microsoft",
+  "match": [
+    "*://outlook.office.com/*",
+    "*://outlook.office365.com/*",
+    "*://outlook.live.com/*",
+    "*://outlook.cloud.microsoft/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "outlook-copilot-topbar",
+      "kind": "hide",
+      "selectors": [
+        "[data-app-section=\"CopilotDabRibbon\"]",
+        "div#CopilotCommandCenterButton",
+        "#BottomBar > div:has(> div > #copilot-dab-main-button)",
+        "#copilot-dab-main-button"
+      ],
+      "description": "Copilot button in the header or ribbon and the floating Copilot button",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    },
+    {
+      "id": "outlook-copilot-leftrail",
+      "kind": "hide",
+      "selectors": [
+        "[aria-label=\"Copilot\"].f10pi13n",
+        "[role=\"navigation\"] [aria-label=\"Copilot\"]"
+      ],
+      "description": "Copilot app icon in the left rail. Second selector is a de-hashed generalization, unverified",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "researcher memory of site DOM, not confirmed in any list on 2026-09-20"
+        ]
+      }
+    },
+    {
+      "id": "outlook-summary-by-copilot",
+      "kind": "hide",
+      "selectors": [
+        ".fai-CopilotProvider"
+      ],
+      "textAnchors": [
+        "Summary by Copilot",
+        "Draft with Copilot"
+      ],
+      "description": "Summarize bar above an opened message (Fluent AI CopilotProvider wrapper). Draft with Copilot in compose has no list coverage; use text anchor",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "researcher memory of site DOM, not confirmed in any list on 2026-09-20"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "requiresLogin": true,
+    "entries": []
+  }
+}

@@ -1,0 +1,153 @@
+---
+import { CONTACT, GITHUB } from '../config';
+interface Props { title: string; description: string; noindex?: boolean; narrow?: boolean }
+const { title, description, noindex = false, narrow = false } = Astro.props;
+const nav = [
+  ['/download/', 'Download'],
+  ['/what-we-hide/', 'What AI Off hides'],
+  ['/computer/', 'Devices'],
+  ['/schools/', 'Schools'],
+  ['/pricing/', 'Pricing'],
+];
+const path = Astro.url.pathname;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {noindex && <meta name="referrer" content="no-referrer" />}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {!noindex && <meta property="og:image" content="https://aioff.app/og.png" />}
+    <meta name="twitter:card" content={noindex ? 'summary' : 'summary_large_image'} />
+    <link rel="icon" href="/icon.png" />
+    <style is:global>
+      /* The Quiet Switch. Tokens from docs/design/CODEX-REDESIGN.md. */
+      :root {
+        --bg: #f4f1ea; --surface: #fffdf8; --ink: #242620; --soft: #5f6258; --line: #d4d5cb; --accent: #a73825; --muted: #e5e6e0;
+        --font: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root { --bg: #151614; --surface: #20221f; --ink: #f3f1e9; --soft: #b8bcaf; --line: #454a40; --accent: #ff9b82; --muted: #30352e; }
+      }
+      * { box-sizing: border-box; }
+      [hidden] { display: none !important; }
+      html { -webkit-text-size-adjust: 100%; }
+      body { margin: 0; background: var(--bg); color: var(--ink); font: 400 18px/1.6 var(--font); }
+      a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+      a:hover { text-decoration-thickness: 2px; }
+      :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+      .skip { position: absolute; left: 24px; top: -60px; background: var(--ink); color: var(--bg); padding: 10px 14px; border-radius: 8px; text-decoration: none; z-index: 10; }
+      .skip:focus-visible { top: 12px; }
+      .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+      .reading { max-width: 720px; }
+      header.site { display: flex; align-items: center; justify-content: space-between; gap: 16px 24px; padding: 24px 0; flex-wrap: wrap; }
+      header.site .brand { font-weight: 750; letter-spacing: 0.08em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+      header.site .brand img { width: 22px; height: 22px; border-radius: 5px; }
+      header.site nav { display: flex; gap: 8px 20px; flex-wrap: wrap; font-size: 16px; }
+      header.site nav a { color: var(--soft); text-decoration: none; padding: 4px 0; }
+      header.site nav a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 6px; }
+      header.site nav a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+      main { padding: 32px 0 96px; }
+      h1 { font-size: 64px; line-height: 1.06; letter-spacing: -0.035em; font-weight: 750; margin: 0 0 16px; text-wrap: balance; }
+      h2 { font-size: 34px; line-height: 1.18; letter-spacing: -0.02em; font-weight: 700; margin: 80px 0 16px; text-wrap: balance; }
+      h3 { font-size: 21px; line-height: 1.3; font-weight: 650; margin: 32px 0 16px; }
+      h2 + h3, h2 + p, h3 + p { margin-top: 0; }
+      p { margin: 0 0 16px; max-width: 64ch; }
+      p.intro { font-size: 22px; line-height: 1.5; color: var(--soft); max-width: 52ch; text-wrap: pretty; }
+      .soft { color: var(--soft); }
+      .small { font-size: 14px; line-height: 1.5; font-weight: 400; }
+      .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 10px 20px; border-radius: 8px; background: var(--ink); color: var(--bg); text-decoration: none; font-weight: 650; border: 1px solid var(--ink); font: inherit; font-weight: 650; cursor: pointer; }
+      .btn:hover { background: var(--soft); border-color: var(--soft); text-decoration: none; }
+      .btn.secondary { background: var(--surface); color: var(--ink); }
+      .btn.secondary:hover { background: var(--muted); }
+      .btns { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+      .status { color: var(--soft); }
+      .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+      .grid.two { grid-template-columns: repeat(2, 1fr); }
+      @media (max-width: 720px) { .grid.two { grid-template-columns: 1fr; } }
+      .grid.plans { grid-template-columns: repeat(4, 1fr); }
+      @media (max-width: 1000px) { .grid.plans { grid-template-columns: repeat(2, 1fr); } }
+      @media (max-width: 640px) { .grid.plans { grid-template-columns: 1fr; } }
+      .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px; }
+      .card h3 { margin-top: 0; }
+      .card p:last-child, .card ul:last-child { margin-bottom: 0; }
+      .card.pro { border-top: 3px solid var(--accent); }
+      .pill { display: inline-block; font-size: 14px; line-height: 1.5; border: 1px solid var(--line); border-radius: 999px; padding: 1px 10px; color: var(--soft); white-space: nowrap; }
+      .pill.ok { color: var(--ink); border-color: var(--ink); }
+      .pill.accent { color: var(--accent); border-color: var(--accent); }
+      .count { font-size: 44px; line-height: 1.1; font-weight: 750; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+      .chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 16px 0 0; padding: 0; }
+      .chips li { background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 16px; }
+      code, pre { font-family: var(--mono); font-size: 0.88em; }
+      code { background: var(--muted); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+      pre { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; overflow-x: auto; line-height: 1.5; }
+      pre code { background: none; padding: 0; }
+      table { border-collapse: collapse; width: 100%; font-size: 16px; }
+      th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+      .table-scroll { overflow-x: auto; }
+      .faq details { border-top: 1px solid var(--line); padding: 16px 0; }
+      .faq details:last-child { border-bottom: 1px solid var(--line); }
+      .faq summary { cursor: pointer; font-weight: 650; font-size: 18px; list-style: none; display: flex; justify-content: space-between; gap: 16px; align-items: center; min-height: 44px; }
+      .faq summary::-webkit-details-marker { display: none; }
+      .faq summary > span:first-child { flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere; }
+      .faq summary::after { content: "+"; color: var(--soft); font-weight: 400; flex: none; }
+      .faq details[open] summary::after { content: "\2212"; }
+      .faq details > *:not(summary) { color: var(--soft); }
+      .faq details p { margin-top: 12px; }
+      .muted-row { display: flex; align-items: center; gap: 12px; min-height: 44px; margin: 16px 0 0; }
+      .muted-bar { flex: 1; height: 32px; display: flex; align-items: center; padding: 0 12px; background: var(--muted); color: var(--ink); border-radius: 4px; font-size: 14px; }
+      .muted-row .btn { min-height: 44px; padding: 6px 14px; font-size: 16px; }
+      .steps { margin: 12px 0 0; padding-left: 22px; }
+      .steps li { margin: 6px 0; }
+      .notice { border-left: 3px solid var(--accent); padding: 4px 0 4px 16px; margin: 24px 0; }
+      .notice p { margin: 0; }
+      .stack { display: grid; gap: 16px; }
+      footer.site { border-top: 1px solid var(--line); padding: 32px 0 64px; color: var(--soft); font-size: 16px; display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+      footer.site p { margin: 0 0 8px; }
+      footer.site nav { display: flex; gap: 8px 20px; flex-wrap: wrap; }
+      footer.site a { color: var(--soft); }
+      footer.site a[aria-current="page"] { color: var(--ink); text-decoration-thickness: 2px; }
+      @media (max-width: 640px) {
+        .wrap { padding: 0 20px; }
+        h1 { font-size: 40px; }
+        h2 { font-size: 28px; margin-top: 48px; }
+        h3 { font-size: 20px; }
+        body { font-size: 17px; }
+        p.intro { font-size: 20px; }
+        .count { font-size: 36px; }
+        main { padding-bottom: 64px; }
+      }
+      @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+    </style>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="wrap">
+      <header class="site">
+        <a class="brand" href="/"><img src="/icon.png" alt="" width="22" height="22" />AI OFF</a>
+        <nav aria-label="Main">
+          {nav.map(([href, label]) => <a href={href} aria-current={path === href ? 'page' : undefined}>{label}</a>)}
+        </nav>
+      </header>
+      <main id="main" class={narrow ? 'reading' : undefined}><slot /></main>
+      <footer class="site">
+        <div>
+          <p>Less AI on your terms.</p>
+          <p>No AI inside. No telemetry. Code and rules, MIT licensed.</p>
+        </div>
+        <nav aria-label="Footer">
+          <a href="/privacy/" aria-current={path === '/privacy/' ? 'page' : undefined}>Privacy</a>
+          <a href="/download/#network">Network lists</a>
+          <a href={GITHUB}>Source code</a>
+          <a href={`mailto:${CONTACT}`}>Contact</a>
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>

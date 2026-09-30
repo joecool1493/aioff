@@ -1,0 +1,12 @@
+{
+  "name": "@aioff/ui",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "description": "Shared React components for AI Off: Switch, Dial, Counter, RuleExplainer.",
+  "exports": { ".": "./src/index.ts", "./styles.css": "./src/styles.css" },
+  "scripts": { "typecheck": "tsc -p tsconfig.json" },
+  "peerDependencies": { "react": "^19.0.0" },
+  "devDependencies": { "@types/react": "^19.0.0", "react": "^19.0.0" }
+}

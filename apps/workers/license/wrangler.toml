@@ -1,0 +1,15 @@
+name = "aioff-license"
+main = "src/index.ts"
+compatibility_date = "2026-09-01"
+# Secrets (wrangler secret put ...):
+#   LICENSE_PRIVATE_KEY_PKCS8_B64   from: pnpm tsx tools/scripts/license.ts keygen
+#   STRIPE_WEBHOOK_SECRET, STRIPE_API_KEY (restricted key: checkout sessions read)   if using Stripe
+#   LEMONSQUEEZY_WEBHOOK_SECRET                                                       if using Lemon Squeezy
+#   RESEND_API_KEY                                                                    optional: emails the key
+[vars]
+# Map your price ids (Stripe) or variant ids (Lemon Squeezy) to plans. Plans: pro, lifetime, family.
+PRICE_PLANS = '{"price_REPLACE_PRO_YEARLY":"pro","price_REPLACE_LIFETIME":"lifetime","price_REPLACE_FAMILY_YEARLY":"family"}'
+FROM_EMAIL = "AI Off <keys@aioff.app>"
+[[kv_namespaces]]
+binding = "KEYS"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"

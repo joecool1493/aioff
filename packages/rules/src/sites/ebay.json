@@ -1,0 +1,34 @@
+{
+  "id": "ebay",
+  "name": "eBay",
+  "category": "commerce",
+  "match": [
+    "*://www.ebay.*/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "ebay-ai-faq",
+      "kind": "hide",
+      "selectors": [
+        ".srp-river-answer--FAQ_KW_SRP_MODULE"
+      ],
+      "description": "eBay.ai FAQ module in search results",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://www.ebay.com/"
+      }
+    ]
+  }
+}

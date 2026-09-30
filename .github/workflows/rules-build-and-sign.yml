@@ -1,0 +1,65 @@
+name: rules-build-and-sign
+# Builds, signs, and publishes the rules feed and the DNS lists to GitHub Pages.
+# Fixes ship here, as data, without a store review.
+on:
+  push:
+    branches: [main]
+    paths: ['packages/rules/**', 'packages/dns/**', 'packages/core/**']
+  workflow_dispatch:
+permissions: { contents: read, pages: write, id-token: write }
+concurrency: { group: rules-publish, cancel-in-progress: false }
+jobs:
+  # Secrets are not readable in a job-level "if", so a tiny job reports whether the signing key exists.
+  # Until it does (see START-HERE.md step 3) this workflow is a no-op instead of a red X.
+  gate:
+    runs-on: ubuntu-24.04
+    outputs:
+      has_key: ${{ steps.check.outputs.has_key }}
+    steps:
+      - id: check
+        run: echo "has_key=${{ secrets.AIOFF_RULES_PRIVATE_KEY != '' }}" >> "$GITHUB_OUTPUT"
+  publish:
+    needs: gate
+    if: needs.gate.outputs.has_key == 'true'
+    runs-on: ubuntu-24.04
+    environment: { name: github-pages, url: '${{ steps.deploy.outputs.page_url }}' }
+    # A step's "if" cannot read secrets, and cannot see variables set in that same step, so the
+    # Cloudflare token is exposed at job level and the deploy step tests the variable.
+    env:
+      CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test
+      - name: Build rules (build number makes same-day versions increase)
+        run: pnpm rules:build
+        env: { RULES_BUILD_NUMBER: '${{ github.run_number }}' }
+      - name: Sign
+        run: pnpm rules:sign
+        env: { AIOFF_RULES_PRIVATE_KEY: '${{ secrets.AIOFF_RULES_PRIVATE_KEY }}' }
+      - name: Verify signature with the committed public keys
+        run: pnpm --filter @aioff/rules verify
+      - run: pnpm dns:build
+      - name: Assemble Pages site
+        run: |
+          mkdir -p _pages/lists
+          cp packages/rules/dist/rules.json packages/rules/dist/rules.json.sig packages/rules/dist/summary.json packages/rules/schema.json _pages/
+          cp -r packages/dns/dist/* _pages/lists/
+          echo "rules.aioff.app" > _pages/CNAME
+          printf "/*\n  Access-Control-Allow-Origin: *\n  Cache-Control: public, max-age=300\n" > _pages/_headers
+      # Primary host: Cloudflare Pages (unlimited bandwidth on the free plan). GitHub Pages has a
+      # 100 GB/month soft cap, which 30k users polling 4 times a day would exceed. Both run when configured.
+      - name: Deploy to Cloudflare Pages (rules.aioff.app)
+        if: ${{ env.CF_TOKEN != '' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx wrangler pages deploy _pages --project-name aioff-rules --commit-dirty=true
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: _pages }
+      - id: deploy
+        uses: actions/deploy-pages@v4
+        continue-on-error: true

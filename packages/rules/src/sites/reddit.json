@@ -1,0 +1,139 @@
+{
+  "id": "reddit",
+  "name": "Reddit",
+  "category": "social",
+  "match": [
+    "*://www.reddit.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "reddit-answers-nav",
+      "kind": "hide",
+      "selectors": [
+        "#answers-nav-button",
+        "a[href^=\"/answers\"]",
+        ".expanded-composer-ask-pill"
+      ],
+      "description": "Reddit Answers entry points: header sparkle (mobile web), nav link, Ask pill in the search composer. The a[href^=/answers] form is caller-supplied; lists confirm the /answers/ URL scheme",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt",
+          "caller-supplied hint, not confirmed in any list"
+        ]
+      }
+    },
+    {
+      "id": "reddit-search-answers",
+      "kind": "hide",
+      "selectors": [
+        "search-telemetry-tracker[view-events=\"search/view/unit\"]:has(search-answers-expandable, search-answers-response-container-streaming, .search-answers-preview-section)",
+        ".search-answers-preview-section"
+      ],
+      "textAnchors": [
+        "What people are saying"
+      ],
+      "description": "AI answer block at the top of search results",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    },
+    {
+      "id": "reddit-conversation-snapshot",
+      "kind": "hide",
+      "selectors": [
+        ".grid:has(> .col-start-2 > conversation-snapshot-text-clamp)",
+        "main > div:has(conversation-snapshot-text-clamp)"
+      ],
+      "description": "AI comment summary (conversation snapshot) on post pages",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    },
+    {
+      "id": "reddit-answers-suggested",
+      "kind": "hide",
+      "selectors": [
+        "[id^=\"answers-suggested-queries\"]"
+      ],
+      "textAnchors": [
+        "People also ask about"
+      ],
+      "description": "People also ask about (Answers suggestions), mobile web",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt",
+          "https://github.com/easylist/easylist/blob/master/fanboy-addon/fanboy_ai_suggestions.txt"
+        ]
+      }
+    },
+    {
+      "id": "reddit-answers-comment-links",
+      "kind": "hide",
+      "selectors": [
+        "[slot=\"comment\"] p > a.border-dotted > span:has(> [icon-name=\"search-sparkle\"])"
+      ],
+      "description": "Sparkle icon on auto-linked Answers keywords in comments. Source also neutralizes a.border-dotted[href^=/answers/] with pointer-events none",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "reddit-answers-page",
+      "kind": "hide",
+      "selectors": [
+        "guides-search-input-base",
+        "div:has(> div[aria-label=\"recommendations list\"])"
+      ],
+      "description": "Chat box and suggestions on /answers itself (Extra list)",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist-Extra.txt"
+        ]
+      }
+    },
+    {
+      "id": "reddit-typeahead-summaries",
+      "kind": "hide",
+      "selectors": [
+        "[data-testid=\"search-sdui-typeahead-suggestion\"] .inline-block.text-neutral-content-weak"
+      ],
+      "description": "AI trending summaries in search typeahead (also hides weekly visitor counts per source)",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://www.reddit.com/search/?q=best+hiking+boots"
+      }
+    ]
+  }
+}

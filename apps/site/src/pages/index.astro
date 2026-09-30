@@ -1,0 +1,73 @@
+---
+import Base from '../layouts/Base.astro';
+import HeroSwitch from '../components/HeroSwitch.astro';
+import summary from '@aioff/rules/dist/summary.json';
+const gone = [
+  'Google AI Overviews', "Google's AI Mode tab", 'Gemini in Gmail', 'Gemini in Docs', 'Copilot in Bing', 'Copilot in Outlook', 'Meta AI prompts', 'Grok buttons',
+  'Reddit Answers', 'YouTube Ask', 'LinkedIn AI writing prompts', 'Amazon Rufus', 'AI review summaries', 'Posts about AI', 'Images labeled as AI-made',
+];
+---
+<Base title="Your AI off switch" description="Hide unwanted AI features and mute AI talk. Choose from four browser levels. Free extension, open rules, no AI inside.">
+  <section class="hero">
+    <h1>AI, when you choose.</h1>
+    <p class="intro" style="margin-left:auto;margin-right:auto">AI Off hides unwanted AI features on supported sites. Choose what stays.</p>
+    <div class="btns" style="justify-content:center">
+      <a class="btn" href="/download/">See browser downloads</a>
+      <a class="btn secondary" href="/what-we-hide/">See what AI Off hides</a>
+    </div>
+    <p class="soft" style="margin:16px auto 0">Free forever. No account. No AI inside.</p>
+    <HeroSwitch />
+  </section>
+
+  <h2>Things that disappear</h2>
+  <p>On supported sites. Posts need Level 2. Declared AI content needs Level 3.</p>
+  <ul class="chips">{gone.map((g) => <li>{g}</li>)}</ul>
+  <p style="margin-top:16px">{summary.ruleCount} rules across {summary.siteCount} sites. <a href="/what-we-hide/">Rules and exceptions</a></p>
+
+  <h2>Choose how much goes</h2>
+  <p>Each level adds to the last. Levels 1 to 3 leave chatbots alone.</p>
+  <div class="grid two">
+    <div class="card"><h3>Level 1: Hide features</h3><p>Hide supported AI Overviews, sidebars, summaries, and prompts inside web pages.</p></div>
+    <div class="card"><h3>Level 2: Mute AI talk</h3><p>Also collapse posts matching the AI word list into gray bars. Choose Show to read one.</p></div>
+    <div class="card"><h3>Level 3: Use declared labels</h3><p>Also hide images and posts with declared AI labels, plus known AI content farms. Unlabeled content can stay.</p></div>
+    <div class="card"><h3>Level 4: Blackout</h3><p>Also block listed AI domains, including chatbots and generators. Browser blocking stays in the browser.</p></div>
+  </div>
+  <div class="muted-row" id="muted-example"><span class="muted-bar" id="muted-bar">AI post hidden</span><button class="btn secondary" type="button" id="muted-btn" aria-expanded="false" aria-controls="muted-bar">Show</button></div>
+  <div class="notice"><p>Blackout blocks AI tools you may use. It is optional.</p></div>
+
+  <h2>What AI Off promises</h2>
+  <div class="grid two">
+    <div class="card"><h3>No AI inside</h3><p>AI Off uses rules and labels. It does not detect, judge, or learn.</p></div>
+    <div class="card"><h3>No telemetry</h3><p>No analytics or browsing reports. Rule and service requests appear on the <a href="/privacy/">privacy page</a>.</p></div>
+    <div class="card"><h3>Pause when needed</h3><p>Pause AI Off if a site looks wrong. Hidden browser content returns when switched back.</p></div>
+    <div class="card"><h3>Open code and rules</h3><p>Read the MIT-licensed code and rules. Review a report before submitting it.</p></div>
+  </div>
+
+  <h2>A few fair questions</h2>
+  <div class="faq">
+    <details><summary>Does AI Off hide every AI image?</summary><p>No. Level 3 reads declared labels and known lists. Unlabeled content can stay visible. AI Off does not guess how something was made.</p></details>
+    <details><summary>Does Blackout block chatbots?</summary><p>Yes, listed chatbots and generators. Levels 1 to 3 leave chatbots alone. Network blocking needs a separately configured list or DNS service.</p></details>
+    <details><summary>Can something be turned back on?</summary><p>Flip the browser switch, pause one site, or pause for 15 minutes. Muted posts have a Show button. School policy may lock these controls.</p></details>
+    <details><summary>Does AI Off change phone settings?</summary><p>No. Phone checklists show settings to change yourself. Browser extensions act inside supported browsers. Check <a href="/download/">downloads</a> for release availability and <a href="/computer/#phone">phone checklists</a> for device limits.</p></details>
+    <details><summary>What does AI Off cost?</summary><p>The whole browser extension is free forever. Paid plans add the desktop companion and optional sync when available. See <a href="/pricing/">pricing and availability</a>.</p></details>
+  </div>
+
+  <h2>Keep what you came for</h2>
+  <p>Start with the browser. Choose what gets out of the way.</p>
+  <a class="btn" href="/download/">See browser downloads</a>
+</Base>
+<style>
+  .hero { text-align: center; }
+  .hero h1 { margin-left: auto; margin-right: auto; }
+</style>
+<script>
+  const bar = document.getElementById('muted-bar')!;
+  const btn = document.getElementById('muted-btn') as HTMLButtonElement;
+  let shown = false;
+  btn.addEventListener('click', () => {
+    shown = !shown;
+    bar.textContent = shown ? 'A headline about a new AI assistant.' : 'AI post hidden';
+    btn.textContent = shown ? 'Hide again' : 'Show';
+    btn.setAttribute('aria-expanded', String(shown));
+  });
+</script>

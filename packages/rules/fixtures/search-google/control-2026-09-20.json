@@ -1,0 +1,6 @@
+{
+  "kind": "control",
+  "url": "https://www.google.com/search?q=nasa&udm=14",
+  "note": "A results page with no AI elements. No hide rule may match.",
+  "expect": []
+}

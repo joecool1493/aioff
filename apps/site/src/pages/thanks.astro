@@ -1,0 +1,66 @@
+---
+import Base from '../layouts/Base.astro';
+import { EMAIL_DELIVERY_CONFIGURED, LICENSE_WORKER, PAID_LIVE } from '../config';
+---
+<Base title="Your AI Off key" description="Copy an AI Off license key after checkout. Find setup steps and help with key delivery. No account needed." noindex narrow>
+  {!PAID_LIVE ? (
+    <>
+      <h1>License key pickup</h1>
+      <p class="intro">Paid plans are not available yet. Key pickup is closed. For a receipt question, use Contact below.</p>
+      <p><a href="/pricing/">See availability</a></p>
+    </>
+  ) : (
+    <>
+      <h1>Your AI Off key</h1>
+      <p class="intro">Add the same key to each covered device. No account needed.</p>
+      <div class="card" aria-live="polite">
+        <p id="status">Getting your license key...</p>
+        <div id="keywrap" hidden>
+          <p><strong>Your AI Off license key</strong></p>
+          <pre><code id="key"></code></pre>
+          <p class="soft">Copy it somewhere safe.{EMAIL_DELIVERY_CONFIGURED ? ' A copy is also sent by email.' : ''}</p>
+          <div class="btns"><button id="copy" class="btn" type="button">Copy key</button><span id="copystate" class="soft"></span></div>
+        </div>
+      </div>
+      <h2>Add the key</h2>
+      <p>Open Settings and stats, then Pro, and paste the key.</p>
+      <p>For available desktop releases, enter the key in the companion too.</p>
+      <p>When available, optional encrypted sync uses a separate passphrase. Use the same passphrase across devices. Keep it safe.</p>
+      <p>Pro covers 5 devices; Family covers 10. Keep the key and receipt. There is no account recovery page. Reply to the receipt within 30 days for a refund.</p>
+      <p><a href="/computer/">Device availability</a></p>
+      <p><a href="/privacy/">Privacy details</a></p>
+    </>
+  )}
+</Base>
+<script define:vars={{ LICENSE_WORKER, EMAIL: EMAIL_DELIVERY_CONFIGURED, LIVE: PAID_LIVE }}>
+  if (LIVE) {
+    const params = new URLSearchParams(location.search);
+    const id = params.get('session_id') || params.get('order_id') || params.get('id');
+    const provider = params.get('session_id') ? 'stripe' : params.get('order_id') ? 'ls' : params.get('p');
+    const status = document.getElementById('status');
+    const key = document.getElementById('key');
+    const wrap = document.getElementById('keywrap');
+    const copy = document.getElementById('copy');
+    const copystate = document.getElementById('copystate');
+    async function poll(tries) {
+      if (!id || !provider) {
+        status.textContent = 'Open the receipt link from checkout. For help, use Contact with the receipt identifier.';
+        return;
+      }
+      try {
+        const res = await fetch(`${LICENSE_WORKER}/key?p=${provider}&id=${encodeURIComponent(id)}`);
+        if (res.ok) {
+          const data = await res.json();
+          key.textContent = data.key;
+          status.hidden = true;
+          wrap.hidden = false;
+          copy.onclick = () => navigator.clipboard.writeText(data.key).then(() => (copystate.textContent = 'Copied'), () => (copystate.textContent = 'Could not copy. Select the key and copy it manually.'));
+          return;
+        }
+      } catch {}
+      if (tries > 0) setTimeout(() => poll(tries - 1), 3000);
+      else status.textContent = EMAIL ? 'The key is taking longer than usual. Check email in a few minutes. If it has not arrived, reply to the receipt or use Contact with the receipt identifier.' : 'The key is taking longer than usual. Reload in a few minutes. If it still does not appear, reply to the receipt or use Contact with the receipt identifier.';
+    }
+    poll(20);
+  }
+</script>

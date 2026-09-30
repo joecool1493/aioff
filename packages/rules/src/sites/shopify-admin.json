@@ -1,0 +1,30 @@
+{
+  "id": "shopify-admin",
+  "name": "Shopify admin",
+  "category": "commerce",
+  "match": [
+    "*://admin.shopify.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "shopify-admin-sidekick",
+      "kind": "hide",
+      "selectors": [
+        "[class^=\"_Sidebar_\"]"
+      ],
+      "description": "Shopify admin Sidekick sidebar. Source uses hashed CSS-module classes (._Sidebar_xdtqe_5, ._ButtonWrapper_1zyxe_4); prefix form is a risky generalization",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "low",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "requiresLogin": true,
+    "entries": []
+  }
+}

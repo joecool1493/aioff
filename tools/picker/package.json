@@ -1,0 +1,10 @@
+{
+  "name": "@aioff/picker",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "description": "Stable CSS selector generator used by the AI Off element picker.",
+  "exports": { ".": "./src/index.ts" },
+  "scripts": { "typecheck": "tsc -p tsconfig.json" }
+}

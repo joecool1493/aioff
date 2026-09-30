@@ -1,0 +1,250 @@
+{
+  "id": "search-google",
+  "name": "Google Search",
+  "category": "search",
+  "match": [
+    "*://www.google.*/search*",
+    "*://www.google.*/",
+    "*://www.google.*/webhp*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "google-force-web",
+      "kind": "urlRewrite",
+      "when": {
+        "paramMissing": [
+          "udm",
+          "tbm"
+        ],
+        "pathPrefix": "/search?"
+      },
+      "set": {
+        "udm": "14"
+      },
+      "description": "Force the Web tab (udm=14) so AI Overviews never load. Also drops some non-AI widgets such as the calculator; turn this rule off to keep them.",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": "Verified live 2026-09-20. Removes AIO and PAA; AI Mode tab still rendered. Also strips non-AI widgets; offer CSS-only mode."
+      }
+    },
+    {
+      "id": "g-aio-main",
+      "kind": "hide",
+      "selectors": [
+        "[data-attnms]",
+        "#Odp5De:has([data-attnms])",
+        ".Kevs9.SLPe5b:has([data-attnms])",
+        "div[id^=\"folsrch\"]",
+        "#m-x-content",
+        ".YzCcne"
+      ],
+      "textAnchors": [
+        "AI Overview",
+        "Übersicht mit KI",
+        "Aperçu IA",
+        "Visión general creada por IA",
+        "Vista creada con IA",
+        "Visão geral criada por IA",
+        "Vista geral de IA",
+        "Overview dell'AI",
+        "AI による概要",
+        "AI-overzicht",
+        "AI-oversigt",
+        "Обзор от ИИ",
+        "AI 摘要",
+        "Přehled od AI",
+        "Prezentare generală generată de AI"
+      ],
+      "description": "The AI Overview panel above organic results",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": "Stevos-AI-Blocklist (MIT); laylavish (CC0); reproduced live"
+      }
+    },
+    {
+      "id": "g-aio-mid",
+      "kind": "hide",
+      "selectors": [
+        ".ULSxyf:has(> .MjjYud > .Wm5I1e.SePcAf[data-tma=\"80\"] [data-attnms])"
+      ],
+      "description": "AI Overview blocks that appear mid-page",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": "Stevos-AI-Blocklist (MIT)"
+      }
+    },
+    {
+      "id": "g-aimode-tab",
+      "kind": "hide",
+      "selectors": [
+        "[role=\"listitem\"]:has(.olrp5b)",
+        "[role=\"listitem\"]:has(a[href*=\"udm=50\"])",
+        "[role=\"listitem\"]:has(a[href*=\"aep=1&ntc=1\"])"
+      ],
+      "textAnchors": [
+        "AI Mode",
+        "KI‑Modus",
+        "KI-Modus",
+        "Mode IA",
+        "Modo IA",
+        "AI モード"
+      ],
+      "anchorTarget": "control",
+      "description": "The AI Mode tab in the search filter bar",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": "Stevos-AI-Blocklist (MIT); EasyList AI list (fact); reproduced live"
+      }
+    },
+    {
+      "id": "g-aimode-searchbox",
+      "kind": "hide",
+      "selectors": [
+        ".plR5qb",
+        ".xOchs"
+      ],
+      "textAnchors": [
+        "AI Mode"
+      ],
+      "anchorTarget": "control",
+      "description": "The AI Mode button inside the search box",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": "Stevos-AI-Blocklist (MIT); .plR5qb reproduced live"
+      }
+    },
+    {
+      "id": "g-paa-ai",
+      "kind": "hide",
+      "selectors": [
+        "[jsname=\"YrZdPb\"][data-evn]",
+        ".cUnQKe:has([jsname=\"YrZdPb\"][data-evn]):not(:has([jsname=\"YrZdPb\"]:not([data-evn])))",
+        ".ULSxyf:has(> .MjjYud > .A6K0A > .cUnQKe [jsname=\"YrZdPb\"][data-evn]):not(:has([jsname=\"YrZdPb\"]:not([data-evn])))"
+      ],
+      "textAnchors": [
+        "Ask anything in AI Mode"
+      ],
+      "description": "AI-generated answers inside People also ask",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": "Stevos-AI-Blocklist (MIT); reproduced live"
+      }
+    },
+    {
+      "id": "g-ai-followup-chips",
+      "kind": "hide",
+      "selectors": [
+        "a.rmysyd[href*=\"udm=50\"]",
+        "#rso a[href*=\"udm=50\"]"
+      ],
+      "textAnchors": [
+        "This link will navigate to AI Mode"
+      ],
+      "anchorTarget": "control",
+      "description": "Follow-up chips that lead into AI Mode",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": "own live observation"
+      }
+    },
+    {
+      "id": "g-things-to-know",
+      "kind": "hide",
+      "selectors": [
+        "[jscontroller=\"Elkdbc\"]"
+      ],
+      "textAnchors": [
+        "Things to know"
+      ],
+      "description": "The AI-written \"Things to know\" module",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": "Stevos-AI-Blocklist (MIT)"
+      }
+    },
+    {
+      "id": "g-visual-digest",
+      "kind": "hide",
+      "selectors": [
+        "[data-attrid=\"VisualDigestGeneratedDescription\"]",
+        ".iVzeVc:has([data-attrid=\"VisualDigestGeneratedDescription\"])"
+      ],
+      "description": "AI-generated descriptions in visual results",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": "Stevos-AI-Blocklist (MIT); ziya-karagoz (MIT)"
+      }
+    },
+    {
+      "id": "g-shopping-ai",
+      "kind": "hide",
+      "selectors": [
+        "[data-id=\"SALES_ASSISTANT_BRAND_PROFILE_ENTRY_POINT\"]",
+        "[data-id=\"PRODUCT_SHELF_SALES_ASSISTANT_ENTRY_CONTAINER\"]",
+        "[jsname=\"lHCI7d\"]"
+      ],
+      "description": "AI shopping assistant entry points",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": "Stevos-AI-Blocklist (MIT)"
+      }
+    },
+    {
+      "id": "g-home-promos",
+      "kind": "hide",
+      "selectors": [
+        "[jscontroller=\"DyTeib\"]",
+        "[class=\"jLddNe\"][role=\"button\"]:has(> .DUGvJe)",
+        "[role=\"contentinfo\"] [href^=\"https://ai.google/\"]",
+        ".oGdvd"
+      ],
+      "description": "Gemini and AI promos on the Google homepage",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": "Stevos-AI-Blocklist (MIT)"
+      }
+    },
+    {
+      "id": "g-autocomplete-aimode",
+      "kind": "hide",
+      "selectors": [
+        "li[data-attrid$=\"Prediction\"]:has([aria-description=\"AI Mode\"])",
+        ".CKtgbd[role=\"listbox\"] > .sbct:has(.cuyMBe)"
+      ],
+      "textAnchors": [
+        "AI Mode"
+      ],
+      "description": "AI Mode suggestions in search autocomplete",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": "EasyList AI list (fact); Stevos-AI-Blocklist (MIT)"
+      }
+    }
+  ],
+  "healthcheck": {
+    "entries": [
+      {
+        "url": "https://www.google.com/search?q=why+is+the+sky+blue&hl=en&gl=us"
+      },
+      {
+        "url": "https://www.google.com/search?q=Why+are+we+here&hl=en&gl=us"
+      },
+      {
+        "url": "https://www.google.com/search?q=Celeste+release+date&hl=en&gl=us"
+      }
+    ]
+  }
+}

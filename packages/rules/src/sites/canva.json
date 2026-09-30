@@ -1,0 +1,77 @@
+{
+  "id": "canva",
+  "name": "Canva",
+  "category": "productivity",
+  "match": [
+    "*://www.canva.com/*"
+  ],
+  "level": 1,
+  "rules": [
+    {
+      "id": "canva-ai-sidebar",
+      "kind": "hide",
+      "selectors": [
+        "div:has(> #assistant)",
+        "[aria-label=\"Canva AI\"]",
+        "a[href=\"/dream-lab\"]",
+        "[href=\"/ai/code?forceOpen\"]"
+      ],
+      "textAnchors": [
+        "Canva AI",
+        "Dream Lab",
+        "Magic Studio"
+      ],
+      "description": "Canva AI, Dream Lab, Canva Code entry points on the home screen",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "canva-editor-ai",
+      "kind": "hide",
+      "selectors": [
+        "div:has(> [aria-label=\"Ask Canva\"])",
+        "div:has(> [id$=\"_-tab-ai-generation\"])",
+        "[aria-label=\"Generation options\"]"
+      ],
+      "textAnchors": [
+        "Ask Canva",
+        "Magic Write",
+        "Magic Switch",
+        "Magic Media"
+      ],
+      "anchorTarget": "control",
+      "description": "Editor: Ask Canva toolbar item, AI generation app tab, Magic Write (source matches button text)",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "med",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    },
+    {
+      "id": "canva-help-assistant",
+      "kind": "hide",
+      "selectors": [
+        "button[aria-label=\"Help Assistant\"]"
+      ],
+      "description": "Floating AI help assistant",
+      "since": "2026-09-20",
+      "x": {
+        "confidence": "high",
+        "source": [
+          "https://github.com/Stevoisiak/Stevos-AI-Blocklist/blob/main/GenAI-Blocklist.txt"
+        ]
+      }
+    }
+  ],
+  "healthcheck": {
+    "requiresLogin": true,
+    "entries": []
+  }
+}

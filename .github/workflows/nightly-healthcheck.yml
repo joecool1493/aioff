@@ -1,0 +1,50 @@
+name: nightly-healthcheck
+# Someone watching Google change its class names at 2am. Locale matrix here; add self-hosted or
+# larger-runner regions (EU, APAC) by extending "runner" once those runners exist.
+on:
+  schedule: [{ cron: '0 9 * * *' }]
+  workflow_dispatch:
+permissions: { contents: read, issues: write }
+jobs:
+  check:
+    strategy:
+      fail-fast: false
+      matrix:
+        locale: [en-US, en-GB, de-DE]
+        browser: [chromium, firefox]
+        runner: [ubuntu-24.04]
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @aioff/healthcheck exec playwright install --with-deps ${{ matrix.browser }}
+      - run: pnpm healthcheck -- --locale ${{ matrix.locale }} --browser ${{ matrix.browser }}
+        continue-on-error: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: healthcheck-${{ matrix.browser }}-${{ matrix.locale }}
+          path: healthcheck-report
+          retention-days: 14
+  report:
+    needs: check
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - uses: actions/download-artifact@v4
+        with: { path: _reports, pattern: healthcheck-* }
+      - name: Merge reports
+        run: |
+          mkdir -p healthcheck-report
+          i=0; for f in _reports/*/report-*.json; do i=$((i+1)); cp "$f" "healthcheck-report/report-$i-$(basename "$f" | sed 's/^report-//')"; done
+      - name: Open or update issues for rules broken everywhere
+        run: pnpm --filter @aioff/healthcheck run report-issues
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
