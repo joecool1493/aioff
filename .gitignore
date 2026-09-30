@@ -13,5 +13,5 @@ apps/companion/src-tauri/target/
 apps/companion/src-tauri/gen/
 healthcheck-report/
 .output-*/
-docs/proof/*.webm
-docs/proof/video/
+# The proof run writes its report and screenshots here; the reviewed copies live in the maintainers' notes.
+docs/proof/
