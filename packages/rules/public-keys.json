@@ -1,9 +1,14 @@
 {
   "keys": [
     {
-      "label": "dev",
-      "publicKey": "6N32mw/AlLHbaWPCwKClzPkf0+SQugVUJCDBYwQUmKs=",
-      "added": "2026-09-20"
+      "label": "prod",
+      "publicKey": "folZlzBFUJrJ8PcrABgtF+nWHPcjmakMLIqKPm0WrPQ=",
+      "added": "2026-10-01"
+    },
+    {
+      "label": "license",
+      "publicKey": "BTqWpLshlI/I9dxX54FojsnbSgIVG1hcZ/wbI10CpsY=",
+      "added": "2026-10-01"
     }
   ]
 }
