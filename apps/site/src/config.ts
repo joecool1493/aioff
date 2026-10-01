@@ -26,7 +26,7 @@ export const EMAIL_DELIVERY_CONFIGURED = false;
  */
 export const PAID_LIVE = EMAIL_DELIVERY_CONFIGURED && !!(CHECKOUT_URLS.pro || CHECKOUT_URLS.lifetime || CHECKOUT_URLS.family);
 /** True once rules.aioff.app/lists serves the published lists (the rules workflow puts them there). */
-export const LISTS_PUBLISHED = false;
+export const LISTS_PUBLISHED = true;
 /** True once config.aioff.app is deployed for schools. */
 export const HOSTED_CONFIG_AVAILABLE = false;
 export const LICENSE_WORKER = 'https://license.aioff.app';
