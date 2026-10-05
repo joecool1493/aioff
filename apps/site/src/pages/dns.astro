@@ -4,9 +4,12 @@
 import Base from '../layouts/Base.astro';
 import index from '@aioff/dns/dist/index.json';
 import { LISTS_BASE, LISTS_PUBLISHED } from '../config';
+const { rules } = index;
+const freeTotal = rules.ads + rules['products-short'];
 const lists = [
-  { id: 'url-ads', title: 'AI ads and tracking', body: `${index.tiers.ads} domains. Safe. Chatbot sites keep working.`, url: `${LISTS_BASE}/ads/adguard.txt` },
-  { id: 'url-products', title: 'Blackout', body: `${index.tiers.products} domains. Chatbots, generators, and APIs. Dependent apps may stop working.`, url: `${LISTS_BASE}/products/adguard.txt` },
+  { id: 'url-ads', title: 'AI ads and tracking', body: `${rules.ads} rules. Safe. Chatbot sites keep working.`, url: `${LISTS_BASE}/ads/adguard.txt` },
+  { id: 'url-short', title: 'Blackout, short', body: `${rules['products-short']} rules. Most-used assistants and generators.`, url: `${LISTS_BASE}/products-short/adguard.txt` },
+  { id: 'url-products', title: 'Blackout', body: `${rules.products} rules. Chatbots, generators, and APIs. Dependent apps may stop working.`, url: `${LISTS_BASE}/products/adguard.txt` },
 ];
 ---
 <Base title="Block AI on a whole phone" description="Block listed AI services in every app on an iPhone, iPad, or Android phone with a DNS service and AI Off's free lists. Limits, cost, steps, and undo." narrow>
@@ -16,10 +19,11 @@ const lists = [
   <h2>Before starting</h2>
   <p>A DNS list blocks whole services. It cannot hide a button inside an allowed app or site.</p>
   <p>These steps use AdGuard DNS, a separate company not affiliated with AI Off. It sees the phone's DNS lookups and keeps a query log. Read <a href="https://adguard-dns.io/en/privacy.html">AdGuard DNS's privacy policy</a>.</p>
-  <p>AdGuard documents lists by URL for paid plans. Personal costs $2.49 a month or $19.99 a year and allows 1,000 rules. Both lists fit. The free Starter plan allows 5 devices, 300,000 requests a month, and 100 rules. The ads list fits when pasted under User rules. Pasted rules do not update.</p>
+  <p>Free: the Starter plan allows 5 devices, 300,000 requests a month, and 100 rules. The ads and short Blackout lists fit, {freeTotal} rules together, pasted under User rules. Pasted rules do not update by themselves.</p>
+  <p>Paid: Personal costs $2.49 a month or $19.99 a year and allows 1,000 rules. It takes lists by URL and keeps them current.</p>
 
   <h2>Choose a list</h2>
-  <div class="grid two">
+  <div class="grid">
     {lists.map((l) => (
       <div class="card">
         <h3>{l.title}</h3>
@@ -35,9 +39,18 @@ const lists = [
   </div>
   <div class="notice"><p>Blackout blocks AI tools you may use. It is optional.</p></div>
 
-  <h2>Add the list</h2>
+  <h2>Free plan: paste the rules</h2>
   <ol class="steps">
     <li>Create an AdGuard DNS account and open its dashboard.</li>
+    <li>Open the ads list URL in a browser and copy every line.</li>
+    <li>In the dashboard, choose Servers, then the server, then User rules.</li>
+    <li>Choose Open editor, paste the lines, and save.</li>
+    <li>Repeat with the short Blackout list, below the lines already there.</li>
+  </ol>
+  <p style="margin-top:16px"><a href="https://adguard-dns.io/kb/private-dns/setting-up-filtering/user-rules/">AdGuard's user rules instructions</a></p>
+
+  <h2>Personal plan: add by URL</h2>
+  <ol class="steps">
     <li>Choose Servers, then the server, then Blocklists.</li>
     <li>In the Custom section, choose Add custom blocklist.</li>
     <li>Enter a name and a list URL, then choose Add.</li>

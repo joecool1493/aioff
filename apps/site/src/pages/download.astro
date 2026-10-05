@@ -8,6 +8,7 @@ const stores = [
   { title: 'Firefox', body: 'Desktop and Android.', status: 'Firefox Add-ons download: not available yet.', label: 'Get it on Firefox Add-ons', url: STORE_URLS.firefox },
   { title: 'Safari', body: 'Mac, iPhone, iPad.', status: 'App Store download: not available yet.', label: 'Get it on App Store', url: STORE_URLS.safari },
 ];
+const tiers = ['ads', 'products', 'products-short'] as const;
 ---
 <Base title="Download AI Off" description="Find browser releases, source builds, and free network lists. Check what is available before installing.">
   <h1>Get the off switch</h1>
@@ -23,11 +24,18 @@ const stores = [
   <p>Source builds need developer tools. Firefox temporary add-ons disappear after restart. Safari needs Apple packaging tools. A desktop source build does not install an iPhone app.</p>
   <p><a href="/computer/">Computer and phone settings</a></p>
 
+  <h3 id="android">Android</h3>
+  <p>Firefox for Android uses the Firefox listing: {STORE_URLS.firefox ? <a href={STORE_URLS.firefox}>Get it on Firefox Add-ons</a> : 'not available yet.'}</p>
+  <p>Chrome for Android accepts no extensions. AI Off cannot run there.</p>
+  <p>Vivaldi for Android can add Chrome Web Store extensions. AI Off is not tested there.</p>
+  <p>See <a href="/dns/">Block AI on a whole phone</a> and <a href="/computer/#phone">phone checklists</a>.</p>
+
   <h2 id="network">Network lists</h2>
   <p>Free, MIT-licensed domain lists for a blocker or DNS service. Lists cannot hide buttons inside allowed sites.</p>
-  <div class="grid two">
+  <div class="grid">
     <div class="card"><h3>AI ads and tracking</h3><p>{index.tiers.ads} domains. Listed AI advertising, analytics, and tracking endpoints. Main chatbot sites stay accessible.</p></div>
     <div class="card"><h3>Blackout</h3><p>{index.tiers.products} domains. Listed chatbots, generators, and APIs. Dependent apps may stop working.</p></div>
+    <div class="card"><h3>Blackout, short</h3><p>{index.tiers['products-short']} domains. Most-used assistants and generators. With the ads list: {index.rules.ads + index.rules['products-short']} rules, inside a 100-rule plan.</p></div>
   </div>
   <div class="notice"><p>Blackout blocks AI tools you may use. It is optional.</p></div>
   <p>Shared service domains are excluded to reduce unrelated blocking. Apps can still break.</p>
@@ -38,12 +46,11 @@ const stores = [
     <tbody>
       {index.formats.map((f) => (
         <tr><td><code>{f.file}</code></td><td>{f.for}</td>
-          <td>{LISTS_PUBLISHED ? <><a href={`${LISTS_BASE}/ads/${f.file}`}>Download ads/{f.file}</a><br /><a href={`${LISTS_BASE}/products/${f.file}`}>Download products/{f.file}</a></> : <span class="soft">Not available yet</span>}</td></tr>
+          <td>{LISTS_PUBLISHED ? tiers.map((t, i) => <>{i > 0 && <br />}<a href={`${LISTS_BASE}/${t}/${f.file}`}>Download {t}/{f.file}</a></>) : <span class="soft">Not available yet</span>}</td></tr>
       ))}
     </tbody>
   </table></div>
   <p style="margin-top:24px">Import a supported format using the chosen tool's instructions. Provider support and plan limits vary. Pause or remove lists in that tool.</p>
   <p>DNS requests go to the chosen provider under its privacy policy. AI Off does not run that service.</p>
-  <p>For every app on a phone, see <a href="/dns/">Block AI on a whole phone</a>.</p>
   <p>The Pro DNS profile is not available yet, pending a partner. Free lists do not require Pro.</p>
 </Base>

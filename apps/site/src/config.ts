@@ -1,10 +1,15 @@
 // Fill these in as each thing becomes real. Empty means "not available yet", and the pages say so
 // in words instead of showing a dead button.
 export const STORE_URLS = {
-  chrome: '',
-  edge: '',
+  chrome: 'https://chromewebstore.google.com/detail/ai-off/nkcoofhpdiakekdpbkkmejdnmbpbkjjl',
+  edge: 'https://microsoftedge.microsoft.com/addons/detail/ai-off/ijjmejcahkgafngkigkbpljkjfihcimb',
   firefox: '',
   safari: '',
+};
+/** Published store IDs. The schools policy builder needs them for force-install policy; they match the listing URLs above. */
+export const EXTENSION_IDS = {
+  chrome: 'nkcoofhpdiakekdpbkkmejdnmbpbkjjl',
+  edge: 'ijjmejcahkgafngkigkbpljkjfihcimb',
 };
 export const CHECKOUT_URLS = {
   pro: '', // Stripe Payment Link or Lemon Squeezy checkout URL for Pro, $19 a year

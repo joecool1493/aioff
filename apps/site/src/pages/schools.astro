@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { AMO_SLUG, HOSTED_CONFIG_AVAILABLE, SCHOOLS_QUOTE } from '../config';
+import { AMO_SLUG, EXTENSION_IDS, HOSTED_CONFIG_AVAILABLE, SCHOOLS_QUOTE } from '../config';
 ---
 <Base title="AI Off for schools" description="Hide supported AI features inside allowed school tools. Build managed browser policies. No AI writing detection or student reporting in v1.">
   <h1>Allowed tools. Fewer AI prompts.</h1>
@@ -12,7 +12,7 @@ import { AMO_SLUG, HOSTED_CONFIG_AVAILABLE, SCHOOLS_QUOTE } from '../config';
 
   <h2 id="policy-builder">Build your policy</h2>
   <p>Entries stay local.</p>
-  <form id="builder" class="card stack" onsubmit="return false" data-amo-slug={AMO_SLUG}>
+  <form id="builder" class="card stack" onsubmit="return false" data-amo-slug={AMO_SLUG} data-edge-id={EXTENSION_IDS.edge}>
     <label>School or district name<span class="soft small">Shown in AI Off.</span><input name="orgName" placeholder="School or district name" autocomplete="organization" /></label>
     <label>Filtering level
       <select name="level">
@@ -26,7 +26,7 @@ import { AMO_SLUG, HOSTED_CONFIG_AVAILABLE, SCHOOLS_QUOTE } from '../config';
     <label>Additional blocked domains<span class="soft small">One domain per line.</span><textarea name="denyExtraDomains" rows="2"></textarea></label>
     <label class="check"><input type="checkbox" name="locked" checked /><span>Lock student controls<span class="soft small">Locks pause and level controls.</span></span></label>
     <label class="check"><input type="checkbox" name="examMode" /><span>Apply Blackout and ignore exceptions<span class="soft small">Policy's Exam Mode is not exam lockdown.</span></span></label>
-    <label>Chrome Web Store extension ID<span class="soft small">Published ID required.</span><input name="extId" autocomplete="off" spellcheck="false" /><span class="soft small" id="extid-error" role="alert"></span></label>
+    <label>Chrome Web Store extension ID<span class="soft small">Published ID required.</span><input name="extId" value={EXTENSION_IDS.chrome} autocomplete="off" spellcheck="false" /><span class="soft small" id="extid-error" role="alert"></span></label>
   </form>
   <div class="notice"><p>Blackout blocks AI tools you may use. It is optional.</p></div>
 
@@ -35,7 +35,7 @@ import { AMO_SLUG, HOSTED_CONFIG_AVAILABLE, SCHOOLS_QUOTE } from '../config';
   <div class="out"><pre><code id="out-gadmin"></code></pre><button class="btn secondary" type="button" data-copy="out-gadmin">Copy policy</button></div>
 
   <h3>Windows</h3>
-  <p>Deploy registry policy. Check browser target.</p>
+  <p>Deploy registry policy. Chrome keys, then Edge keys. Check browser target.</p>
   <div class="out"><pre><code id="out-winreg"></code></pre><button class="btn secondary" type="button" data-copy="out-winreg" hidden>Copy policy</button></div>
 
   <h3>macOS</h3>
@@ -89,8 +89,12 @@ import { AMO_SLUG, HOSTED_CONFIG_AVAILABLE, SCHOOLS_QUOTE } from '../config';
     const idOk = /^[a-p]{32}$/.test(id);
     err.textContent = id && !idOk ? 'Enter a valid Chrome extension ID.' : '';
     document.getElementById('out-gadmin')!.textContent = googleAdminExtensionPolicy(config);
-    document.getElementById('out-winreg')!.textContent = idOk ? windowsExtensionReg('chrome', id, config) : NEEDS_ID;
-    document.getElementById('out-mac')!.textContent = idOk ? Object.entries(macExtensionPlists('chrome', id, config)).map(([name, body]) => `# ${name}\n${body}`).join('\n') : NEEDS_ID;
+    // Edge installs from Edge Add-ons under its own published ID. Its registry keys follow Chrome's in one file, so the second file header is dropped.
+    const edgeId = form.dataset.edgeId || '';
+    const edgeReg = edgeId ? '\r\n' + windowsExtensionReg('edge', edgeId, config).split('\r\n').slice(2).join('\r\n') : '';
+    const plists = { ...macExtensionPlists('chrome', id, config), ...(edgeId ? macExtensionPlists('edge', edgeId, config) : {}) };
+    document.getElementById('out-winreg')!.textContent = idOk ? windowsExtensionReg('chrome', id, config) + edgeReg : NEEDS_ID;
+    document.getElementById('out-mac')!.textContent = idOk ? Object.entries(plists).map(([name, body]) => `# ${name}\n${body}`).join('\n') : NEEDS_ID;
     const amoSlug = form.dataset.amoSlug || null;
     document.getElementById('out-firefox')!.textContent = firefoxSchoolPolicies('aioff@aioff.app', amoSlug, config);
     // Copy controls only for actual policy, never for the placeholder sentence.
