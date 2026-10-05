@@ -1,6 +1,9 @@
 // One domain source, many formats. Tiers:
 //   ads       AI companies' ad, analytics, and telemetry hosts. Safe for everyone.
 //   products  AI chatbots, generators, and APIs. Blackout (Level 4) only: this breaks things on purpose.
+//   products-short  A subset of products marked `short: true` in domains.json: the main consumer
+//             domains of the most widely used AI assistants and generators. Sized so that it and
+//             the ads tier together fit a 100-rule DNS plan (SHORT_RULE_LIMIT, checked by the build and tests).
 // The "slop" tier (AI content farms) is not a DNS list here: it is a community list consumed
 // by the extension, because blocking whole content sites at DNS is too blunt for a default.
 
@@ -11,15 +14,21 @@ export interface DomainEntry {
   company: string;
   category: string;
   blackout?: boolean;
+  /** Member of the short Blackout list. Only valid on entries that are in the products tier. */
+  short?: boolean;
 }
-export type Tier = 'ads' | 'products';
+export type Tier = 'ads' | 'products' | 'products-short';
+export const TIERS: Tier[] = ['ads', 'products', 'products-short'];
+/** AdGuard DNS's free plan allows 100 user rules. Ads rules plus short Blackout rules must fit. */
+export const SHORT_RULE_LIMIT = 100;
 
 const data = source as unknown as { products: DomainEntry[]; adsTracking: DomainEntry[]; neverBlock: { domain: string; reason: string }[] };
 
 export const neverBlock = (): string[] => data.neverBlock.map((n) => n.domain);
 
 export function tier(t: Tier): DomainEntry[] {
-  const list = t === 'ads' ? data.adsTracking : data.products.filter((p) => p.blackout !== false);
+  const products = data.products.filter((p) => p.blackout !== false);
+  const list = t === 'ads' ? data.adsTracking : t === 'products' ? products : products.filter((p) => p.short === true);
   return [...list].sort((a, b) => a.domain.localeCompare(b.domain));
 }
 
@@ -33,6 +42,12 @@ export function guardViolations(): string[] {
   return out;
 }
 
+/** Rules a tier needs in formats that match subdomains (AdGuard, Pi-hole, and most others). */
+export const ruleCount = (t: Tier): number => dedupeSubdomains(tier(t).map((e) => e.domain)).length;
+
+/** Entries marked short that are not in the products tier. Must be empty. */
+export const shortOutsideProducts = (): string[] => data.products.filter((p) => p.short === true && p.blackout === false).map((p) => p.domain);
+
 /** Drop entries already covered by a listed parent (formats that match subdomains do not need them). */
 export function dedupeSubdomains(domains: string[]): string[] {
   const set = new Set(domains);
@@ -43,13 +58,15 @@ export function dedupeSubdomains(domains: string[]): string[] {
   });
 }
 
+const TITLES: Record<Tier, string> = { ads: 'AI Off AI ads and tracking', products: 'AI Off Blackout (AI products)', 'products-short': 'AI Off Blackout, short' };
+
 const header = (t: Tier, comment: string, version: string) =>
   [
-    `${comment} Title: AI Off ${t === 'ads' ? 'AI ads and tracking' : 'Blackout (AI products)'}`,
+    `${comment} Title: ${TITLES[t]}`,
     `${comment} Homepage: https://aioff.app`,
     `${comment} License: MIT`,
     `${comment} Version: ${version}`,
-    t === 'products' ? `${comment} WARNING: this list blocks AI chatbots and generators on purpose. It will break AI tools you may use.` : '',
+    t !== 'ads' ? `${comment} WARNING: this list blocks AI chatbots and generators on purpose. It will break AI tools you may use.` : '',
   ].filter(Boolean);
 
 export type Format = 'hosts' | 'adguard' | 'domains' | 'dnsmasq' | 'unbound' | 'rpz' | 'blocky' | 'controld' | 'littlesnitch' | 'csv';
@@ -62,7 +79,7 @@ export function render(t: Tier, format: Format, version: string): string {
     case 'hosts':
       return [...header(t, '#', version), ...all.map((d) => `0.0.0.0 ${d}`), ''].join('\n');
     case 'adguard':
-      return [`! Title: AI Off ${t}`, ...header(t, '!', version).slice(1), ...roots.map((d) => `||${d}^`), ''].join('\n');
+      return [t === 'products-short' ? `! Title: ${TITLES[t]}` : `! Title: AI Off ${t}`, ...header(t, '!', version).slice(1), ...roots.map((d) => `||${d}^`), ''].join('\n');
     case 'domains': // Pi-hole, NextDNS denylist paste, Cloudflare Gateway list, most school filters
       return [...header(t, '#', version), ...roots, ''].join('\n');
     case 'dnsmasq':

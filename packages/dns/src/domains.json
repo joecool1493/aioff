@@ -1,23 +1,27 @@
 {
  "_comment": "Source of truth for AI Off network tiers. Every domain was DNS-verified on 2026-09-20.",
+ "_shortComment": "Entries with short: true form the short Blackout list, sized for DNS plans with a 100-rule limit. Criterion: the main consumer web and app domains of the most widely used AI assistants and generators. A company parent domain is marked only when the consumer chat host sits under it, and a marked parent also covers that company's other subdomains in formats that match subdomains. Left out: API-only hosts, developer consoles, company sites, CDNs, coding tools, writing tools, and long-tail tools. The data has no usage ranking, so the selection is conservative. Add no domain here that is not already in products.",
  "products": [
   {
    "domain": "chatgpt.com",
    "company": "OpenAI",
    "category": "chat",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "chat.openai.com",
    "company": "OpenAI",
    "category": "chat",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "openai.com",
    "company": "OpenAI",
    "category": "company",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "api.openai.com",
@@ -49,19 +53,22 @@
    "domain": "sora.com",
    "company": "OpenAI",
    "category": "video",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "sora.chatgpt.com",
    "company": "OpenAI",
    "category": "video",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "auth.openai.com",
    "company": "OpenAI",
    "category": "auth",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "cdn.openai.com",
@@ -73,7 +80,8 @@
    "domain": "claude.ai",
    "company": "Anthropic",
    "category": "chat",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "anthropic.com",
@@ -99,7 +107,8 @@
    "domain": "claude.com",
    "company": "Anthropic",
    "category": "chat",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "claudeusercontent.com",
@@ -111,7 +120,8 @@
    "domain": "gemini.google.com",
    "company": "Google",
    "category": "chat",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "aistudio.google.com",
@@ -123,7 +133,8 @@
    "domain": "notebooklm.google.com",
    "company": "Google",
    "category": "assistant",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "notebooklm.google",
@@ -172,19 +183,22 @@
    "domain": "copilot.microsoft.com",
    "company": "Microsoft",
    "category": "chat",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "copilot.cloud.microsoft",
    "company": "Microsoft",
    "category": "chat",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "copilot.com",
    "company": "Microsoft",
    "category": "chat",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "copilotstudio.microsoft.com",
@@ -202,13 +216,15 @@
    "domain": "meta.ai",
    "company": "Meta",
    "category": "chat",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "www.meta.ai",
    "company": "Meta",
    "category": "chat",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "ai.meta.com",
@@ -226,7 +242,8 @@
    "domain": "grok.com",
    "company": "xAI",
    "category": "chat",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "x.ai",
@@ -245,13 +262,15 @@
    "domain": "perplexity.ai",
    "company": "Perplexity",
    "category": "search",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "www.perplexity.ai",
    "company": "Perplexity",
    "category": "search",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "pplx.ai",
@@ -263,25 +282,29 @@
    "domain": "poe.com",
    "company": "Quora",
    "category": "chat",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "character.ai",
    "company": "Character.AI",
    "category": "companion",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "c.ai",
    "company": "Character.AI",
    "category": "companion",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "pi.ai",
    "company": "Inflection",
    "category": "chat",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "inflection.ai",
@@ -293,25 +316,29 @@
    "domain": "mistral.ai",
    "company": "Mistral",
    "category": "company",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "chat.mistral.ai",
    "company": "Mistral",
    "category": "chat",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "deepseek.com",
    "company": "DeepSeek",
    "category": "company",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "chat.deepseek.com",
    "company": "DeepSeek",
    "category": "chat",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "api.deepseek.com",
@@ -324,25 +351,29 @@
    "domain": "qwen.ai",
    "company": "Alibaba",
    "category": "chat",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "chat.qwen.ai",
    "company": "Alibaba",
    "category": "chat",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "tongyi.com",
    "company": "Alibaba",
    "category": "chat",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "kimi.com",
    "company": "Moonshot",
    "category": "chat",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "kimi.ai",
@@ -366,13 +397,15 @@
    "domain": "doubao.com",
    "company": "ByteDance",
    "category": "chat",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "yuanbao.tencent.com",
    "company": "Tencent",
    "category": "chat",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "chatglm.cn",
@@ -414,7 +447,8 @@
    "domain": "yiyan.baidu.com",
    "company": "Baidu",
    "category": "chat",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "you.com",
@@ -540,7 +574,8 @@
    "domain": "duck.ai",
    "company": "DuckDuckGo",
    "category": "chat",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "venice.ai",
@@ -552,19 +587,22 @@
    "domain": "midjourney.com",
    "company": "Midjourney",
    "category": "image",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "leonardo.ai",
    "company": "Leonardo",
    "category": "image",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "ideogram.ai",
    "company": "Ideogram",
    "category": "image",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "stability.ai",
@@ -594,7 +632,8 @@
    "domain": "civitai.com",
    "company": "Civitai",
    "category": "image",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "playground.com",
@@ -727,7 +766,8 @@
    "domain": "firefly.adobe.com",
    "company": "Adobe",
    "category": "image",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "photoroom.com",
@@ -747,31 +787,36 @@
    "domain": "runwayml.com",
    "company": "Runway",
    "category": "video",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "app.runwayml.com",
    "company": "Runway",
    "category": "video",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "pika.art",
    "company": "Pika",
    "category": "video",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "lumalabs.ai",
    "company": "Luma",
    "category": "video",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "klingai.com",
    "company": "Kuaishou",
    "category": "video",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "higgsfield.ai",
@@ -870,7 +915,8 @@
    "domain": "suno.com",
    "company": "Suno",
    "category": "music",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "suno.ai",
@@ -882,13 +928,15 @@
    "domain": "udio.com",
    "company": "Udio",
    "category": "music",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "elevenlabs.io",
    "company": "ElevenLabs",
    "category": "voice",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "murf.ai",
@@ -1103,13 +1151,15 @@
    "domain": "replika.com",
    "company": "Luka",
    "category": "companion",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "janitorai.com",
    "company": "JanitorAI",
    "category": "companion",
-   "blackout": true
+   "blackout": true,
+   "short": true
   },
   {
    "domain": "chai-research.com",
