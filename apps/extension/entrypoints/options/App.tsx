@@ -24,9 +24,13 @@ import { gmailFiltersXml, outlookRuleText } from '../../lib/gmailFilters';
 import { mergeManaged, setStore, updateSettings } from '../../lib/storage';
 import { useStore } from '../../lib/useStore';
 
-const TABS = ['General', 'Rules', 'Words', 'Sites', 'Stats', 'Email', 'Pro', 'Backup', 'About'] as const;
+const ALL_TABS = ['General', 'Rules', 'Words', 'Sites', 'Stats', 'Email', 'Pro', 'Backup', 'About'] as const;
+// The App Store does not allow a link to a purchase made elsewhere, and the Pro tab is where the key is bought
+// and entered, so the Safari build leaves the tab out. Everything else in the extension is free and identical.
+const SAFARI = import.meta.env.BROWSER === 'safari';
+const TABS = ALL_TABS.filter((t) => !(SAFARI && t === 'Pro'));
 const PUBLIC_KEYS = (publicKeysJson as { keys: { publicKey: string }[] }).keys.map((k) => k.publicKey);
-type Tab = (typeof TABS)[number];
+type Tab = (typeof ALL_TABS)[number];
 const ALL_SITES = { origins: ['*://*/*'] };
 
 function download(name: string, text: string, type = 'application/json') {
@@ -193,7 +197,7 @@ export function App() {
 
       {tab === 'Email' && <EmailTab ruleset={ruleset} settings={settings} />}
 
-      {tab === 'Pro' && <ProTab pro={store.pro} />}
+      {!SAFARI && tab === 'Pro' && <ProTab pro={store.pro} />}
 
       {tab === 'Backup' && (
         <>
@@ -250,7 +254,9 @@ export function App() {
               already on the page to check their declared provenance.
             </p>
             <p>3. On managed devices only, and only if the administrator set one: the organization config URL, every 15 minutes.</p>
-            <p>4. Only if you turn on Pro sync: your settings, encrypted on this device with a key made from your passphrase, sent to <code>sync.aioff.app</code>. The server stores bytes it cannot read.</p>
+            {!SAFARI && (
+              <p>4. Only if you turn on Pro sync: your settings, encrypted on this device with a key made from your passphrase, sent to <code>sync.aioff.app</code>. The server stores bytes it cannot read.</p>
+            )}
             <p>That is all. No analytics, no crash reports, no account. AI Off contains no AI: every decision is a rule you can read on the Rules tab.</p>
           </div>
           <p className="hint">
