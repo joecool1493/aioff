@@ -66,4 +66,5 @@ Collects no user data. Not sold, not transferred, not used for creditworthiness 
 - `04-popup-over-bing.png`: the popup, switch in the OFF position, over the cleaned page.
 - `05-options-rules.png`: the Rules tab, "why is this hidden" expanded.
 - `06-promo-tile-440x280.png`: the small promotional tile the Chrome Web Store requires (drawn by `tools/scripts/store-images.py`, same colors as the site).
-Regenerate any time with `pnpm --filter @aioff/healthcheck screenshots` after `pnpm ext:build`. A Google before/after would be stronger; Google blocks headless browsers, so take that one by hand.
+- `08-google-before.png`, `09-google-after.png`, `10-google-before-after.png`: the same Google search ("why is the sky blue") with the AI Overview present and then gone, real captures from 2026-10-05. Use `10` as the first screenshot wherever a store allows a change.
+Regenerate any time with `pnpm --filter @aioff/healthcheck screenshots` after `pnpm ext:build`. The Google set comes from `tools/healthcheck/src/google-shots.ts`, which runs a headed browser because Google blocks headless ones; its header says how to run it. The same script records the short demo clip.
