@@ -1,5 +1,8 @@
 html, body { margin: 0; background: var(--aioff-bg); color: var(--aioff-ink); font-family: var(--aioff-font); }
 body { width: 340px; }
+/* iOS and iPadOS only (this property exists nowhere else): Safari shows the popup in a sheet as wide as the phone,
+   so fill it instead of sitting 340px wide against the left edge. */
+@supports (-webkit-touch-callout: none) { body { width: auto; min-width: 340px; } }
 .pop { padding: 18px 18px 12px; display: flex; flex-direction: column; gap: 14px; }
 .pop__head { display: flex; align-items: baseline; justify-content: space-between; }
 .pop__brand { font-weight: 800; letter-spacing: 0.04em; font-size: 15px; }

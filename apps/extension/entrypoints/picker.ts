@@ -121,16 +121,21 @@ export default defineUnlistedScript(() => {
       }
       return;
     }
+    const issueUrl =
+      act === 'submit'
+        ? buildIssueUrl({
+            repo: RULES_REPO,
+            pageUrl: location.href,
+            result: picked.result,
+            extensionVersion: browser.runtime.getManifest().version,
+          })
+        : null;
+    // Safari's pop-up blocker may refuse a window.open that comes after an await, so that build opens the tab
+    // while the click is still being handled. The other browsers keep the original order: save, then open.
+    const openFirst = import.meta.env.BROWSER === 'safari';
+    if (issueUrl && openFirst) window.open(issueUrl, '_blank', 'noopener');
     await browser.runtime.sendMessage({ type: 'saveUserRule', host: location.hostname, selector: picked.result.best });
-    if (act === 'submit') {
-      const url = buildIssueUrl({
-        repo: RULES_REPO,
-        pageUrl: location.href,
-        result: picked.result,
-        extensionVersion: browser.runtime.getManifest().version,
-      });
-      window.open(url, '_blank', 'noopener');
-    }
+    if (issueUrl && !openFirst) window.open(issueUrl, '_blank', 'noopener');
     close();
   });
 

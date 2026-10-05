@@ -167,6 +167,31 @@ export function compileDnr(ruleset: Ruleset, settings: Settings, opts: CompileOp
   return rules;
 }
 
+export interface LadderOptions extends CompileOptions {
+  /** Whether the extension holds all-sites access. Without it a Blackout redirect is not allowed, only a block. */
+  hostAccess: boolean;
+  /**
+   * False where regexSubstitution redirects cannot be relied on (Safari). The ladder then starts at the plain
+   * extensionPath redirect, so the blocked page opens without the ?u=<url> it would otherwise carry.
+   */
+  regexSubstitution?: boolean;
+}
+
+/**
+ * The rule batches to try, best first. The browser installs a batch whole or not at all, so the caller walks
+ * down this list until one is accepted: redirect carrying the blocked URL, plain redirect, plain block.
+ */
+export function compileDnrLadder(ruleset: Ruleset, settings: Settings, opts: LadderOptions): DnrRule[][] {
+  const { hostAccess, regexSubstitution = true, blockedPagePath, blockedPageUrl, ...rest } = opts;
+  const ladder: DnrRule[][] = [];
+  if (hostAccess && blockedPagePath) {
+    if (regexSubstitution && blockedPageUrl) ladder.push(compileDnr(ruleset, settings, { ...rest, blockedPagePath, blockedPageUrl }));
+    ladder.push(compileDnr(ruleset, settings, { ...rest, blockedPagePath }));
+  }
+  ladder.push(compileDnr(ruleset, settings, rest));
+  return ladder;
+}
+
 /** Hosts the DNR rules need host permissions for (redirects require them). */
 export function dnrRegexBudget(rules: DnrRule[]): number {
   return rules.filter((r) => r.condition.regexFilter).length;

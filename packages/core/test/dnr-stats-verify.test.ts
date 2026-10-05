@@ -1,6 +1,6 @@
 import { generateKeyPairSync, sign } from 'node:crypto';
 import { describe, expect, it } from 'vitest';
-import { acceptFeed, addCounts, bySite, compileDnr, DEFAULT_SETTINGS, EMPTY_STATS, totalSince, validDomains, verifySignature, type Ruleset } from '../src/index.ts';
+import { acceptFeed, addCounts, bySite, compileDnr, compileDnrLadder, DEFAULT_SETTINGS, EMPTY_STATS, totalSince, validDomains, verifySignature, type Ruleset } from '../src/index.ts';
 
 const base: Ruleset = {
   version: '2026.9.20.1',
@@ -95,6 +95,42 @@ describe('compileDnr', () => {
     const rules = compileDnr(base, { ...DEFAULT_SETTINGS, level: 4, pausedSites: ['claude.ai', 'not a domain'] });
     expect(rules.some((r) => r.condition.excludedInitiatorDomains?.includes('claude.ai'))).toBe(true);
     expect(rules.some((r) => r.condition.excludedInitiatorDomains?.includes('not a domain'))).toBe(false);
+  });
+});
+
+describe('compileDnrLadder', () => {
+  const blackout = { ...DEFAULT_SETTINGS, level: 4 as const };
+  const page = { blockedPagePath: '/blocked.html', blockedPageUrl: 'chrome-extension://abc/blocked.html' };
+  const navActions = (rules: ReturnType<typeof compileDnr>) =>
+    rules.filter((r) => r.condition.resourceTypes?.includes('main_frame') && r.condition.requestDomains?.includes('chatgpt.com')).map((r) => r.action);
+
+  it('steps down from the redirect that carries the URL, to the plain redirect, to a block', () => {
+    const ladder = compileDnrLadder(base, blackout, { hostAccess: true, ...page });
+    expect(ladder).toHaveLength(3);
+    expect(ladder[0]).toEqual(compileDnr(base, blackout, page));
+    expect(ladder[1]).toEqual(compileDnr(base, blackout, { blockedPagePath: '/blocked.html' }));
+    expect(ladder[2]).toEqual(compileDnr(base, blackout));
+  });
+
+  it('never emits regexSubstitution when the browser cannot be trusted with it (Safari)', () => {
+    const ladder = compileDnrLadder(base, blackout, { hostAccess: true, regexSubstitution: false, ...page });
+    expect(ladder).toHaveLength(2);
+    expect(JSON.stringify(ladder)).not.toContain('regexSubstitution');
+    expect(navActions(ladder[0]!)).toEqual([{ type: 'redirect', redirect: { extensionPath: '/blocked.html' } }]);
+    expect(navActions(ladder[1]!)).toEqual([{ type: 'block' }]);
+  });
+
+  it('only blocks without host access, whatever the browser', () => {
+    for (const regexSubstitution of [true, false]) {
+      const ladder = compileDnrLadder(base, blackout, { hostAccess: false, regexSubstitution, ...page });
+      expect(ladder).toHaveLength(1);
+      expect(navActions(ladder[0]!)).toEqual([{ type: 'block' }]);
+    }
+  });
+
+  it('passes managed config through to every step', () => {
+    const ladder = compileDnrLadder(base, DEFAULT_SETTINGS, { hostAccess: true, regexSubstitution: false, managed: { denyExtraDomains: ['extra.example'] }, ...page });
+    for (const step of ladder) expect(step.some((r) => r.condition.requestDomains?.includes('extra.example'))).toBe(true);
   });
 });
 

@@ -1,7 +1,7 @@
 import { defineBackground } from 'wxt/utils/define-background';
 import { browser } from 'wxt/browser';
 import type { DnrRule, ManagedConfig, Ruleset } from '@aioff/core';
-import { acceptFeed, addCounts, compareVersions, compileDnr, effectiveSettings, inSchedule, verifySignature } from '@aioff/core';
+import { acceptFeed, addCounts, compareVersions, compileDnrLadder, effectiveSettings, inSchedule, verifySignature } from '@aioff/core';
 import embeddedJson from '@aioff/rules';
 import publicKeysJson from '@aioff/rules/public-keys';
 import {
@@ -110,7 +110,7 @@ export default defineBackground(() => {
       const raw = (await browser.storage.managed.get(null)) as ManagedConfig;
       if (raw && Object.keys(raw).length) managed = raw;
     } catch {
-      /* Firefox throws when no managed storage manifest exists. That just means unmanaged. */
+      /* Firefox throws when no managed storage manifest exists, and Safari has no storage.managed at all. Both just mean unmanaged. */
     }
     await setStore({ managed });
     if (!managed?.configUrl) await setStore({ managedRemote: null });
@@ -146,15 +146,16 @@ export default defineBackground(() => {
     const scheduled = inSchedule(m);
     const hasAllSites = await browser.permissions.contains(ALL_SITES).catch(() => false);
     // Redirects need host access. With it, Blackout shows AI Off's own page and carries the blocked URL along.
+    // Safari's regexSubstitution redirects are not dependable, so that build starts at the plain redirect.
     const attempts: DnrRule[][] = !scheduled
       ? [[]]
-      : hasAllSites
-        ? [
-            compileDnr(ruleset, eff, { managed: m, blockedPagePath: '/blocked.html', blockedPageUrl: browser.runtime.getURL('/blocked.html') }),
-            compileDnr(ruleset, eff, { managed: m, blockedPagePath: '/blocked.html' }),
-            compileDnr(ruleset, eff, { managed: m }),
-          ]
-        : [compileDnr(ruleset, eff, { managed: m })];
+      : compileDnrLadder(ruleset, eff, {
+          managed: m,
+          hostAccess: hasAllSites,
+          blockedPagePath: '/blocked.html',
+          blockedPageUrl: browser.runtime.getURL('/blocked.html'),
+          regexSubstitution: import.meta.env.BROWSER !== 'safari',
+        });
     // The browser installs a batch whole or not at all. If it refuses one (a rule form this browser does not
     // support, a domain it will not accept), step down rather than lose every network rule.
     let lastError: string | null = null;
