@@ -1,0 +1,86 @@
+---
+// Instructions only. This page links out and copies text; it makes no request of its own.
+// Provider labels, plan limits, and prices were read from AdGuard, Apple, and Google documentation on 2026-10-05.
+import Base from '../layouts/Base.astro';
+import index from '@aioff/dns/dist/index.json';
+import { LISTS_BASE, LISTS_PUBLISHED } from '../config';
+const lists = [
+  { id: 'url-ads', title: 'AI ads and tracking', body: `${index.tiers.ads} domains. Safe. Chatbot sites keep working.`, url: `${LISTS_BASE}/ads/adguard.txt` },
+  { id: 'url-products', title: 'Blackout', body: `${index.tiers.products} domains. Chatbots, generators, and APIs. Dependent apps may stop working.`, url: `${LISTS_BASE}/products/adguard.txt` },
+];
+---
+<Base title="Block AI on a whole phone" description="Block listed AI services in every app on an iPhone, iPad, or Android phone with a DNS service and AI Off's free lists. Limits, cost, steps, and undo." narrow>
+  <h1>Block AI on a whole phone</h1>
+  <p class="intro">A DNS service blocks listed AI services in every app. AI Off supplies the lists.</p>
+
+  <h2>Before starting</h2>
+  <p>A DNS list blocks whole services. It cannot hide a button inside an allowed app or site.</p>
+  <p>These steps use AdGuard DNS, a separate company not affiliated with AI Off. It sees the phone's DNS lookups and keeps a query log. Read <a href="https://adguard-dns.io/en/privacy.html">AdGuard DNS's privacy policy</a>.</p>
+  <p>AdGuard documents lists by URL for paid plans. Personal costs $2.49 a month or $19.99 a year and allows 1,000 rules. Both lists fit. The free Starter plan allows 5 devices, 300,000 requests a month, and 100 rules. The ads list fits when pasted under User rules. Pasted rules do not update.</p>
+
+  <h2>Choose a list</h2>
+  <div class="grid two">
+    {lists.map((l) => (
+      <div class="card">
+        <h3>{l.title}</h3>
+        <p>{l.body}</p>
+        {LISTS_PUBLISHED ? (
+          <>
+            <p><code id={l.id}>{l.url}</code></p>
+            <p><button class="btn secondary" type="button" data-copy={l.id} hidden>Copy URL</button></p>
+          </>
+        ) : <p class="status">Not available yet</p>}
+      </div>
+    ))}
+  </div>
+  <div class="notice"><p>Blackout blocks AI tools you may use. It is optional.</p></div>
+
+  <h2>Add the list</h2>
+  <ol class="steps">
+    <li>Create an AdGuard DNS account and open its dashboard.</li>
+    <li>Choose Servers, then the server, then Blocklists.</li>
+    <li>In the Custom section, choose Add custom blocklist.</li>
+    <li>Enter a name and a list URL, then choose Add.</li>
+  </ol>
+  <p style="margin-top:16px"><a href="https://adguard-dns.io/kb/private-dns/setting-up-filtering/blocklists/">AdGuard's blocklist instructions</a></p>
+
+  <h2>Connect an iPhone or iPad</h2>
+  <p>A VPN makes the phone ignore the profile. Apple marks this profile type deprecated from iOS 27. It may stop working later.</p>
+  <ol class="steps">
+    <li>In the dashboard, connect a new device. Choose iOS as the device type and name it.</li>
+    <li>Under Use a configuration profile, download the profile.</li>
+    <li>Open Settings and tap Profile Downloaded.</li>
+    <li>Tap Install and follow the instructions.</li>
+  </ol>
+  <h2>Connect an Android phone</h2>
+  <p>Menus vary by device and version.</p>
+  <ol class="steps">
+    <li>In the dashboard, connect a new device. Choose Android as the device type and name it.</li>
+    <li>Find the device's server address for Private DNS. It ends in <code>d.adguard-dns.com</code>.</li>
+    <li>On the phone, open Settings, then Network &amp; internet, then Private DNS.</li>
+    <li>Choose Private DNS provider hostname, enter the address, and tap Save.</li>
+  </ol>
+
+  <h2>Undo it</h2>
+  <p>iPhone and iPad: Settings, General, VPN &amp; Device Management. Select the profile and tap Remove Profile.</p>
+  <p>Android: Settings, Network &amp; internet, Private DNS. Choose Automatic and tap Save.</p>
+
+  <h2>Other routes</h2>
+  <p>AdGuard Home and Pi-hole are free, take a list by URL, and run on a home computer. They cover the phone only on that network. <a href="/download/#network">Other list formats</a></p>
+</Base>
+<script>
+  // Same copy control as the schools page. Buttons stay hidden without JavaScript.
+  for (const btn of Array.from(document.querySelectorAll<HTMLButtonElement>('button[data-copy]'))) {
+    btn.hidden = false;
+    btn.addEventListener('click', async () => {
+      const text = document.getElementById(btn.dataset.copy!)!.textContent ?? '';
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.textContent = 'Copied';
+      } catch {
+        btn.textContent = 'Copy failed. Select and copy manually.';
+      }
+      setTimeout(() => (btn.textContent = 'Copy URL'), 4000);
+    });
+  }
+</script>
