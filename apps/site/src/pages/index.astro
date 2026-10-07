@@ -3,6 +3,12 @@ import Base from '../layouts/Base.astro';
 import HeroSwitch from '../components/HeroSwitch.astro';
 import summary from '@aioff/rules/dist/summary.json';
 import { STORE_URLS } from '../config';
+const storeLinks = [
+  { url: STORE_URLS.chrome, label: 'Get it on Chrome Web Store' },
+  { url: STORE_URLS.edge, label: 'Get it on Edge Add-ons' },
+  { url: STORE_URLS.firefox, label: 'Get it on Firefox Add-ons' },
+  { url: STORE_URLS.safari, label: 'Get it on the App Store' },
+].filter((l) => l.url);
 const gone = [
   'Google AI Overviews', "Google's AI Mode tab", 'Gemini in Gmail', 'Gemini in Docs', 'Copilot in Bing', 'Copilot in Outlook', 'Meta AI prompts', 'Grok buttons',
   'Reddit Answers', 'YouTube Ask', 'LinkedIn AI writing prompts', 'Amazon Rufus', 'AI review summaries', 'Posts about AI', 'Images labeled as AI-made',
@@ -17,11 +23,14 @@ const gone = [
       <a class="btn secondary" href="/what-we-hide/">See what AI Off hides</a>
     </div>
     <p class="soft" style="margin:16px auto 0">Free forever. No account. No AI inside.</p>
-    {(STORE_URLS.chrome || STORE_URLS.edge) && (
+    {storeLinks.length > 0 && (
       <p style="margin:8px auto 0">
-        {STORE_URLS.chrome && <a href={STORE_URLS.chrome}>Get it on Chrome Web Store</a>}
-        {STORE_URLS.chrome && STORE_URLS.edge && ' · '}
-        {STORE_URLS.edge && <a href={STORE_URLS.edge}>Get it on Edge Add-ons</a>}
+        {storeLinks.map((l, i) => (
+          <>
+            {i > 0 && ' \u00b7 '}
+            <a href={l.url}>{l.label}</a>
+          </>
+        ))}
       </p>
     )}
     <HeroSwitch />

@@ -3,7 +3,7 @@
 export const STORE_URLS = {
   chrome: 'https://chromewebstore.google.com/detail/ai-off/nkcoofhpdiakekdpbkkmejdnmbpbkjjl',
   edge: 'https://microsoftedge.microsoft.com/addons/detail/ai-off/ijjmejcahkgafngkigkbpljkjfihcimb',
-  firefox: '',
+  firefox: 'https://addons.mozilla.org/firefox/addon/aioff/',
   safari: '',
 };
 /** Published store IDs. The schools policy builder needs them for force-install policy; they match the listing URLs above. */
@@ -21,7 +21,7 @@ export const DESKTOP_URLS = {
   windows: '', // signed installer
 };
 /** Firefox Add-ons listing slug, once the listing is live. Empty means no force-install policy is generated. */
-export const AMO_SLUG = '';
+export const AMO_SLUG = 'aioff';
 /** True once the license worker has RESEND_API_KEY set and a test key has arrived by email. */
 export const EMAIL_DELIVERY_CONFIGURED = false;
 /**
