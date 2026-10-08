@@ -2,14 +2,15 @@
 # short caption above each in the site's colors. PIL only, no network.
 #   python3 tools/scripts/appstore-shots.py iphone  <out dir> <caption>::<screenshot> [...]
 #   python3 tools/scripts/appstore-shots.py ipad    <out dir> <caption>::<screenshot> [...]
-# iphone = 1320x2868 (6.9 inch), ipad = 2064x2752 (13 inch), mac = 2880x1800. The screenshot keeps its aspect
+# iphone = 1320x2868 (6.9 inch, App Store Connect's large display), iphone-medium = 1206x2622 (its
+# medium display slot, for phones with the Dynamic Island), ipad = 2064x2752 (13 inch), mac = 2880x1800. The screenshot keeps its aspect
 # ratio and is scaled to fit under the caption with rounded corners; nothing in it is altered.
 import sys
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 BG, INK, SOFT, ACCENT = "#f4f1ea", "#242620", "#5f6258", "#a73825"
-SIZES = {"iphone": (1320, 2868), "ipad": (2064, 2752), "mac": (2880, 1800)}
+SIZES = {"iphone": (1320, 2868), "iphone-medium": (1206, 2622), "ipad": (2064, 2752), "mac": (2880, 1800)}
 
 def font(size, bold=False):
     for path in ["/System/Library/Fonts/Helvetica.ttc", "/System/Library/Fonts/HelveticaNeue.ttc", "/Library/Fonts/Arial.ttf"]:
