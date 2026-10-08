@@ -1,0 +1,973 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 110;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		847465EB3078429A004E0D81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847465EA3078429A004E0D81 /* AppDelegate.swift */; };
+		847465ED3078429A004E0D81 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847465EC3078429A004E0D81 /* SceneDelegate.swift */; };
+		847465F03078429A004E0D81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847465EE3078429A004E0D81 /* LaunchScreen.storyboard */; };
+		847465F33078429A004E0D81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847465F13078429A004E0D81 /* Main.storyboard */; };
+		847465FC3078429A004E0D81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847465FB3078429A004E0D81 /* AppDelegate.swift */; };
+		847465FF3078429A004E0D81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847465FD3078429A004E0D81 /* Main.storyboard */; };
+		847466063078429A004E0D81 /* AI Off Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 847466053078429A004E0D81 /* AI Off Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		847466103078429A004E0D81 /* AI Off Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8474660F3078429A004E0D81 /* AI Off Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		847466153078429A004E0D81 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 847465DA30784299004E0D81 /* Main.html */; };
+		847466163078429A004E0D81 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 847465DA30784299004E0D81 /* Main.html */; };
+		847466173078429A004E0D81 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 847465DC30784299004E0D81 /* Icon.png */; };
+		847466183078429A004E0D81 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 847465DC30784299004E0D81 /* Icon.png */; };
+		847466193078429A004E0D81 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 847465DD30784299004E0D81 /* Style.css */; };
+		8474661A3078429A004E0D81 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 847465DD30784299004E0D81 /* Style.css */; };
+		8474661B3078429A004E0D81 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 847465DE30784299004E0D81 /* Script.js */; };
+		8474661C3078429A004E0D81 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 847465DE30784299004E0D81 /* Script.js */; };
+		8474661D3078429A004E0D81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847465DF30784299004E0D81 /* ViewController.swift */; };
+		8474661E3078429A004E0D81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847465DF30784299004E0D81 /* ViewController.swift */; };
+		8474661F3078429A004E0D81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 847465E03078429A004E0D81 /* Assets.xcassets */; };
+		847466203078429A004E0D81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 847465E03078429A004E0D81 /* Assets.xcassets */; };
+		847466213078429A004E0D81 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847465E23078429A004E0D81 /* SafariWebExtensionHandler.swift */; };
+		847466223078429A004E0D81 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847465E23078429A004E0D81 /* SafariWebExtensionHandler.swift */; };
+		8474663E3078429A004E0D81 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 847466343078429A004E0D81 /* background.js */; };
+		8474663F3078429A004E0D81 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 847466353078429A004E0D81 /* popup.html */; };
+		847466403078429A004E0D81 /* picker.js in Resources */ = {isa = PBXBuildFile; fileRef = 847466363078429A004E0D81 /* picker.js */; };
+		847466413078429A004E0D81 /* chunks in Resources */ = {isa = PBXBuildFile; fileRef = 847466373078429A004E0D81 /* chunks */; };
+		847466423078429A004E0D81 /* content-scripts in Resources */ = {isa = PBXBuildFile; fileRef = 847466383078429A004E0D81 /* content-scripts */; };
+		847466433078429A004E0D81 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 847466393078429A004E0D81 /* manifest.json */; };
+		847466443078429A004E0D81 /* options.html in Resources */ = {isa = PBXBuildFile; fileRef = 8474663A3078429A004E0D81 /* options.html */; };
+		847466453078429A004E0D81 /* icon in Resources */ = {isa = PBXBuildFile; fileRef = 8474663B3078429A004E0D81 /* icon */; };
+		847466463078429A004E0D81 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 8474663C3078429A004E0D81 /* assets */; };
+		847466473078429A004E0D81 /* blocked.html in Resources */ = {isa = PBXBuildFile; fileRef = 8474663D3078429A004E0D81 /* blocked.html */; };
+		847466483078429A004E0D81 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 847466343078429A004E0D81 /* background.js */; };
+		847466493078429A004E0D81 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = 847466353078429A004E0D81 /* popup.html */; };
+		8474664A3078429A004E0D81 /* picker.js in Resources */ = {isa = PBXBuildFile; fileRef = 847466363078429A004E0D81 /* picker.js */; };
+		8474664B3078429A004E0D81 /* chunks in Resources */ = {isa = PBXBuildFile; fileRef = 847466373078429A004E0D81 /* chunks */; };
+		8474664C3078429A004E0D81 /* content-scripts in Resources */ = {isa = PBXBuildFile; fileRef = 847466383078429A004E0D81 /* content-scripts */; };
+		8474664D3078429A004E0D81 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 847466393078429A004E0D81 /* manifest.json */; };
+		8474664E3078429A004E0D81 /* options.html in Resources */ = {isa = PBXBuildFile; fileRef = 8474663A3078429A004E0D81 /* options.html */; };
+		8474664F3078429A004E0D81 /* icon in Resources */ = {isa = PBXBuildFile; fileRef = 8474663B3078429A004E0D81 /* icon */; };
+		847466503078429A004E0D81 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 8474663C3078429A004E0D81 /* assets */; };
+		847466513078429A004E0D81 /* blocked.html in Resources */ = {isa = PBXBuildFile; fileRef = 8474663D3078429A004E0D81 /* blocked.html */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		847466073078429A004E0D81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 847465D430784299004E0D81 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 847466043078429A004E0D81;
+			remoteInfo = "AI Off Extension (iOS)";
+		};
+		847466113078429A004E0D81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 847465D430784299004E0D81 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8474660E3078429A004E0D81;
+			remoteInfo = "AI Off Extension (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		847466283078429A004E0D81 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			dstPath = "";
+			dstSubfolder = PlugIns;
+			files = (
+				847466063078429A004E0D81 /* AI Off Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+		};
+		8474662F3078429A004E0D81 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			dstPath = "";
+			dstSubfolder = PlugIns;
+			files = (
+				847466103078429A004E0D81 /* AI Off Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		847465DB30784299004E0D81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
+		847465DC30784299004E0D81 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		847465DD30784299004E0D81 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		847465DE30784299004E0D81 /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		847465DF30784299004E0D81 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		847465E03078429A004E0D81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		847465E23078429A004E0D81 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		847465E73078429A004E0D81 /* AI Off.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AI Off.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		847465EA3078429A004E0D81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		847465EC3078429A004E0D81 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		847465EF3078429A004E0D81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		847465F23078429A004E0D81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		847465F43078429A004E0D81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		847465F93078429A004E0D81 /* AI Off.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AI Off.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		847465FB3078429A004E0D81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		847465FE3078429A004E0D81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		847466003078429A004E0D81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		847466053078429A004E0D81 /* AI Off Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "AI Off Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8474660A3078429A004E0D81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8474660F3078429A004E0D81 /* AI Off Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "AI Off Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		847466143078429A004E0D81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		847466343078429A004E0D81 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = background.js; path = Resources/background.js; sourceTree = "<group>"; };
+		847466353078429A004E0D81 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = popup.html; path = Resources/popup.html; sourceTree = "<group>"; };
+		847466363078429A004E0D81 /* picker.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = picker.js; path = Resources/picker.js; sourceTree = "<group>"; };
+		847466373078429A004E0D81 /* chunks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = chunks; path = Resources/chunks; sourceTree = "<group>"; };
+		847466383078429A004E0D81 /* content-scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "content-scripts"; path = "Resources/content-scripts"; sourceTree = "<group>"; };
+		847466393078429A004E0D81 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = Resources/manifest.json; sourceTree = "<group>"; };
+		8474663A3078429A004E0D81 /* options.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = options.html; path = Resources/options.html; sourceTree = "<group>"; };
+		8474663B3078429A004E0D81 /* icon */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icon; path = Resources/icon; sourceTree = "<group>"; };
+		8474663C3078429A004E0D81 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = Resources/assets; sourceTree = "<group>"; };
+		8474663D3078429A004E0D81 /* blocked.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = blocked.html; path = Resources/blocked.html; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		847465E43078429A004E0D81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		847465F63078429A004E0D81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		847466023078429A004E0D81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		8474660C3078429A004E0D81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		847465D330784299004E0D81 = {
+			isa = PBXGroup;
+			children = (
+				847465D830784299004E0D81 /* Shared (App) */,
+				847465E13078429A004E0D81 /* Shared (Extension) */,
+				847465E93078429A004E0D81 /* iOS (App) */,
+				847465FA3078429A004E0D81 /* macOS (App) */,
+				847466093078429A004E0D81 /* iOS (Extension) */,
+				847466133078429A004E0D81 /* macOS (Extension) */,
+				847465E83078429A004E0D81 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		847465D830784299004E0D81 /* Shared (App) */ = {
+			isa = PBXGroup;
+			children = (
+				847465DF30784299004E0D81 /* ViewController.swift */,
+				847465E03078429A004E0D81 /* Assets.xcassets */,
+				847465D930784299004E0D81 /* Resources */,
+			);
+			path = "Shared (App)";
+			sourceTree = "<group>";
+		};
+		847465D930784299004E0D81 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				847465DA30784299004E0D81 /* Main.html */,
+				847465DC30784299004E0D81 /* Icon.png */,
+				847465DD30784299004E0D81 /* Style.css */,
+				847465DE30784299004E0D81 /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		847465E13078429A004E0D81 /* Shared (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				847466333078429A004E0D81 /* Resources */,
+				847465E23078429A004E0D81 /* SafariWebExtensionHandler.swift */,
+			);
+			path = "Shared (Extension)";
+			sourceTree = "<group>";
+		};
+		847465E83078429A004E0D81 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				847465E73078429A004E0D81 /* AI Off.app */,
+				847465F93078429A004E0D81 /* AI Off.app */,
+				847466053078429A004E0D81 /* AI Off Extension.appex */,
+				8474660F3078429A004E0D81 /* AI Off Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		847465E93078429A004E0D81 /* iOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				847465EA3078429A004E0D81 /* AppDelegate.swift */,
+				847465EC3078429A004E0D81 /* SceneDelegate.swift */,
+				847465EE3078429A004E0D81 /* LaunchScreen.storyboard */,
+				847465F13078429A004E0D81 /* Main.storyboard */,
+				847465F43078429A004E0D81 /* Info.plist */,
+			);
+			path = "iOS (App)";
+			sourceTree = "<group>";
+		};
+		847465FA3078429A004E0D81 /* macOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				847465FB3078429A004E0D81 /* AppDelegate.swift */,
+				847465FD3078429A004E0D81 /* Main.storyboard */,
+				847466003078429A004E0D81 /* Info.plist */,
+			);
+			path = "macOS (App)";
+			sourceTree = "<group>";
+		};
+		847466093078429A004E0D81 /* iOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				8474660A3078429A004E0D81 /* Info.plist */,
+			);
+			path = "iOS (Extension)";
+			sourceTree = "<group>";
+		};
+		847466133078429A004E0D81 /* macOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				847466143078429A004E0D81 /* Info.plist */,
+			);
+			path = "macOS (Extension)";
+			sourceTree = "<group>";
+		};
+		847466333078429A004E0D81 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				847466343078429A004E0D81 /* background.js */,
+				847466353078429A004E0D81 /* popup.html */,
+				847466363078429A004E0D81 /* picker.js */,
+				847466373078429A004E0D81 /* chunks */,
+				847466383078429A004E0D81 /* content-scripts */,
+				847466393078429A004E0D81 /* manifest.json */,
+				8474663A3078429A004E0D81 /* options.html */,
+				8474663B3078429A004E0D81 /* icon */,
+				8474663C3078429A004E0D81 /* assets */,
+				8474663D3078429A004E0D81 /* blocked.html */,
+			);
+			name = Resources;
+			path = "Shared (Extension)";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		847465E63078429A004E0D81 /* AI Off (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 847466293078429A004E0D81 /* Build configuration list for PBXNativeTarget "AI Off (iOS)" */;
+			buildPhases = (
+				847465E33078429A004E0D81 /* Sources */,
+				847465E43078429A004E0D81 /* Frameworks */,
+				847465E53078429A004E0D81 /* Resources */,
+				847466283078429A004E0D81 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				847466083078429A004E0D81 /* PBXTargetDependency */,
+			);
+			name = "AI Off (iOS)";
+			productName = "AI Off (iOS)";
+			productReference = 847465E73078429A004E0D81 /* AI Off.app */;
+			productType = "com.apple.product-type.application";
+		};
+		847465F83078429A004E0D81 /* AI Off (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 847466303078429A004E0D81 /* Build configuration list for PBXNativeTarget "AI Off (macOS)" */;
+			buildPhases = (
+				847465F53078429A004E0D81 /* Sources */,
+				847465F63078429A004E0D81 /* Frameworks */,
+				847465F73078429A004E0D81 /* Resources */,
+				8474662F3078429A004E0D81 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				847466123078429A004E0D81 /* PBXTargetDependency */,
+			);
+			name = "AI Off (macOS)";
+			productName = "AI Off (macOS)";
+			productReference = 847465F93078429A004E0D81 /* AI Off.app */;
+			productType = "com.apple.product-type.application";
+		};
+		847466043078429A004E0D81 /* AI Off Extension (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 847466253078429A004E0D81 /* Build configuration list for PBXNativeTarget "AI Off Extension (iOS)" */;
+			buildPhases = (
+				847466013078429A004E0D81 /* Sources */,
+				847466023078429A004E0D81 /* Frameworks */,
+				847466033078429A004E0D81 /* Resources */,
+			);
+			buildRules = (
+			);
+			name = "AI Off Extension (iOS)";
+			productName = "AI Off Extension (iOS)";
+			productReference = 847466053078429A004E0D81 /* AI Off Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		8474660E3078429A004E0D81 /* AI Off Extension (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8474662C3078429A004E0D81 /* Build configuration list for PBXNativeTarget "AI Off Extension (macOS)" */;
+			buildPhases = (
+				8474660B3078429A004E0D81 /* Sources */,
+				8474660C3078429A004E0D81 /* Frameworks */,
+				8474660D3078429A004E0D81 /* Resources */,
+			);
+			buildRules = (
+			);
+			name = "AI Off Extension (macOS)";
+			productName = "AI Off Extension (macOS)";
+			productReference = 8474660F3078429A004E0D81 /* AI Off Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		847465D430784299004E0D81 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					847465E63078429A004E0D81 = {
+						CreatedOnToolsVersion = 27.0;
+					};
+					847465F83078429A004E0D81 = {
+						CreatedOnToolsVersion = 27.0;
+					};
+					847466043078429A004E0D81 = {
+						CreatedOnToolsVersion = 27.0;
+					};
+					8474660E3078429A004E0D81 = {
+						CreatedOnToolsVersion = 27.0;
+					};
+				};
+			};
+			buildConfigurationList = 847465D730784299004E0D81 /* Build configuration list for PBXProject "AI Off" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 847465D330784299004E0D81;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 847465E83078429A004E0D81 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				847465E63078429A004E0D81 /* AI Off (iOS) */,
+				847465F83078429A004E0D81 /* AI Off (macOS) */,
+				847466043078429A004E0D81 /* AI Off Extension (iOS) */,
+				8474660E3078429A004E0D81 /* AI Off Extension (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		847465E53078429A004E0D81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				847466173078429A004E0D81 /* Icon.png in Resources */,
+				847465F03078429A004E0D81 /* LaunchScreen.storyboard in Resources */,
+				847466153078429A004E0D81 /* Main.html in Resources */,
+				8474661B3078429A004E0D81 /* Script.js in Resources */,
+				8474661F3078429A004E0D81 /* Assets.xcassets in Resources */,
+				847465F33078429A004E0D81 /* Main.storyboard in Resources */,
+				847466193078429A004E0D81 /* Style.css in Resources */,
+			);
+		};
+		847465F73078429A004E0D81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				847466183078429A004E0D81 /* Icon.png in Resources */,
+				8474661A3078429A004E0D81 /* Style.css in Resources */,
+				847465FF3078429A004E0D81 /* Main.storyboard in Resources */,
+				8474661C3078429A004E0D81 /* Script.js in Resources */,
+				847466203078429A004E0D81 /* Assets.xcassets in Resources */,
+				847466163078429A004E0D81 /* Main.html in Resources */,
+			);
+		};
+		847466033078429A004E0D81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				8474664E3078429A004E0D81 /* options.html in Resources */,
+				847466483078429A004E0D81 /* background.js in Resources */,
+				847466493078429A004E0D81 /* popup.html in Resources */,
+				847466503078429A004E0D81 /* assets in Resources */,
+				8474664B3078429A004E0D81 /* chunks in Resources */,
+				8474664A3078429A004E0D81 /* picker.js in Resources */,
+				8474664F3078429A004E0D81 /* icon in Resources */,
+				847466513078429A004E0D81 /* blocked.html in Resources */,
+				8474664D3078429A004E0D81 /* manifest.json in Resources */,
+				8474664C3078429A004E0D81 /* content-scripts in Resources */,
+			);
+		};
+		8474660D3078429A004E0D81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+				847466443078429A004E0D81 /* options.html in Resources */,
+				8474663E3078429A004E0D81 /* background.js in Resources */,
+				8474663F3078429A004E0D81 /* popup.html in Resources */,
+				847466463078429A004E0D81 /* assets in Resources */,
+				847466413078429A004E0D81 /* chunks in Resources */,
+				847466403078429A004E0D81 /* picker.js in Resources */,
+				847466453078429A004E0D81 /* icon in Resources */,
+				847466473078429A004E0D81 /* blocked.html in Resources */,
+				847466433078429A004E0D81 /* manifest.json in Resources */,
+				847466423078429A004E0D81 /* content-scripts in Resources */,
+			);
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		847465E33078429A004E0D81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				8474661D3078429A004E0D81 /* ViewController.swift in Sources */,
+				847465EB3078429A004E0D81 /* AppDelegate.swift in Sources */,
+				847465ED3078429A004E0D81 /* SceneDelegate.swift in Sources */,
+			);
+		};
+		847465F53078429A004E0D81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				8474661E3078429A004E0D81 /* ViewController.swift in Sources */,
+				847465FC3078429A004E0D81 /* AppDelegate.swift in Sources */,
+			);
+		};
+		847466013078429A004E0D81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				847466213078429A004E0D81 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+		};
+		8474660B3078429A004E0D81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				847466223078429A004E0D81 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		847466083078429A004E0D81 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 847466043078429A004E0D81 /* AI Off Extension (iOS) */;
+			targetProxy = 847466073078429A004E0D81 /* PBXContainerItemProxy */;
+		};
+		847466123078429A004E0D81 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8474660E3078429A004E0D81 /* AI Off Extension (macOS) */;
+			targetProxy = 847466113078429A004E0D81 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		847465DA30784299004E0D81 /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				847465DB30784299004E0D81 /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		847465EE3078429A004E0D81 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				847465EF3078429A004E0D81 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		847465F13078429A004E0D81 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				847465F23078429A004E0D81 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		847465FD3078429A004E0D81 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				847465FE3078429A004E0D81 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		847466233078429A004E0D81 /* Debug configuration for PBXProject "AI Off" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		847466243078429A004E0D81 /* Release configuration for PBXProject "AI Off" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		847466263078429A004E0D81 /* Debug configuration for PBXNativeTarget "AI Off Extension (iOS)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "AI Off Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.aioff.safari.Extension;
+				PRODUCT_NAME = "AI Off Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		847466273078429A004E0D81 /* Release configuration for PBXNativeTarget "AI Off Extension (iOS)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "AI Off Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.aioff.safari.Extension;
+				PRODUCT_NAME = "AI Off Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8474662A3078429A004E0D81 /* Debug configuration for PBXNativeTarget "AI Off (iOS)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "AI Off";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.aioff.safari;
+				PRODUCT_NAME = "AI Off";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8474662B3078429A004E0D81 /* Release configuration for PBXNativeTarget "AI Off (iOS)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "AI Off";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.aioff.safari;
+				PRODUCT_NAME = "AI Off";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8474662D3078429A004E0D81 /* Debug configuration for PBXNativeTarget "AI Off Extension (macOS)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "AI Off Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.aioff.safari.Extension;
+				PRODUCT_NAME = "AI Off Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		8474662E3078429A004E0D81 /* Release configuration for PBXNativeTarget "AI Off Extension (macOS)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "AI Off Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.aioff.safari.Extension;
+				PRODUCT_NAME = "AI Off Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		847466313078429A004E0D81 /* Debug configuration for PBXNativeTarget "AI Off (macOS)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "AI Off";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.aioff.safari;
+				PRODUCT_NAME = "AI Off";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		847466323078429A004E0D81 /* Release configuration for PBXNativeTarget "AI Off (macOS)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "AI Off";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = app.aioff.safari;
+				PRODUCT_NAME = "AI Off";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		847465D730784299004E0D81 /* Build configuration list for PBXProject "AI Off" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				847466233078429A004E0D81 /* Debug configuration for PBXProject "AI Off" */,
+				847466243078429A004E0D81 /* Release configuration for PBXProject "AI Off" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		847466253078429A004E0D81 /* Build configuration list for PBXNativeTarget "AI Off Extension (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				847466263078429A004E0D81 /* Debug configuration for PBXNativeTarget "AI Off Extension (iOS)" */,
+				847466273078429A004E0D81 /* Release configuration for PBXNativeTarget "AI Off Extension (iOS)" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		847466293078429A004E0D81 /* Build configuration list for PBXNativeTarget "AI Off (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8474662A3078429A004E0D81 /* Debug configuration for PBXNativeTarget "AI Off (iOS)" */,
+				8474662B3078429A004E0D81 /* Release configuration for PBXNativeTarget "AI Off (iOS)" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		8474662C3078429A004E0D81 /* Build configuration list for PBXNativeTarget "AI Off Extension (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8474662D3078429A004E0D81 /* Debug configuration for PBXNativeTarget "AI Off Extension (macOS)" */,
+				8474662E3078429A004E0D81 /* Release configuration for PBXNativeTarget "AI Off Extension (macOS)" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		847466303078429A004E0D81 /* Build configuration list for PBXNativeTarget "AI Off (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				847466313078429A004E0D81 /* Debug configuration for PBXNativeTarget "AI Off (macOS)" */,
+				847466323078429A004E0D81 /* Release configuration for PBXNativeTarget "AI Off (macOS)" */,
+			);
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 847465D430784299004E0D81 /* Project object */;
+	validationLevel = 1;
+}

@@ -15,5 +15,19 @@ xcrun "$TOOL" "$SRC" \
   --app-name "AI Off" \
   --bundle-identifier app.aioff.safari \
   --swift --copy-resources --no-open --no-prompt --force
-echo "Xcode project written to apps/ios. Open it, set your team, and archive."
+# The generated project needs three things the packager leaves out (found 2026-10-08):
+# an App Store category, or the Mac upload is rejected; the encryption declaration, or
+# TestFlight stops each build with a compliance question (AI Off uses only HTTPS and
+# standard signature checks); and iOS 17 as the minimum, where Safari gained Ed25519.
+PROJ="apps/ios/AI Off"
+for plist in "$PROJ/macOS (App)/Info.plist" "$PROJ/iOS (App)/Info.plist"; do
+  /usr/libexec/PlistBuddy -c "Add :LSApplicationCategoryType string public.app-category.utilities" "$plist" 2>/dev/null || true
+  /usr/libexec/PlistBuddy -c "Add :ITSAppUsesNonExemptEncryption bool false" "$plist" 2>/dev/null || true
+done
+sed -i '' 's/IPHONEOS_DEPLOYMENT_TARGET = 15.0;/IPHONEOS_DEPLOYMENT_TARGET = 17.0;/g' "$PROJ/AI Off.xcodeproj/project.pbxproj"
+echo "Xcode project written to apps/ios with the category, encryption, and iOS 17 fixes applied."
+echo "Archive and upload (signed in to Xcode under Settings, Accounts):"
+echo "  xcodebuild -project \"$PROJ/AI Off.xcodeproj\" -scheme \"AI Off (iOS)\" -destination generic/platform=iOS -archivePath /tmp/aioff-ios.xcarchive CURRENT_PROJECT_VERSION=<build> -allowProvisioningUpdates archive"
+echo "  xcodebuild -exportArchive -archivePath /tmp/aioff-ios.xcarchive -exportOptionsPlist scripts/safari-export.plist -exportPath /tmp/aioff-export-ios -allowProvisioningUpdates"
+echo "  (same for the macOS scheme)"
 echo "Note: Safari has no storage.managed, so school lock state on iPad comes from MDM (com.apple.configuration.safari.extensions.settings) only."
