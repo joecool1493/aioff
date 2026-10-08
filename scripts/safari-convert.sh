@@ -25,6 +25,8 @@ for plist in "$PROJ/macOS (App)/Info.plist" "$PROJ/iOS (App)/Info.plist"; do
   /usr/libexec/PlistBuddy -c "Add :ITSAppUsesNonExemptEncryption bool false" "$plist" 2>/dev/null || true
 done
 sed -i '' 's/IPHONEOS_DEPLOYMENT_TARGET = 15.0;/IPHONEOS_DEPLOYMENT_TARGET = 17.0;/g' "$PROJ/AI Off.xcodeproj/project.pbxproj"
+# iPhone only for now: the App Store requires iPad screenshots whenever an app runs on iPad.
+sed -i '' 's/TARGETED_DEVICE_FAMILY = "1,2";/TARGETED_DEVICE_FAMILY = 1;/g' "$PROJ/AI Off.xcodeproj/project.pbxproj"
 echo "Xcode project written to apps/ios with the category, encryption, and iOS 17 fixes applied."
 echo "Archive and upload (signed in to Xcode under Settings, Accounts):"
 echo "  xcodebuild -project \"$PROJ/AI Off.xcodeproj\" -scheme \"AI Off (iOS)\" -destination generic/platform=iOS -archivePath /tmp/aioff-ios.xcarchive CURRENT_PROJECT_VERSION=<build> -allowProvisioningUpdates archive"
