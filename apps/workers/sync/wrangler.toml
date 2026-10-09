@@ -5,3 +5,5 @@ compatibility_date = "2026-09-01"
 [[r2_buckets]]
 binding = "BLOBS"
 bucket_name = "aioff-sync"
+# The public address. Wrangler creates the DNS record and certificate on deploy.
+routes = [{ pattern = "sync.aioff.app", custom_domain = true }]
