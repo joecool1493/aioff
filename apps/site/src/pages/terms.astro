@@ -1,0 +1,45 @@
+---
+// Terms of sale. The seller, the refund promise, and the "lifetime" meaning match the pricing page.
+import Base from '../layouts/Base.astro';
+import { CONTACT } from '../config';
+---
+<Base title="AI Off terms" description="What is free, what a paid key covers, how keys are checked, refunds, what lifetime means, what AI Off can and cannot do, and who sells it." narrow>
+  <h1>AI Off terms</h1>
+  <p class="intro">Last updated 2026-10-12. These terms cover the browser extension, the desktop companion, the network lists, and paid keys.</p>
+
+  <h2>Who sells AI Off</h2>
+  <p>AI Off is made and sold by Joseph Newfield, trading as AI Off, 5551 Hollywood Blvd #1363, Los Angeles, CA 90028, United States. Paid keys are sold through Lemon Squeezy as merchant of record, so its terms govern the payment, tax, and receipt.</p>
+
+  <h2>What is free</h2>
+  <p>The browser extension is free. It includes all four levels, signed rule updates, personal rules, the element picker, and the network lists. No account is needed.</p>
+  <p>The code and rules are MIT licensed. The MIT license governs use, copying, and changes to them. These terms do not narrow it.</p>
+
+  <h2>What a paid key is</h2>
+  <p>A paid key unlocks the desktop companion and optional encrypted sync, when available. A feature marked "not available yet" on this site is not part of a purchase until it is released.</p>
+  <p>Pro: $19 a year or $39 once, up to 5 devices. Family: $29 a year, up to 10 devices in one household. Annual plans bill yearly. Prices are in dollars (USD). Required tax appears at checkout.</p>
+
+  <h2>How a key is checked</h2>
+  <p>The key is checked on the device. AI Off has no account system and no device-counting service. Device limits use the honor system. Optional sync sends the key to confirm access; it contains no name or email. Keep the key and the receipt. There is no account recovery page.</p>
+
+  <h2>Refunds</h2>
+  <p>Reply to the receipt within 30 days for a refund. No questions required.</p>
+
+  <h2>What lifetime means</h2>
+  <p>The $39 option covers Pro for AI Off's lifetime, not the buyer's lifetime and not forever. If AI Off ends, the code and rules stay MIT licensed.</p>
+
+  <h2>What AI Off can and cannot do</h2>
+  <p>AI Off works from rules, word lists, selectors, domain lists, and declared labels. It contains no AI. Rules can miss a target or hide the wrong thing. Sites change. Level 3 reads declared labels and known lists; unlabeled content can stay visible. Blackout blocks AI tools on purpose, and dependent apps may stop working.</p>
+  <p>If a page looks wrong: pause AI Off on that site or for 15 minutes, flip the switch back, choose Show on a muted post, pause the network list in the tool that loads it, or reverse desktop changes in the companion. A school or employer policy may lock these controls.</p>
+
+  <h2>No warranty</h2>
+  <p>AI Off is provided as is. There is no promise that it hides every AI feature, works on every site, or keeps working after a site or browser changes. Use it at your own risk. To the extent the law allows, the seller is not liable for losses from using it or from being unable to use it. Rights that the law does not allow to be waived stay in place.</p>
+
+  <h2>Other services</h2>
+  <p>Stores, payment providers, and DNS providers run under their own terms and privacy policies. AI Off does not run them.</p>
+
+  <h2>Changes and governing law</h2>
+  <p>These terms can change; the date above shows the latest version. A change does not shorten the 30-day refund for a purchase already made. California law governs these terms.</p>
+
+  <h2>Contact</h2>
+  <p><a href={`mailto:${CONTACT}`}>{CONTACT}</a></p>
+</Base>
