@@ -4,7 +4,7 @@ export const STORE_URLS = {
   chrome: 'https://chromewebstore.google.com/detail/ai-off/nkcoofhpdiakekdpbkkmejdnmbpbkjjl',
   edge: 'https://microsoftedge.microsoft.com/addons/detail/ai-off/ijjmejcahkgafngkigkbpljkjfihcimb',
   firefox: 'https://addons.mozilla.org/firefox/addon/aioff/',
-  safari: '',
+  safari: 'https://apps.apple.com/app/ai-off/id6820679535',
 };
 /** Published store IDs. The schools policy builder needs them for force-install policy; they match the listing URLs above. */
 export const EXTENSION_IDS = {
